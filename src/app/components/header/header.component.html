@@ -1,6 +1,6 @@
 <!--Navbar-->
 <mdb-navbar class="navbar navbar-expand-lg ml-auto">
-  <mdb-navbar-brand><a class="navbar-brand ml-auto"routerLink="trangchu" href="#">CarThrift</a></mdb-navbar-brand>
+  <mdb-navbar-brand><a  class="navbar-brand ml-auto"routerLink="trangchu" href="#"><h3>CarThrift</h3></a></mdb-navbar-brand>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,10 +17,10 @@
         <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown" routerLink="muaxe">
           Mua xe</a>
         <ul class="dropdown-menu megamenu" role="menu">
-          <div class="p-1">
+          <div class="p-2">
             <div class="row">
               <div class="col-lg-4">
-                  <h4 class="font-weight-bold text-uppercase">Cao cấp</h4>
+                  <h5>Cao cấp</h5>
                   <div>
                     <ul class="list-unstyled">
                         <li><a href="#" class="dropdown-item">Bentley</a></li>
@@ -33,7 +33,7 @@
                   </div>
                 </div>
               <div class="col-lg-4">
-                <h4 class="font-weight-bold text-uppercase">Phổ thông</h4>
+                <h5>Phổ thông</h5>
               <div>
                 <ul class="list-unstyled">
                   <li><a href="#" class="dropdown-item">Toyota</a></li>
@@ -46,7 +46,7 @@
               </div>
               </div>
               <div class="col-lg-4">
-              <h4 class="font-weight-bold text-uppercase">Thể thao</h4>
+              <h5>Thể thao</h5>
               <div>
                 <ul class="list-unstyled">
                   <li><a href="#" class="dropdown-item">Jeep</a></li>
@@ -58,7 +58,7 @@
               </div>
               </div>
             </div>
-      </div>
+          </div>
         </ul>
       </li>
 
@@ -72,29 +72,29 @@
                 <div class="content">
                   <img src="{{signupSrc}}" />
 
-                 <a routerLink='/dangky'><h5 class="font-weight-bold text-uppercase">Đăng ký tài khoản</h5></a>
+                 <a routerLink='/dangky' class="title">Đăng ký tài khoản</a>
                 </div>
                 </div>
                 <div class="col-lg-3">
-                  <div>
+                  <div class="content">
                     <img src="{{loginSrc}}" />
-                  <a routerLink='/dangnhap'><h5 class="font-weight-bold text-uppercase">Đăng nhập tài khoản</h5></a>
+                    <a routerLink='/dangnhap'class="title">Đăng nhập tài khoản</a>
                   </div>
                  </div>
                  <div class="col-lg-3">
-                  <div>
+                  <div class="content">
                     <img src="{{postSrc}}" />
-                  <a routerLink='/dangthongtin'><h5 class="font-weight-bold text-uppercase">Đăng thông tin xe</h5></a>
+                    <a routerLink='/dangthongtin'class="title">Đăng thông tin xe</a>
                   </div>
                  </div>
                  <div class="col-lg-3">
-                  <div>
+                  <div class="content">
                     <img src="{{manageSrc}}" />
-                  <a routerLink='quanlybaidang'><h5 class="font-weight-bold text-uppercase">Quản lý bài đăng</h5></a>
+                    <a routerLink='quanlybaidang' class="title">Quản lý bài đăng</a>
                   </div>
                  </div>
             </div>
-      </div>
+          </div>
         </div>
       </li>
       <li class="nav-item">
@@ -119,7 +119,7 @@
       <li class="nav-item" id="user" *ngIf="authenticationService.isAuthenticated">
         <mat-icon>face</mat-icon>
       </li>
-      <li class="nav-item" routerLink="thongtincanhan"*ngIf="authenticationService.isAuthenticated">
+      <li class="nav-item" routerLink="thongtincanhan" *ngIf="authenticationService.isAuthenticated" >
         <!-- <i><mat-icon>face</mat-icon></i> -->
         <a class="nav-link">
           <div class="btn-group" mdbDropdown>
@@ -136,8 +136,8 @@
           </div>
         </a>
       </li>
-      <li class="nav-item-button">
-        <a mat-raised-button color='secondary' routerLink='/banxe' mdbWavesEffect>Đăng tin</a>
+      <li class="nav-item" >
+        <mat-raised-button id="button" class="nav-link" routerLink='/banxe' mdbWavesEffect>Đăng tin</mat-raised-button>
       </li>
     </ul>
   </div>

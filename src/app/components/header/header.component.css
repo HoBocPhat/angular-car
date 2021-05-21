@@ -1,23 +1,34 @@
 
 @media all and (min-width: 992px) {
-  .navbar{background-color: #142954 !important;}
+  .navbar{background-color: #142954 !important; padding-bottom: 0px;}
   nav{margin-right: 0px;}
 	.navbar .nav-item .dropdown-menu{ display: none; }
 	.navbar .nav-item:hover .dropdown-menu{ display: block; position: relative; }
-  .navbar .nav-item .dropdown-menu {margin-top: 0px; width: 100%; background-color: #2A3B45;}
+  .navbar .nav-item .dropdown-menu {margin-top: 0px; width: 100%; background-color: #142954;}
   .navbar .nav-item .dropdown-menu .dropdown-item{color: #FFF;}
   .navbar { margin-bottom: 0px;}
   .navbar .navbar-brand {color:#fff ; font-weight: bolder;}
   .navbar .nav-item .dropdown-menu h4 {text-align: center;}
-  .navbar a {font-family: Emoji,Walsheim,Helvetica Neue,Segoe UI,sans-serif; font-size: 15px;}
+  .navbar .nav-item .dropdown-menu .dropdown-item {background-color:#142954;}
+  .navbar .nav-item .dropdown-menu li :hover{background-color:lightslategray ;}
+  .navbar a {font-family: Emoji,Walsheim,Helvetica Neue,Segoe UI,sans-serif; font-size: 15px; font-weight: bold;}
   .container{width: 1200px;}
   .nav-left{display: inline;}
   #info{width: fit-content;}
   .nav a{color: #fff;}
-  .nav .nav-item-button {color: black !important;}
   .nav h4, .nav h5{color: #fff;}
   .navbar .nav-item i{color: #FFF;}
   .nav #user{color: #fff; padding-top: 10px;}
+  .nav {color: #fff; font-family: Emoji,Walsheim,Helvetica Neue,Segoe UI,sans-serif; font-weight: bold;}
+  .nav #button{
+    cursor: pointer;
+    color: #fff;
+    background-color: orangered;
+  }
+  .navbar .row {margin-top: 5px;}
+  .nav-item .dropdown-menu img {height: 100px; width: 100px; display: block; margin-left: 25px;}
+  .nav-item .dropdown-menu .p-3 a {color: #fff;}
+  .nav h5{font-weight: bold;}
 }
 @media all and (min-width: 992px) {
 
@@ -36,16 +47,11 @@
     margin-left: 40px;
     margin-top: 40px;
   }
-  .text-uppercase {
-    letter-spacing: 0.08em
+  .dropdown-menu .p-3 .title{
+    font-family: Emoji,Walsheim,Helvetica Neue,Segoe UI,sans-serif;
+    font-weight: bold;
   }
-  img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   /* .btn-group #icon{
     padding-top: 100px;
     padding-bottom: 100px;
