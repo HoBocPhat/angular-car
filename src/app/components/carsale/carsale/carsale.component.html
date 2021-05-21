@@ -1,0 +1,40 @@
+<div class="row" id="container">
+  <div class="col-sm-3">
+    <p>blabla</p>
+  </div>
+  <div class="col-sm-9">
+    <div class="card" style="width: 280px;" *ngFor=" let car of cars" >
+      <a routerLink=""><img class="card-img-top" src="{{car.img[0]}}" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title"><a routerLink="">{{car.brand}} - {{car.model}} - {{car.year}}</a></h5>
+        <h6 class="card-text" class="price">{{car.price}} VND </h6>
+        <p class="card-text" class="km">{{car.km}} km</p>
+        <a href="#" class="btn btn-primary">Xem chi tiết</a>
+        <button class="btn save">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div style="text-align:center">
+  <h4>
+    Basic Pagination
+  </h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of collection.data | paginate: config">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+</div> -->

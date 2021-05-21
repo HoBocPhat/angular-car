@@ -1,0 +1,13 @@
+<form class="text-center border border-light p-5"[formGroup]="recommendForm" (ngSubmit)="onSubmit()">
+
+  <p class="h4 mb-4">Giá đề xuất</p>
+
+  <!-- Price -->
+  <input type="text" id="defaultLoginFormName" name="price" formControlName="price"  class="form-control mb-4" placeholder="{{price}} VND">
+
+
+
+  <!-- Sign in button -->
+  <button mdbBtn color="info" class="my-4" type="submit">Áp dụng giá đề xuất</button>
+
+</form>

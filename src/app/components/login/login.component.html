@@ -1,0 +1,36 @@
+<!-- Default form login -->
+<form class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <p class="h4 mb-4">Đăng nhập</p>
+
+  <!-- Name -->
+
+    <input type="text" formControlName="name" class="form-control mb-4" placeholder="Tên đăng nhập">
+    <!-- <mat-hint *ngIf='loginForm.controls.name.errors'>Mời nhập tên đăng nhập</mat-hint> -->
+
+  <!-- Password -->
+    <input type="password" formControlName="password" class="form-control mb-4" placeholder="Mật khẩu">
+    <!-- <mat-hint *ngIf='loginForm.controls.password.errors'>Mời nhập mật khẩu</mat-hint> -->
+  <div class="d-flex justify-content-around">
+    <div>
+      <!-- Remember me -->
+      <mdb-checkbox [default]="true">Nhớ tài khoản</mdb-checkbox>
+    </div>
+    <div>
+      <!-- Forgot password -->
+      <a href="#" routerLink='/quenmatkhau'>Quên mật khẩu?</a>
+    </div>
+  </div>
+
+  <!-- Sign in button -->
+  <button mdbBtn color="info" class="my-4" [disabled]="!loginForm.valid" type="submit">Đăng nhập</button>
+
+  <!-- Register -->
+  <p>Chưa có tài khoản?
+    <a  routerLink='/dangky'>Đăng ký</a>
+  </p>
+  <!-- Social login -->
+
+
+
+</form>
+<!-- Default form login -->

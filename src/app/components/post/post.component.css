@@ -1,0 +1,62 @@
+
+.divider {
+  border-bottom: solid;
+  margin-bottom: 30px;
+}
+/* h3{
+  display: inline-block;
+  margin-left: 30px;
+  width: 150px;
+} */
+select, textarea, .form-control{
+  width: 850px;
+  max-width: 100%;
+}
+.container{
+  margin-bottom: 50px;
+}
+.container .form-group{
+  font-weight: normal ;
+  min-height: 1.2em;
+  font-size: 1rem;
+  color: #495057;
+  margin-left: 0px;
+}
+
+
+.form-control{
+  margin-left: 0px;
+}
+.h4, .h5{
+  font-weight: bold;
+}
+.h6 {
+  margin-left: 50px;
+  width: 150px;
+  padding-top: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-weight: bold;
+  display: inline-block;
+}
+/* .check-left{
+  margin-right: 100px;
+} */
+/* .form-group{
+  display: inline-block;
+} */
+/* .form-group{
+  margin-left: 0px;
+} */
+/* .form-control{
+  display: inline-block;
+} */
+/* #brand{
+  margin-left: 100px;
+}
+#model{
+  margin-left: 85px;
+}
+#color{
+  margin-left: 102px;
+} */

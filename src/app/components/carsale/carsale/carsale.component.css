@@ -1,0 +1,141 @@
+body{margin-top:20px;}
+#container{
+  margin-left: 0px;
+  width: 100%;
+}
+.row{
+  margin-left: 0px;
+}
+.col-sm-9,.col-sm-9{
+  padding-left: 0px;
+}
+.card{
+  display: inline-block;
+  margin-right: 30px;
+  margin-top: 30px;
+  opacity: 1;
+}
+img {
+  height: 280px;
+  width: 279px;
+  margin-left: 0px;
+}
+.km{
+  color: #888;
+  font-size: small;
+}
+.price{
+  color: red;
+  font-weight: bold;
+}
+a{
+  cursor: pointer;
+}
+.card-title:hover{
+  text-decoration: underline;
+}
+.btn {
+  border-width: 1px;
+  border-radius: 30px !important;
+  opacity: 0.79;
+  padding: 9px 18px;
+}
+.save{
+  background-color: red;
+  border: red;
+  color: #FFF;
+  margin-left: 50px;
+  height: 44px;
+}
+/*.container{
+  padding: 0px;
+}
+.post-list {
+  position: relative;
+  padding: 5px 0;
+}
+
+.post-list .picture img{ */
+  /* max-width: 400px; */
+  /* overflow: hidden; */
+  /* height: auto; */
+  /* border-radius: 6px;
+  height: 220px;
+  width: 220px;
+  padding-left: 0px;
+}
+
+.col-sm-4{
+  padding-left: 0px;
+}
+
+.post-list .picture {
+  height: 226px;
+  width: 226px;
+  margin-left: 50px;
+} */
+
+/* .post-list .picture img {
+  width: 100%;
+} */
+
+/* .post-list h4 {
+  font-size: 20px;
+}
+
+.post-list h5 {
+  color: #888;
+}
+
+.post-list p {
+  float: left;
+}
+
+.post-list:after {
+  height: 1px;
+  background: #EEEEEE;
+  width: 83.3333%;
+  bottom: 0;
+  right: 0;
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.post-list .btn-download, .post-list .save {
+  margin-top: 10px;
+}
+
+.btn-info {
+  color: #000;
+  border-color: #269abc;
+}
+
+.btn-round,.save {
+  border-width: 1px;
+  border-radius: 30px !important;
+  opacity: 0.79;
+  padding: 9px 18px;
+}
+.btn {
+  border-width: 2px;
+  background-color: rgba(0,0,0,0);
+  font-weight: 400;
+  opacity: 0.8;
+  padding: 7px 16px;
+  margin-top: 0px;
+}
+.price{
+  color: red;
+  margin-top: 100px;
+}
+.description{
+  margin-top: 10px;
+}
+h6 {
+  font-size: large;
+  font-weight: bold;
+}
+.save{
+  background-color: salmon;
+} */

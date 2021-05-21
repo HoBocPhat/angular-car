@@ -1,0 +1,219 @@
+<form class=" border p-5 " [formGroup]="postForm" (ngSubmit)="onSubmit()">
+
+  <p class="h4 text-center mb-4">Thông tin bài đăng</p>
+
+  <!--Thông tin xe-->
+  <div class="container">
+  <p class="h5">Thông tin xe</p>
+  <div class="divider"></div>
+  <div class="form-group row"><p class="title" class="h6">Hãng xe *</p>
+  <select class="custom-select" id="brand">
+    <option value="">Alfa-Romeo</option>
+    <option value="">Audi</option>
+    <option value="">Bentley</option>
+    <option value="">BMW</option>
+    <option value="">Cadillac</option>
+    <option value="">Chevrolet</option>
+    <option value="">Ferrari</option>
+    <option value="">Ford</option>
+    <option value="">Honda</option>
+    <option value="">Hummer</option>
+    <option value="">Huyndai</option>
+    <option value="">Infiniti</option>
+    <option value="">Isuzu</option>
+    <option value="">Jaguar</option>
+    <option value="">Jeep</option>
+    <option value="">Kia</option>
+    <option value="">Lamborghini</option>
+    <option value="">Landrover</option>
+    <option value="">Lexus</option>
+    <option value="">Maserati</option>
+    <option value="">Mazda</option>
+    <option value="">Mercedes-Benz</option>
+    <option value="">Mistubishi</option>
+    <option value="">Nissan</option>
+    <option value="">Peugeot</option>
+    <option value="">Porsche</option>
+    <option value="">Roll-Royce</option>
+    <option value="">Suzuki</option>
+    <option value="">Sym</option>
+    <option value="">Tesla</option>
+    <option value="">Thaco</option>
+    <option value="">Toyota</option>
+    <option value="">Vinfast</option>
+    <option value="">Volkswagen</option>
+    <option value="">Volvo</option>
+    <option value="">Hãng khác</option>
+  </select>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Dòng xe *</p>
+    <div>
+      <input type="text" class="form-control" id='model' value="">
+    </div>
+  </div>
+
+  <div class="form-group row"><p class="title" class="h6">Màu xe *</p>
+    <select class="custom-select" id="color">
+      <option value="">-</option>
+      <option value="">Bạc</option>
+      <option value="">Cam</option>
+      <option value="">Cát</option>
+      <option value="">Ghi</option>
+      <option value="">Hồng</option>
+      <option value="">Kem</option>
+      <option value="">Nâu</option>
+      <option value="">Trắng</option>
+      <option value="">Vàng</option>
+      <option value="">Xanh</option>
+      <option value="">Xám</option>
+      <option value="">Đen</option>
+      <option value="">Đỏ</option>
+      <option value="">Đồng</option>
+      <option value="">Nhiều màu</option>
+      <option value="">Màu khác</option>
+    </select>
+  </div>
+
+  <div class="form-group row"><p class="title" class="h6">Năm sản xuất *</p>
+    <select class="custom-select" id='year'>
+      <option value="">trước 1990</option>
+      <option value="">1990</option>
+      <option value="">1991</option>
+      <option value="">1992</option>
+      <option value="">1993</option>
+      <option value="">1994</option>
+      <option value="">1995</option>
+      <option value="">1996</option>
+      <option value="">1997</option>
+      <option value="">1998</option>
+      <option value="">1999</option>
+      <option value="">2000</option>
+      <option value="">2001</option>
+      <option value="">2002</option>
+      <option value="">2003</option>
+      <option value="">2004</option>
+      <option value="">2005</option>
+      <option value="">2006</option>
+      <option value="">2007</option>
+      <option value="">2008</option>
+      <option value="">2009</option>
+      <option value="">2010</option>
+      <option value="">2011</option>
+      <option value="">2012</option>
+      <option value="">2013</option>
+      <option value="">2014</option>
+      <option value="">2015</option>
+      <option value="">2016</option>
+      <option value="">2017</option>
+      <option value="">2018</option>
+      <option value="">2019</option>
+      <option value="">2020</option>
+      <option value="">2021</option>
+    </select>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Xuất xứ *</p>
+    <div class="imp_exp">
+      <div class="form-check-inline">
+        <input class="form-check-input" type="radio" name="imp_exp" id="incountry" value="">Lắp ráp trong nước
+      </div>
+      <div class="form-check-inline">
+        <input class="form-check-input" type="radio" name="imp_exp" id="outcountry"  value="">Nhập khẩu
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Tình trạng *</p>
+    <div class="new_old">
+      <div class="form-check-inline">
+        <input class="form-check-input" type="radio" name="imp_exp" id="new" value="">Xe mới
+      </div>
+      <div class="form-check-inline">
+        <input class="form-check-input" type="radio" name="imp_exp" id="old"  value="">Xe cũ
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Số km đi được *</p>
+    <div>
+      <input type="number" class="form-control" value="">
+    </div>
+  </div>
+
+  <div class="form-group row"><p class="title" class="h6">Số ghế *</p>
+    <div>
+      <input type="number" class="form-control" value="">
+    </div>
+  </div>
+
+  <div class="form-group row"><p class="title" class="h6">Giá *</p>
+    <div>
+      <input type="number" class="form-control" value="">
+    </div>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Tỉnh/Thành phố *</p>
+    <select class="custom-select" value="">
+    </select>
+  </div>
+</div>
+
+  <!--Thông tin liên hệ-->
+  <div class="container">
+  <p class="h5">Thông tin liên hệ</p>
+  <div class="divider"></div>
+  <div class="form-group row" ><p class="title" class="h6">Tên người bán</p>
+    <div>
+      <input type="text" class="form-control" value="">
+    </div>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Số điện thoại *</p>
+    <div>
+      <input type="tel"  class="form-control" formControlName="phone" value="">
+    </div>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Email</p>
+    <div>
+      <input type="email" class="form-control" value="" formControlName="email">
+    </div>
+  </div>
+</div>
+
+  <!--Tiêu đề - Nội dung-->
+  <div class="container">
+  <p class="h5">Tiêu đề - Nội dung</p>
+  <div class="divider"></div>
+  <div class="form-group row" ><p class="title" class="h6">Tiêu đề *</p>
+    <div>
+      <input type="text"  class="form-control" value="">
+    </div>
+  </div>
+
+  <div class="form-group row" ><p class="title" class="h6">Nội dung *</p>
+    <div>
+      <textarea  class="form-control"value=""></textarea>
+    </div>
+  </div>
+</div>
+  <!--Hình ảnh-->
+  <div class="container">
+  <p class="h5">Hình ảnh</p>
+  <div class="divider"></div>
+  <div class="form-group row" ><p class="title" class="h6">Tải ảnh lên *</p>
+    <div>
+      <input type="file" class="form-control" value="">
+      <p></p>
+    </div>
+  </div>
+</div>
+
+  <!-- Sign in button -->
+  <button mdbBtn class="my-4 text-center" (click)="onRecommend()">Giá đề xuất</button>
+  <button mdbBtn class="my-4 text-center"[disabled]="!postForm.valid" type="submit">Đăng tin</button>
+
+
+</form>
+
