@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BreadcrumbModule } from 'angular-crumbs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,8 +30,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ApiComponent } from './components/api/api.component';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 
-import { PostService } from './components/services/post/post.service'
-
+import { PostService } from './components/services/post/post.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,6 @@ import { PostService } from './components/services/post/post.service'
     RecompriceComponent,
     ApiComponent,
     CarsaleComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -64,7 +63,8 @@ import { PostService } from './components/services/post/post.service'
     MatInputModule,
     CarouselModule,
     WavesModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BreadcrumbModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent],

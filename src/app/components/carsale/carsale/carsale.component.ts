@@ -31,12 +31,16 @@ interface Cars{
 export class CarsaleComponent implements OnInit {
   imgSrc = 'assets/car_img/car.jpg';
   cars: Cars[] = carsData;
-  config !: any;
-  collection = carsData;
-  constructor() {
+  totalLength !: number;
+  page: number = 1;
+
+  constructor(
+
+  ) {
    }
 
   ngOnInit(): void {
+    this.totalLength = this.cars.length
     console.log(this.cars);
   }
 

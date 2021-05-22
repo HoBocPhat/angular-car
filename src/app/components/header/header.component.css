@@ -12,7 +12,7 @@
   .navbar .nav-item .dropdown-menu .dropdown-item {background-color:#142954;}
   .navbar .nav-item .dropdown-menu li :hover{background-color:lightslategray ;}
   .navbar a {font-family: Emoji,Walsheim,Helvetica Neue,Segoe UI,sans-serif; font-size: 15px; font-weight: bold;}
-  .container{width: 1200px;}
+  /* .container{width: 1200px;} */
   .nav-left{display: inline;}
   #info{width: fit-content;}
   .nav a{color: #fff;}

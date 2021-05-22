@@ -3,7 +3,10 @@
     <p>blabla</p>
   </div>
   <div class="col-sm-9">
-    <div class="card" style="width: 280px;" *ngFor=" let car of cars" >
+    <div class="card" style="width: 280px;" *ngFor ="let car of cars | paginate: { id: 'listening_pagination',
+    itemsPerPage: 9,
+    currentPage: page,
+    totalItems: totalLength}">
       <a routerLink=""><img class="card-img-top" src="{{car.img[0]}}" alt="Card image cap"></a>
       <div class="card-body">
         <h5 class="card-title"><a routerLink="">{{car.brand}} - {{car.model}} - {{car.year}}</a></h5>
@@ -15,26 +18,6 @@
     </div>
   </div>
 </div>
-<!-- <div style="text-align:center">
-  <h4>
-    Basic Pagination
-  </h4>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Item</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of collection.data | paginate: config">
-        <th scope="row">{{item.id}}</th>
-        <td>{{item.value}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-
-</div> -->
+<div class="pagination">
+  <pagination-controls id="listening_pagination" previousLabel="trước" nextLabel="sau" (pageChange)="page = $event"></pagination-controls>
+</div>

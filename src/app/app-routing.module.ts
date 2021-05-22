@@ -8,18 +8,29 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {PostComponent} from './components/post/post.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 
 const routes: Routes = [
-  {path: 'trangchu', component: HomeComponent},
-  {path: 'muaxe', component: HomeComponent},
+  {path: 'trangchu', component: HomeComponent, data: {breadcrumb:'Trang chủ'}},
+  {path: 'muaxe', component: CarsaleComponent, data: {breadcrumb:'Mua xe'}},
   {path: 'banxe', component: PostComponent, canActivate: [AuthGuard]},
   {path: 'tintuc', component: HomeComponent},
-  {path: 'vechungtoi', component: HomeComponent},
+  {path: 'vechungtoi', component: HomeComponent },
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},
   {path: 'quenmatkhau', component: ForgotpasswordComponent},
   {path: '',component: HomeComponent},
-  {path: 'api', component: ApiComponent}
+  {path: 'api', component: ApiComponent},
+  // {
+  //   path: '',
+  //   children: [
+  //     {path: '', redirectTo: '/trangchu', pathMatch: 'full'},
+  //     {
+  //       path: 'trangchu',
+  //       loadChildren: 'src/app/home/home.module#HomeModule'
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({
