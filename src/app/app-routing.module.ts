@@ -11,7 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 
 const routes: Routes = [
-  {path: 'trangchu', component: HomeComponent, data: {breadcrumb:'Trang chủ'}},
+  {path: 'trangchu', component: PostComponent, data: {breadcrumb:'Trang chủ'}},
   {path: 'muaxe', component: CarsaleComponent, data: {breadcrumb:'Mua xe'}},
   {path: 'banxe', component: PostComponent, canActivate: [AuthGuard]},
   {path: 'tintuc', component: HomeComponent},

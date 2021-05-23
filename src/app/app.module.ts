@@ -14,6 +14,10 @@ import {MatInputModule} from '@angular/material/input';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BreadcrumbModule } from 'angular-crumbs';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { GalleryModule } from 'ng-gallery';
+import { LightboxModule } from 'ng-gallery/lightbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +35,7 @@ import { ApiComponent } from './components/api/api.component';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 
 import { PostService } from './components/services/post/post.service';
+import { CardetailComponent } from './components/cardetail/cardetail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +49,8 @@ import { PostService } from './components/services/post/post.service';
     RecompriceComponent,
     ApiComponent,
     CarsaleComponent,
+    CardetailComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -64,7 +71,11 @@ import { PostService } from './components/services/post/post.service';
     CarouselModule,
     WavesModule,
     NgxPaginationModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    NgImageSliderModule,
+    NgxImageGalleryModule,
+    GalleryModule,
+    LightboxModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent],

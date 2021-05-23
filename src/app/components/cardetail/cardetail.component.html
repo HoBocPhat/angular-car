@@ -1,0 +1,29 @@
+<div class="row">
+<div class="gallerize-example" class="col-sm-7">
+	<h2>Gallerize Example</h2>
+	<p class="container" gallerize>
+		<img *ngFor="let img of imageData; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
+	</p>
+  <div class="title">
+    <p>Tiêu đề</p>
+    <p>Nội dung</p>
+  </div>
+  <div class="car">
+    <p>Thông tin xe</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <p> <mdb-icon fas icon="car-alt"></mdb-icon>Hãng xe</p>
+        <p> <mdb-icon fas icon="palette"></mdb-icon>Màu xe</p>
+        <p> <mdb-icon fas icon="pallet"></mdb-icon>Xuất xứ</p>
+        <p> <mdb-icon fas icon="tachometer-alt"></mdb-icon>Số km</p>
+      </div>
+      <div class="col-sm-6">
+        <p> <mdb-icon fas icon="tag"></mdb-icon>Dòng xe</p>
+        <p> <mdb-icon fas icon="calendar-alt"></mdb-icon>Năm sản xuất</p>
+        <p> <mdb-icon fas icon="certificate"></mdb-icon>Tình trạng</p>
+        <p> <mdb-icon fas icon="users"></mdb-icon>Số ghế</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

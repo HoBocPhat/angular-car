@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "id_pro": 1,
+    "name": "Tam Nông"
+  },
+  {
+    "id": 2,
+    "id_pro": 1,
+    "name": "TP.Cao Lãnh"
+  },
+  {
+    "id": 3,
+    "id_pro": 2,
+    "name": "Quận Gò Vấp"
+  },
+  {
+    "id": 4,
+    "id_pro": 2,
+    "name": "Quận Bình Thạnh"
+  }
+]

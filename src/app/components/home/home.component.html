@@ -1,30 +1,8 @@
-<div class="p-3">
 
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="content">
-        <img src="{{signupSrc}}" />
 
-       <a routerLink='/dangky' class="font-weight-bold text-uppercase">Đăng ký tài khoản</a>
-      </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="content">
-          <img src="{{loginSrc}}" />
-        <a routerLink='/dangnhap' class="title">Đăng nhập tài khoản</a>
-        </div>
-       </div>
-       <div class="col-lg-3">
-        <div class="content">
-          <img src="{{postSrc}}" />
-        <a routerLink='/dangthongtin' class="title">Đăng thông tin xe</a>
-        </div>
-       </div>
-       <div class="col-lg-3">
-        <div class="content">
-          <img src="{{manageSrc}}" />
-        <a routerLink='quanlybaidang' class="title">Quản lý bài đăng</a>
-        </div>
-       </div>
-  </div>
+<div class="gallerize-example">
+	<h2>Gallerize Example</h2>
+	<p class="container" gallerize>
+		<img *ngFor="let img of imageData; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
+	</p>
 </div>
