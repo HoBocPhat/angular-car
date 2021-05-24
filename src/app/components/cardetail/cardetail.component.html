@@ -1,6 +1,5 @@
 <div class="row">
 <div class="gallerize-example" class="col-sm-7">
-	<h2>Gallerize Example</h2>
 	<p class="container" gallerize>
 		<img *ngFor="let img of imageData; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
 	</p>
@@ -24,6 +23,18 @@
         <p> <mdb-icon fas icon="users"></mdb-icon>Số ghế</p>
       </div>
     </div>
+  </div>
+  <div class="location">
+    <p>Khu vực</p>
+    <p><mdb-icon fas icon="map-marker-alt"></mdb-icon>quận/huyện, tỉnh/thành phố</p>
+  </div>
+</div>
+<div class="col-sm-5">
+  <p>Năm sản xuất - Hãng xe - Dòng xe</p>
+  <p class="price">Giá xe</p>
+  <div class="contact">
+    <p>Tên người bán</p>
+    <p>Số điện thoại</p>
   </div>
 </div>
 </div>

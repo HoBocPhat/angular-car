@@ -1,4 +1,4 @@
-<form class=" border p-5 " [formGroup]="postForm" (ngSubmit)="onSubmit()">
+<form class=" border p-5 " [formGroup]="postForm">
 
   <p class="h4 text-center mb-4">Thông tin bài đăng</p>
 
@@ -54,7 +54,7 @@
   </div>
 
   <div class="form-group row"><p class="title" class="h6">Màu xe *</p>
-    <select class="custom-select" id="color">
+    <select class="custom-select" id="color" formControlName="color">
       <option value="">-</option>
       <option value="">Bạc</option>
       <option value="">Cam</option>
@@ -149,12 +149,12 @@
 
   <div class="form-group row"><p class="title" class="h6">Giá *</p>
     <div>
-      <input type="number" class="form-control" value="">
+      <input type="number" class="form-control" value="{{changePrice}}" >
     </div>
   </div>
 
   <div class="form-group row" ><p class="title" class="h6">Tỉnh/Thành Phố*</p>
-    <select class="custom-select" #location (change)="changePros(location.value)">
+    <select class="custom-select" #location (change)="changePros(location.value)" formControlName="province">
       <option *ngFor ="let count of prosList">{{count.name}} </option>
   </select>
   </div>
@@ -171,7 +171,7 @@
   <div class="divider"></div>
   <div class="form-group row" ><p class="title" class="h6">Tên người bán</p>
     <div>
-      <input type="text" class="form-control" value="">
+      <input type="text" class="form-control" value="" formControlName="name">
     </div>
   </div>
 
@@ -218,7 +218,7 @@
 
   <!-- Sign in button -->
   <button mdbBtn class="my-4 text-center" (click)="onRecommend()">Giá đề xuất</button>
-  <button mdbBtn class="my-4 text-center"[disabled]="!postForm.valid" type="submit">Đăng tin</button>
+  <button mdbBtn class="my-4 text-center"[disabled]="!postForm.valid" type="submit" (click) ="onSubmit()">Đăng tin</button>
 
 
 </form>

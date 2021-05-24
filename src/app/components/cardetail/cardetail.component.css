@@ -15,13 +15,22 @@ img {
   margin-left: 2px;
 }
 .title{
+  margin-top: 50px;
   border-bottom: solid 1px black;
   width: 635px;
 }
 .car{
   margin-top: 30px;
+  border-bottom: solid 1px black;
+  width: 635px
 }
 #icon{
   margin-right: 10px;
 }
-
+.price{
+  margin-top: 100px;
+}
+.contact{
+  margin-top: 280px;
+  border-top: solid 1px black;
+}
