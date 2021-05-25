@@ -31,6 +31,22 @@ img {
   margin-top: 100px;
 }
 .contact{
-  margin-top: 280px;
+  margin-top: 220px;
   border-top: solid 1px black;
+  padding-top: 20px;
+}
+h5{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+h6{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.user{
+  padding-bottom: 30px;
+}
+.fas {
+  width: 20px;
+  margin-right: 20px;
 }

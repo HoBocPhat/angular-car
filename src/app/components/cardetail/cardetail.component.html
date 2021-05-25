@@ -4,11 +4,11 @@
 		<img *ngFor="let img of imageData; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
 	</p>
   <div class="title">
-    <p>Tiêu đề</p>
-    <p>Nội dung</p>
+    <h4>Tiêu đề</h4>
+    <h6>Nội dung</h6>
   </div>
   <div class="car">
-    <p>Thông tin xe</p>
+    <h5>Thông tin xe</h5>
     <div class="row">
       <div class="col-sm-6">
         <p> <mdb-icon fas icon="car-alt"></mdb-icon>Hãng xe</p>
@@ -20,21 +20,21 @@
         <p> <mdb-icon fas icon="tag"></mdb-icon>Dòng xe</p>
         <p> <mdb-icon fas icon="calendar-alt"></mdb-icon>Năm sản xuất</p>
         <p> <mdb-icon fas icon="certificate"></mdb-icon>Tình trạng</p>
-        <p> <mdb-icon fas icon="users"></mdb-icon>Số ghế</p>
+        <p> <mdb-icon fas icon="users" class="user"></mdb-icon>Số ghế</p>
       </div>
     </div>
   </div>
   <div class="location">
-    <p>Khu vực</p>
+    <h5>Khu vực</h5>
     <p><mdb-icon fas icon="map-marker-alt"></mdb-icon>quận/huyện, tỉnh/thành phố</p>
   </div>
 </div>
 <div class="col-sm-5">
-  <p>Năm sản xuất - Hãng xe - Dòng xe</p>
-  <p class="price">Giá xe</p>
+  <h2>Năm sản xuất - Hãng xe - Dòng xe</h2>
+  <h3 class="price">Giá xe</h3>
   <div class="contact">
-    <p>Tên người bán</p>
-    <p>Số điện thoại</p>
+    <h5>Tên người bán</h5>
+    <h5>Số điện thoại</h5>
   </div>
 </div>
 </div>

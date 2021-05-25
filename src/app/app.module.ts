@@ -36,6 +36,7 @@ import { CarsaleComponent } from './components/carsale/carsale/carsale.component
 
 import { PostService } from './components/services/post/post.service';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
+import { ChangeInfoComponent } from './components/change-info/change-info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { CardetailComponent } from './components/cardetail/cardetail.component';
     ApiComponent,
     CarsaleComponent,
     CardetailComponent,
+    ChangeInfoComponent,
 
   ],
   imports: [

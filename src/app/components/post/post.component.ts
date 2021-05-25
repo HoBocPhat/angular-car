@@ -89,9 +89,6 @@ export class PostComponent implements OnInit {
     private dialog: MatDialog,
     private http: HttpClient,
   ) { }
-  files = [
-    {price: 0}
-  ];
   ngOnInit(): void {
     this.postForm = new FormGroup({
       phone: new FormControl(null,[
@@ -104,7 +101,7 @@ export class PostComponent implements OnInit {
       ),
       name: new FormControl,
       province : new FormControl,
-      color: new FormControl
+      color: new FormControl,
     })
 
     // this.http.get("src/assets/data/post.json").subscribe(
