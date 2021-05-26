@@ -38,3 +38,9 @@ select, textarea, .form-control{
   font-weight: bold;
   display: inline-block;
 }
+.my-4{
+ margin-left: 510px;
+}
+p {
+  text-align: center;
+}

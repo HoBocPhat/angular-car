@@ -37,6 +37,7 @@ import { CarsaleComponent } from './components/carsale/carsale/carsale.component
 import { PostService } from './components/services/post/post.service';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { ChangeInfoComponent } from './components/change-info/change-info.component';
+import { ChangePassComponent } from './components/change-pass/change-pass.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { ChangeInfoComponent } from './components/change-info/change-info.compon
     CarsaleComponent,
     CardetailComponent,
     ChangeInfoComponent,
+    ChangePassComponent,
 
   ],
   imports: [

@@ -3,11 +3,7 @@ import { MatDialogConfig, MatDialogRef } from "@angular/material/dialog";
 import { MatDialog } from '@angular/material/dialog';
 import { RecompriceComponent } from '../recomprice/recomprice.component';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
-import {PostService} from '../services/post/post.service'
 import { HttpClient } from '@angular/common/http';
-import { LoginComponent } from '../login/login.component';
-import { filter } from 'rxjs/operators';
-import { PriceService } from 'src/app/components/services/recommend/price.service';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -99,9 +95,13 @@ export class PostComponent implements OnInit {
         Validators.email
       ]
       ),
-      name: new FormControl,
-      province : new FormControl,
-      color: new FormControl,
+      price: new FormControl(),
+      name: new FormControl(),
+      province : new FormControl(),
+      color: new FormControl(),
+      title: new FormControl(),
+      seat: new FormControl(),
+      km: new FormControl()
     })
 
     // this.http.get("src/assets/data/post.json").subscribe(
@@ -112,16 +112,20 @@ export class PostComponent implements OnInit {
     // )
   }
   onRecommend() :void {
-    this.priceDialogRef = this.dialog.open(RecompriceComponent);
-    this.priceDialogRef.afterClosed().subscribe(price => {
+    this.priceDialogRef = this.dialog.open(RecompriceComponent); // open dialog để nhập price recommend
+    this.priceDialogRef.afterClosed().subscribe(price => {// price là giá trị nhập vào
       // received data from dialog-component
-     this.changePrice = price;
+     this.changePrice = price; // changePrice sẽ được gọi ra ở html
+      this.postForm.get('price')?.setValue(price);
+
     })
+
   }
   onSubmit(){
     console.log(this.postForm.value)
+    console.log((this.postForm.get('price')?.value))
   }
   changePros(count) {
-    this.dists = this.prosList.find(con => con.name == count).dists;
+    this.dists = this.prosList.find(con => con.name == count).dists;//thay đổi quận huyện khi chọn tỉnh khác
   }
 }

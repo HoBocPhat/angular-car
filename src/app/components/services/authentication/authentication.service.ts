@@ -23,7 +23,7 @@ export interface User {
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private readonly mockedUser = new LoginData('Ngo Vy','123');
+  private readonly mockedUser = new LoginData('Ngo Vy','123'); // tạo login data để đăng nhập thành công
   public name = this.mockedUser.getName();
   isAuthenticated = false;
 
@@ -31,7 +31,7 @@ export class AuthenticationService {
     private router: Router,
     private http: HttpClient
   ) { }
-  authenticate(loginData: LoginData): boolean {
+  authenticate(loginData: LoginData): boolean { // hàm này được gọi ra ở ngoài
     if(this.checkAccount(loginData)){
       this.isAuthenticated = true;
       return true;
@@ -39,7 +39,7 @@ export class AuthenticationService {
     this.isAuthenticated = false;
     return false;
   }
-  private checkAccount(loginData: LoginData): boolean {
+  private checkAccount(loginData: LoginData): boolean { // ktra name và pass có đúng kh
     return this.checkName(loginData.getName()) && this.checkPassword(loginData.getPassword());
   }
   private checkName(name:string):boolean{
@@ -48,17 +48,17 @@ export class AuthenticationService {
   private checkPassword(password: string):boolean{
     return password === this.mockedUser.getPassword();
   }
-  logout() {
+  logout() { //đổi header và quay về trang chủ
     this.isAuthenticated = false;
     this.router.navigate(['/trangchu']);
   }
-  register(user : User) {
+  register(user : User) { // ch xài
     this.router.navigate(['/dangnhap']);
     return this.http.post<any>('api/user', user).pipe(
       map(user => user)
     )
   }
-  login(loginForm: LoginForm) {
+  login(loginForm: LoginForm) { // chỉ xài phần router được th
     this.router.navigate(['/trangchu']);
     return this.http.post<any>('/api',{name: loginForm.name, password: loginForm.password}).pipe(
       map((token) =>{

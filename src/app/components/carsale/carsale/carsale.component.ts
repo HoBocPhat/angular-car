@@ -21,7 +21,7 @@ interface Cars{
   content: string,
   img: any;
 }
-
+// xóa
 
 @Component({
   selector: 'app-carsale',
@@ -29,8 +29,8 @@ interface Cars{
   styleUrls: ['./carsale.component.css']
 })
 export class CarsaleComponent implements OnInit {
-  imgSrc = 'assets/car_img/car.jpg';
-  cars: Cars[] = carsData;
+  imgSrc = 'assets/car_img/car.jpg'; //xóa
+  cars: Cars[] = carsData; // lấy data của car để gọi trong html
   totalLength !: number;
   page: number = 1;
 

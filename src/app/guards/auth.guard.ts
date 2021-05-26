@@ -16,10 +16,10 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.authenticationService.isAuthenticated){
+      if(this.authenticationService.isAuthenticated){ // xài lại biết của authenticationService
         return true;
       }
-      this.router.navigate(['/dangnhap'])
+      this.router.navigate(['/dangnhap']) // để khóa nút đăng tin khi ng dùng ch đăng nhập
     return false;
   }
 

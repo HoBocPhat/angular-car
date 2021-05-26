@@ -6,12 +6,14 @@ import {HeaderComponent} from './components/header/header.component';
 import {HomeComponent} from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import {PostComponent} from './components/post/post.component';
+import { PostComponent} from './components/post/post.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
+import { ChangePassComponent } from './components/change-pass/change-pass.component';
+import { ChangeInfoComponent } from './components/change-info/change-info.component';
 
 const routes: Routes = [
-  {path: 'trangchu', component: PostComponent, data: {breadcrumb:'Trang chủ'}},
+  {path: 'trangchu', component: ChangePassComponent, data: {breadcrumb:'Trang chủ'}},
   {path: 'muaxe', component: CarsaleComponent, data: {breadcrumb:'Mua xe'}},
   {path: 'banxe', component: PostComponent, canActivate: [AuthGuard]},
   {path: 'tintuc', component: HomeComponent},
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},
   {path: 'quenmatkhau', component: ForgotpasswordComponent},
+  {path: 'doimatkhau', component: ChangePassComponent},
+  {path: 'thongtintaikhoan', component: ChangeInfoComponent },
   {path: '',component: HomeComponent},
   {path: 'api', component: ApiComponent},
   // {

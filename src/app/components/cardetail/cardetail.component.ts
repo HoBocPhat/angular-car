@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import carsData from 'src/assets/file/car.json';
-import { Gallery, GalleryItem, ImageItem, ThumbnailsPosition, ImageSize } from 'ng-gallery';
+import carsData from 'src/assets/file/car.json'; //xóa nếu dùng http
+import { Gallery, GalleryItem } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 
 interface Cars{
@@ -22,18 +22,18 @@ interface Cars{
   content: string,
   image: any;
 }
-
+// xóa
 @Component({
   selector: 'app-cardetail',
   templateUrl: './cardetail.component.html',
   styleUrls: ['./cardetail.component.css']
 })
 export class CardetailComponent implements OnInit {
-  cars: Cars[] = carsData;
-  imgCollection: Cars['image'] = carsData
+  cars: Cars[] = carsData; // xóa
+  imgCollection: Cars['image'] = carsData //xóa
   items !: GalleryItem[];
 
-  imageData = data;
+  imageData = data;//tất cả ảnh của một xe cái này được gọi ở html
   constructor(public gallery: Gallery, public lightbox: Lightbox) { }
 
   ngOnInit(): void {
@@ -58,4 +58,4 @@ const data = [
     srcUrl: 'assets/car_img/car.jpg',
     previewUrl: 'assets/car_img/car.jpg'
   }
-];
+]; // xóa cái này để lấy data thử th

@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.registerForm.value);
-    this.authService.register(this.registerForm.value).pipe(
+    this.authService.register(this.registerForm.value).pipe( // cái register trong authService để post api ch làm đk
       map(user => this.router.navigate(['/dangnhap']))
     ).subscribe()
   }

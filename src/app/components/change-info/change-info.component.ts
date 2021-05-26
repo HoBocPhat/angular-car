@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup ,FormControl,FormBuilder } from '@angular/forms';
-import { AccountService } from '../services/account/account.service';
+import { FormGroup ,FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-change-info',
@@ -10,32 +10,21 @@ import { AccountService } from '../services/account/account.service';
 export class ChangeInfoComponent implements OnInit {
   changeForm !: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private acc: AccountService) {
-    // this.changeForm = this.formBuilder.group({
-    //   password: [''],
-    //   confirmPassword: ['']
-    // }, { validator: this.ConfirmedValidator('password','confirmPassword') })
-    // let formControls = {
-    //   password: new FormControl,
-    //   confirmPassword: new FormControl
+  constructor( ) {
 
-    // }
-
-    // this.changeForm = this.formBuilder.group(formControls)
 
    }
   ngOnInit(): void {
     this.changeForm = new FormGroup({
-      password: new FormControl,
-      confirmPassword: new FormControl,
+      name : new FormControl(),
+      email : new FormControl(),
+      phone: new FormControl(),
+      add: new FormControl()
     })
 
   }
-  ConfirmedValidator() {
-    return this.acc.mustMatch(this.changeForm.get('password')?.value,this.changeForm.get('confirmPassword')?.value);
-  }
+
   onSubmit() {
-   console.log(this.acc.mustMatch(this.changeForm.get('password')?.value,this.changeForm.get('confirmPassword')?.value))
-   console.log(this.changeForm.value)
+   console.log(this.changeForm.value);
   }
 }
