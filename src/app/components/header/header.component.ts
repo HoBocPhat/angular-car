@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation,ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../services/authentication/authentication.service';
-
+// import { AuthenticationService } from '../services/authentication/authentication.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { AuthService } from 'src/app/_services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,14 +18,16 @@ export class HeaderComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public authenticationService: AuthenticationService,
+    public authService: AuthService,
+    private tokenService: TokenStorageService
   ) {}
-  name = this.authenticationService.name;
+  name = this.tokenService.getUser().user.fullname;
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-  logout(){
-    this.authenticationService.logout();
-  }
+  // logout(){
+  //   this.authService.isLoggedIn = false;
+  //   this.tokenService.signOut();
+  // }
 
 }

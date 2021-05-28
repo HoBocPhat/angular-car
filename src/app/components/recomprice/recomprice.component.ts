@@ -20,7 +20,7 @@ export class RecompriceComponent implements OnInit {
 
   ngOnInit(): void {
     this.recommendForm = new FormGroup({
-      price: new FormControl
+      price: new FormControl()
     })
   }
   onSubmit(recommendForm){

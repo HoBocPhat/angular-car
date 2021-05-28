@@ -111,15 +111,15 @@
   <div class="nav nav-tabs ml-auto" id="main_nav_left">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a routerLink="dangnhap" mdbWavesEffect class="nav-link" *ngIf="!authenticationService.isAuthenticated" >Đăng nhập</a>
+        <a routerLink="dangnhap" mdbWavesEffect class="nav-link" *ngIf="!authService.isLoggedIn" >Đăng nhập</a>
       </li>
       <li class="nav-item">
-        <a routerLink="dangky" mdbWavesEffect class="nav-link" *ngIf="!authenticationService.isAuthenticated">Đăng ký</a>
+        <a routerLink="dangky" mdbWavesEffect class="nav-link" *ngIf="!authService.isLoggedIn">Đăng ký</a>
       </li>
-      <li class="nav-item" id="user" *ngIf="authenticationService.isAuthenticated">
+      <li class="nav-item" id="user" *ngIf="authService.isLoggedIn">
         <mat-icon>face</mat-icon>
       </li>
-      <li class="nav-item" routerLink="thongtincanhan" *ngIf="authenticationService.isAuthenticated" >
+      <li class="nav-item" routerLink="thongtincanhan" *ngIf="authService.isLoggedIn" >
         <!-- <i><mat-icon>face</mat-icon></i> -->
         <a class="nav-link">
           <div class="btn-group" mdbDropdown>

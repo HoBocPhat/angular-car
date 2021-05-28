@@ -27,6 +27,7 @@ interface Cars{
   selector: 'app-cardetail',
   templateUrl: './cardetail.component.html',
   styleUrls: ['./cardetail.component.css']
+
 })
 export class CardetailComponent implements OnInit {
   cars: Cars[] = carsData; // xóa
@@ -45,6 +46,10 @@ const data = [
   {
     srcUrl: 'assets/car_img/car.jpg',
     previewUrl:  'assets/car_img/car.jpg'
+  },
+  {
+    srcUrl: 'assets/car_img/car.jpg',
+    previewUrl: 'assets/car_img/car.jpg'
   },
   {
     srcUrl: 'assets/car_img/car.jpg',

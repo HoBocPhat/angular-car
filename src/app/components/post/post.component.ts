@@ -95,7 +95,7 @@ export class PostComponent implements OnInit {
         Validators.email
       ]
       ),
-      price: new FormControl(),
+      price: new FormControl(Number),
       name: new FormControl(),
       province : new FormControl(),
       color: new FormControl(),
@@ -113,10 +113,10 @@ export class PostComponent implements OnInit {
   }
   onRecommend() :void {
     this.priceDialogRef = this.dialog.open(RecompriceComponent); // open dialog để nhập price recommend
-    this.priceDialogRef.afterClosed().subscribe(price => {// price là giá trị nhập vào
+    this.priceDialogRef.afterClosed().subscribe(p => {// price là giá trị nhập vào
       // received data from dialog-component
-     this.changePrice = price; // changePrice sẽ được gọi ra ở html
-      this.postForm.get('price')?.setValue(price);
+     this.changePrice = p; // changePrice sẽ được gọi ra ở html
+      this.postForm.get('price')?.setValue(p);
 
     })
 

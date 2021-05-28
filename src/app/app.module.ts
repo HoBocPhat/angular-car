@@ -14,10 +14,17 @@ import {MatInputModule} from '@angular/material/input';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BreadcrumbModule } from 'angular-crumbs';
-import { NgImageSliderModule } from 'ng-image-slider';
-import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { GalleryModule } from 'ng-gallery';
 import { LightboxModule } from 'ng-gallery/lightbox';
+import { GridModule, PagerModule, GridAllModule } from '@syncfusion/ej2-angular-grids';
+// import { ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
+import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
+import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
+import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
+import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
+import { TreeGridModule} from '@syncfusion/ej2-angular-treegrid';
+import { PageService, SortService, FilterService } from '@syncfusion/ej2-angular-treegrid';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +45,8 @@ import { PostService } from './components/services/post/post.service';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { ChangeInfoComponent } from './components/change-info/change-info.component';
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
+import { PostSavedComponent } from './components/post-saved/post-saved.component';
+import { ManagePostComponent } from './components/manage-post/manage-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +63,8 @@ import { ChangePassComponent } from './components/change-pass/change-pass.compon
     CardetailComponent,
     ChangeInfoComponent,
     ChangePassComponent,
+    PostSavedComponent,
+    ManagePostComponent,
 
   ],
   imports: [
@@ -72,16 +83,20 @@ import { ChangePassComponent } from './components/change-pass/change-pass.compon
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    CarouselModule,
-    WavesModule,
     NgxPaginationModule,
     BreadcrumbModule,
-    NgImageSliderModule,
-    NgxImageGalleryModule,
     GalleryModule,
-    LightboxModule
+    LightboxModule,
+    GridModule,
+    PagerModule,
+    CheckBoxModule,
+    DatePickerAllModule,
+    ToolbarModule,
+    NumericTextBoxAllModule,
+    DialogModule,
+    TreeGridModule
   ],
-  providers: [PostService],
+  providers: [PageService, SortService, FilterService],
   bootstrap: [AppComponent],
   entryComponents: [RecompriceComponent,LoginComponent]
 })
