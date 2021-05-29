@@ -9,6 +9,12 @@ body{margin-top:20px;}
 .col-sm-9,.col-sm-9{
   padding-left: 0px;
 }
+.custom-select{
+  width: 250px;
+}
+.form-group{
+  margin-top: 30px;
+}
 .card{
   display: inline-block;
   margin-right: 30px;
@@ -34,17 +40,22 @@ a{
 .card-title:hover{
   text-decoration: underline;
 }
-.btn {
+.button{
   border-width: 1px;
   border-radius: 30px !important;
   opacity: 0.79;
   padding: 9px 18px;
 }
+.view{
+  background-color:dodgerblue;
+  color: #FFF;
+  border: dodgerblue;
+}
 .save{
   background-color: red;
   border: red;
   color: #FFF;
-  margin-left: 50px;
+  margin-left: 100px;
   height: 44px;
 }
 .pagination{

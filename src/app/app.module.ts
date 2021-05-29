@@ -16,15 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BreadcrumbModule } from 'angular-crumbs';
 import { GalleryModule } from 'ng-gallery';
 import { LightboxModule } from 'ng-gallery/lightbox';
-import { GridModule, PagerModule, GridAllModule } from '@syncfusion/ej2-angular-grids';
-// import { ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
-import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
-import { DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
-import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
-import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { TreeGridModule} from '@syncfusion/ej2-angular-treegrid';
-import { PageService, SortService, FilterService } from '@syncfusion/ej2-angular-treegrid';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +39,8 @@ import { ChangeInfoComponent } from './components/change-info/change-info.compon
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { PostSavedComponent } from './components/post-saved/post-saved.component';
 import { ManagePostComponent } from './components/manage-post/manage-post.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { SortPipe } from './pipe/sort.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +59,8 @@ import { ManagePostComponent } from './components/manage-post/manage-post.compon
     ChangePassComponent,
     PostSavedComponent,
     ManagePostComponent,
+    AdminComponent,
+    SortPipe,
 
   ],
   imports: [
@@ -87,16 +83,9 @@ import { ManagePostComponent } from './components/manage-post/manage-post.compon
     BreadcrumbModule,
     GalleryModule,
     LightboxModule,
-    GridModule,
-    PagerModule,
-    CheckBoxModule,
-    DatePickerAllModule,
-    ToolbarModule,
-    NumericTextBoxAllModule,
-    DialogModule,
-    TreeGridModule
+    Ng2SearchPipeModule
   ],
-  providers: [PageService, SortService, FilterService],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [RecompriceComponent,LoginComponent]
 })

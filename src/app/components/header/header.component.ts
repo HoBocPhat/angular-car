@@ -19,15 +19,16 @@ export class HeaderComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public authService: AuthService,
-    private tokenService: TokenStorageService
+    public tokenService: TokenStorageService
   ) {}
-  name = this.tokenService.getUser().user.fullname;
+  // name = this.tokenService.getUser().user.fullname;
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-  // logout(){
-  //   this.authService.isLoggedIn = false;
-  //   this.tokenService.signOut();
-  // }
+  logout(){
+
+    this.tokenService.signOut();
+    this.authService.isLoggedIn = false;
+  }
 
 }

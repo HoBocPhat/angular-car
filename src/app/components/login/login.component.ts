@@ -18,7 +18,6 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 export class LoginComponent implements OnInit {
   returnUrl !: string;
   loginForm !: FormGroup;
-  isLoggedIn = false;
   isLoginFailed = false;
   // errorMessage = '';
   roles: string[] = [];
@@ -31,11 +30,11 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  if (this.tokenStorage.getToken()) {
-    this.isLoggedIn = true;
-    this.roles = this.tokenStorage.getUser().roles;
+  // if (this.tokenStorage.getToken()) {
+  //   // this.authService.isLoggedIn = true;
+  //   this.roles = this.tokenStorage.getUser().roles;
 
-  }
+  // }
   this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
   this.loginForm = new FormGroup({
     email: new FormControl(null,[
@@ -61,30 +60,29 @@ export class LoginComponent implements OnInit {
   // }
   onSubmit(): void {
     const email = this.loginForm.get('email')?.value;
-    const password = this.loginForm.get('password')?.value
+    const password = this.loginForm.get('password')?.value;
     this.authService.login(email, password).subscribe(
       data => {
         this.tokenStorage.saveToken(data.userToken);
         this.tokenStorage.saveUser(data);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
+
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
       },
-      // err => {
-      //   this.errorMessage = err.error.message;
-      //   this.isLoginFailed = true;
-      // }
-    //   const loginData = new LoginData(this.loginForm.value.name, this.loginForm.value.password);
-    //   this.authenticationService.authenticate(loginData);
-    //   this.authenticationService.login(this.loginForm.value).pipe(
-    //   map(token => this.router.navigate(['/trangchu']))
-    // ).subscribe();
+  //     // err => {
+  //     //   this.errorMessage = err.error.message;
+  //     //   this.isLoginFailed = true;
+  //     // }
+  //   //   const loginData = new LoginData(this.loginForm.value.name, this.loginForm.value.password);
+  //   //   this.authenticationService.authenticate(loginData);
+  //   //   this.authenticationService.login(this.loginForm.value).pipe(
+  //   //   map(token => this.router.navigate(['/trangchu']))
+  //   // ).subscribe();
     );
 
   }
   reloadPage(): void {
-    this.router.navigate(['trangchu']);
+    this.router.navigate(['/trangchu']);
   }
 }

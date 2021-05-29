@@ -12,11 +12,11 @@ const AUTH_API = 'http://localhost:5000/api/auth/';
 export class TokenStorageService {
   constructor(private http: HttpClient) { }
 
-  signOut():  void {
+  signOut():  Observable<Object> {
     window.sessionStorage.clear();
-    // return this.http.post(AUTH_API + 'dangxuat',{
+    return this.http.post(AUTH_API + 'dangxuat',{
 
-    // });
+    });
   }
 
   public saveToken(userToken: string): void {

@@ -1,0 +1,26 @@
+<h3>Danh sách bài bán xe</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Hãng xe</th>
+    <th>Dòng xe</th>
+    <th>Giá bán</th>
+    <th>Người bán</th>
+    <th>Khu vực</th>
+    <th>Tùy chỉnh</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of cars ">
+    <td>{{car.id}}</td>
+    <td>{{car.brand}}</td>
+    <td>{{car.model}}</td>
+    <td>{{car.price}}</td>
+    <td>{{car.name}}</td>
+    <td>{{car.area}}</td>
+    <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+  </tr>
+  </tbody>
+</table>
