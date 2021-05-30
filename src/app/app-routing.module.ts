@@ -11,13 +11,15 @@ import { AuthGuard } from './guards/auth.guard';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { ChangeInfoComponent } from './components/change-info/change-info.component';
+import { NewsComponent } from './components/news/news.component';
+import { AboutComponent } from './components/about/about.component'
 
 const routes: Routes = [
-  {path: 'trangchu', component: ChangePassComponent, data: {breadcrumb:'Trang chủ'}},
+  {path: 'trangchu', component: HomeComponent, data: {breadcrumb:'Trang chủ'}},
   {path: 'muaxe', component: CarsaleComponent, data: {breadcrumb:'Mua xe'}},
   {path: 'banxe', component: PostComponent, canActivate: [AuthGuard]},
-  {path: 'tintuc', component: HomeComponent},
-  {path: 'vechungtoi', component: HomeComponent },
+  {path: 'tintuc', component: NewsComponent},
+  {path: 'vechungtoi', component: AboutComponent },
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},
   {path: 'quenmatkhau', component: ForgotpasswordComponent},

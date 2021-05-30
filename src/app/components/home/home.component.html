@@ -1,8 +1,313 @@
 
+<div class="container">
 
-<div class="gallerize-example">
-	<h2>Gallerize Example</h2>
-	<p class="container" gallerize>
-		<img *ngFor="let img of imageData; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
-	</p>
+  <!--Logo-->
+  <div class="logo" >
+    <img [src] = "logo_img_src" alt = "car_thift">
+  </div>
+
+  <!--Slogan-->
+  <div class="slogan">
+    <h1 [textContent] = slogan ></h1>
+  </div>
+
+
+  <!-- Form Input Information Car -->
+  <div class="filter_container">
+    <form [formGroup]="CarForm" (ngSubmit)="onSubmit()" class="form">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Hãng xe</mat-label>
+        <mat-select formControlName='brand'>
+          <mat-option *ngFor="let brand of brands" value="brand">{{ brand }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Dòng xe</mat-label>
+        <input matInput type="text" formControlName='version'>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Giá tối thiểu</mat-label>
+        <input matInput type="number" class="Input-right-align" formControlName='max_price'>
+        <span matSuffix>&nbsp; VNĐ</span>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Giá tối đa</mat-label>
+        <input matInput type="number" class="Input-right-align" formControlName='min_price'>
+        <span matSuffix>&nbsp; VNĐ</span>
+      </mat-form-field>
+
+        <!--Submit Button-->
+        <button mat-raised-button class="button_a" color="primary">Tìm kiếm</button>
+
+
+    </form>
+  </div>
+
+  <div class="button_b" >
+    <div class="button_reset">
+      <!--Reset Button-->
+      <button mat-raised-button (click)="ResetName()">Làm mới</button>
+    </div>
+
+    <!--More Information-->
+    <div class="Button-MoreInformation">
+      <button mat-raised-button (click)="OnButtonClick()">{{ MoreInformation ? "Thông tin thêm" : "Ẩn thông tin thêm" }}</button>
+    </div>
+  </div>
+
+  <div [class.More-Information]="MoreInformation">
+
+    <div class="form" [formGroup]="CarForm" (ngSubmit)="onSubmit()">
+
+      <div class="checkbox-container">
+        <div class="feature_form">
+          <h4>Tình trạng:</h4>
+          <mat-checkbox formControlName='new'>Xe mới</mat-checkbox>
+          <mat-checkbox formControlName='old'>Xe cũ</mat-checkbox>
+        </div>
+
+        <div class="feature_form-a">
+          <h4>Xuất xứ:</h4>
+          <mat-checkbox formControlName='import'>Lắp ráp trong nước</mat-checkbox>
+          <mat-checkbox formControlName='export'>Xuất khẩu</mat-checkbox>
+        </div>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Màu xe</mat-label>
+          <mat-select formControlName='color' multiple>
+            <mat-option *ngFor="let color of colors" [value]="color">{{color}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Năm sản xuất</mat-label>
+          <mat-select formControlName='year' multiple>
+            <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Số km đi được</mat-label>
+          <input matInput type="number" class="Input-right-align" formControlName='km'>
+          <span matSuffix>&nbsp; km</span>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Số ghế</mat-label>
+          <input matInput type="number" class="Input-right-align" formControlName='seat'>
+          <span matSuffix>&nbsp; ghế</span>
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+
+  <!--Carousel-->
+  <div class="carousel_container" id="carousel_container_a">
+    <h1>Sản phẩm ưu đãi</h1>
+    <div class="link_all">
+      <a href="#"><span>Tất cả >></span></a>
+    </div>
+    <div class="carousel_container_1">
+      <carousel
+      objectFit='contain'
+      [cellsToShow]="3"
+      [height]="300"
+      [cellWidth]="300"
+      [margin]="40"
+      [autoplay]="true"
+      [autoplayInterval]="10000"
+      [pauseOnHover]="true"
+      [loop]="true"
+      [minSwipeDistance]="10">
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%; background: aliceblue;">
+            1
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%; background: aliceblue;">2</div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%; background: aliceblue;">3</div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%; background: aliceblue;">4</div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%; background: aliceblue;">5</div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%; background: aliceblue;">6</div>
+        </div>
+      </carousel>
+    </div>
+  </div>
+
+  <div class="carousel_container">
+    <h1>Hãng xe</h1>
+    <div class="link_all">
+      <a href="#"><span>Tất cả >></span></a>
+    </div>
+    <div class="carousel_container_1">
+      <carousel
+        objectFit='cover'
+        [cellsToShow]="4"
+
+        [cellWidth]="200"
+        [margin]="40"
+        [autoplay]="true"
+        [autoplayInterval]="10000"
+        [pauseOnHover]="true"
+        [loop]="true"
+        [minSwipeDistance]="10">
+          <div class="carousel-cell">
+            <div style="width: 100%; height: 100%; background: aliceblue;">
+              1
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div style="width: 100%; height: 100%; background: aliceblue;">2</div>
+          </div>
+          <div class="carousel-cell">
+            <div style="width: 100%; height: 100%; background: aliceblue;">3</div>
+          </div>
+          <div class="carousel-cell">
+            <div style="width: 100%; height: 100%; background: aliceblue;">4</div>
+          </div>
+          <div class="carousel-cell">
+            <div style="width: 100%; height: 100%; background: aliceblue;">5</div>
+          </div>
+          <div class="carousel-cell">
+            <div style="width: 100%; height: 100%; background: aliceblue;">6</div>
+          </div>
+      </carousel>
+    </div>
+  </div>
+
+  <div class="carousel_container">
+    <h1>Các bước mua/bán xe</h1>
+    <div class="carousel_container_2">
+      <carousel
+      [arrowsOutside]="true"
+      [arrows]=true
+      [cellsToShow]="3"
+      [cellsToScroll]="3"
+      [height]="442"
+      [cellWidth]="300"
+      [margin]="40"
+      [loop]="true"
+      [minSwipeDistance]="99999999999999999999999999999999999999999999">
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%">
+            <div class="grid">
+              <div class="grid__item">
+                <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Snowy Mountains">
+                  <div class="card__content">
+                    <h1 class="card__header">Bước 1</h1>
+                    <p class="card__text">Look up at the night sky, and find yourself
+                        <strong>immersed</strong> in the amazing mountain range of Aspen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%">
+            <div class="grid">
+              <div class="grid__item">
+                <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Snowy Mountains">
+                  <div class="card__content">
+                    <h1 class="card__header">Bước 2</h1>
+                    <p class="card__text">Look up at the night sky, and find yourself
+                        <strong>immersed</strong> in the amazing mountain range of Aspen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%">
+            <div class="grid">
+              <div class="grid__item">
+                <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Snowy Mountains">
+                  <div class="card__content">
+                    <h1 class="card__header">Bước 3</h1>
+                    <p class="card__text">Look up at the night sky, and find yourself
+                        <strong>immersed</strong> in the amazing mountain range of Aspen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%">
+            <div class="grid">
+              <div class="grid__item">
+                <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="Snowy Mountains">
+                  <div class="card__content">
+                    <h1 class="card__header">Bước 1</h1>
+                    <p class="card__text">Look up at the night sky, and find yourself
+                        <strong>immersed</strong> in the amazing mountain range of Aspen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%">
+            <div class="grid">
+              <div class="grid__item">
+                <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80">
+                  <div class="card__content">
+                    <h1 class="card__header">Bước 2</h1>
+                    <p class="card__text">Look up at the night sky, and find yourself
+                        <strong>immersed</strong> in the amazing mountain range of Aspen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <div style="width: 100%; height: 100%">
+            <div class="grid">
+              <div class="grid__item">
+                <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80">
+                  <div class="card__content">
+                    <h1 class="card__header">Bước 3</h1>
+                    <p class="card__text">Look up at the night sky, and find yourself
+                        <strong>immersed</strong> in the amazing mountain range of Aspen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </carousel>
+    </div>
+  </div>
+
+
+  <div class=end>ㅤ</div>
+
 </div>
+
+
+<button class="floating-btn" (click)="onScroll()" >🠕</button>

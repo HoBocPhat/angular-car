@@ -1,8 +1,101 @@
-.container .first-item{
-  width: 500px;
-  height: 500px;
+.container {
+  margin: auto;
 }
-img {
-  width: 200px;
-  height: 200px;
+
+.slogan {
+  text-align: center;
 }
+.slogan h1 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #333;;
+}
+
+.mat-form-field {
+  margin-right: 20px;
+}
+
+input.Input-right-align::-webkit-outer-spin-button, input.Input-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+.button_a {
+  height: 50px;
+  width: 120px;
+  padding-top: 7px;
+}
+
+.button_reset {
+  float: left;
+}
+
+.Button-MoreInformation{
+  float: right;
+}
+
+.Button-MoreInformation .mat-raised-button {
+  width: 150px;
+}
+
+.button_b {
+  margin-bottom: 80px;
+}
+
+.More-Information {
+  display: none;
+}
+
+.form{
+  margin-top: 50px;
+  margin-left: 18px;
+}
+
+.checkbox-container {
+  margin-bottom: 30px;
+}
+.checkbox-container .mat-checkbox {
+  margin:0 15px;
+}
+
+.feature_form {
+  float: left;
+  margin-right: 255px;
+}
+
+.feature_form-a {
+  margin-top: 100px;
+}
+
+.carousel_container {
+  margin-top: 100px;
+}
+#carousel_container_a {
+  margin-top: 330px;
+}
+
+.carousel_container .link_all {
+  float: right;
+}
+
+.carousel_container_1 {
+  margin-top: 50px;
+  margin-bottom: 100px
+}
+
+.carousel_container_2 {
+  margin-top: 50px;
+  margin-bottom: 50px
+}
+
+.carousel_container h1 {
+  text-align: justify;
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+}
+span {
+  text-align: justify;
+  font-size: 15px;
+  line-height: 1.7;
+}
+

@@ -27,9 +27,32 @@ interface Cars{
 })
 export class AdminComponent implements OnInit {
   cars: Cars[] = carsData;
-
+  public carsDisplay = false;
+  public usersDisplay = false;
+  public newsDisplay = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  carsClick(){
+    if(this.carsDisplay === false){
+    this.carsDisplay = true;}
+    else {
+      this.carsDisplay = false;
+    }
+  }
+  usersClick(){
+    if(this.usersDisplay === false){
+      this.usersDisplay = true;}
+      else {
+        this.usersDisplay = false;
+      }
+  }
+  newsClick(){
+    if(this.newsDisplay === false){
+      this.newsDisplay = true;}
+      else {
+        this.newsDisplay = false;
+      }
   }
 }

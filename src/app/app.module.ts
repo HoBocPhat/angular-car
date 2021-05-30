@@ -6,17 +6,22 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatIconModule } from '@angular/material/icon';
-// import {Router} from '@angular/router-deprecated';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BreadcrumbModule } from 'angular-crumbs';
 import { GalleryModule } from 'ng-gallery';
 import { LightboxModule } from 'ng-gallery/lightbox';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSliderModule } from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +46,8 @@ import { PostSavedComponent } from './components/post-saved/post-saved.component
 import { ManagePostComponent } from './components/manage-post/manage-post.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SortPipe } from './pipe/sort.pipe';
+import { NewsComponent } from './components/news/news.component';
+import { AboutComponent } from './components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +68,8 @@ import { SortPipe } from './pipe/sort.pipe';
     ManagePostComponent,
     AdminComponent,
     SortPipe,
+    NewsComponent,
+    AboutComponent,
 
   ],
   imports: [
@@ -83,7 +92,14 @@ import { SortPipe } from './pipe/sort.pipe';
     BreadcrumbModule,
     GalleryModule,
     LightboxModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatGridListModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],

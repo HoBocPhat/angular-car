@@ -1,0 +1,288 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  background: #ebecf0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.body a {
+  text-decoration: none;
+  color: #172b4d;
+}
+.body h1 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+#h1_a {
+  font-size: 30px;
+}
+#h1_b {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.body .card-time {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  float: left;
+}
+
+.card article {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card p {
+  text-align: justify;
+  flex: 1;
+  line-height: 1.6;
+  font-size: 13px;
+  text-transform: uppercase;
+
+}
+.body span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 2em 0 0 0;
+}
+
+
+
+
+
+.card-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease-in-out;
+  margin-bottom: 50px;
+}
+
+.card_a {
+  align-self: flex-start;
+  position: relative;
+  width: 325px;
+  min-width: 275px;
+  margin: 1.25rem 0.75rem;
+  background: white;
+  transition: all 3ms ease-in-out;
+
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-height: 50px;
+
+}
+.card_a .card-img {
+  visibility: hidden;
+  width: 100%;
+  height: var(--card-img-height);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.card_a .card-img-hovered {
+  --card-img-hovered-overlay: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+  );
+  transition: all 350ms ease-in-out;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  height: var(--card-img-height);
+  top: 0;
+}
+.card_a .card-info {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  transition: all 200ms ease-in-out;
+}
+.card_a .card-info .card-about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  transition: all 200ms ease-in-out;
+}
+.card_a .card-info .card-about .card-tag {
+  width: 80px;
+  max-width: 100px;
+  padding: 0.2rem 0.5rem;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #505f79;
+  color: #fff;
+}
+.card_a .card-info .card-about .card-tag.tag-news {
+  background: #36b37e;
+}
+.card_a .card-info .card-about .card-tag.tag-deals {
+  background: #ffab00;
+}
+.card_a .card-info .card-about .card-tag.tag-politics {
+  width: 71px;
+  background: #ff5630;
+}
+.card_a .card-info .card-title {
+  z-index: 10;
+  font-size: 1.5rem;
+  padding-bottom: 0.75rem;
+  transition: all 350ms ease-in-out;
+}
+.card_a .card-info .card-creator {
+  padding-bottom: 0.75rem;
+  transition: all 250ms ease-in-out;
+}
+.card_a:hover {
+  cursor: pointer;
+  box-shadow: 0px 15px 35px rgba(227, 252, 239, 0.1),
+    0px 5px 15px rgba(0, 0, 0, 0.07);
+  transform: scale(1.025);
+}
+.card_a:hover .card-img-hovered {
+  --card-img-hovered-overlay: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.65)
+  );
+  height: 100%;
+}
+.card_a:hover .card-about,
+.card_a:hover .card-creator {
+  opacity: 0;
+}
+.card_a:hover .card-info {
+  background-color: transparent;
+}
+.card_a:hover .card-title {
+  color: #ebecf0;
+  transform: translate(0, 40px);
+}
+
+.card-1 .card-img,
+.card-1 .card-img-hovered {
+  background-image: var(--card-img-hovered-overlay),
+    url(https://img1.oto.com.vn/2021/05/27/8RgE0bMU/toyota-highlander-2022-bronze-edition-ban-vang-don-c701.jpg);
+}
+
+.card-2 .card-img,
+.card-2 .card-img-hovered {
+  background-image: var(--card-img-hovered-overlay),
+    url(https://img1.oto.com.vn/2021/05/28/1OANJGk2/honda-oto-com-1-537e.jpg);
+}
+
+.card-3 .card-img,
+.card-3 .card-img-hovered {
+  background-image: var(--card-img-hovered-overlay),
+    url(https://xehayvietnam.com/wp-content/uploads/2020/07/hrv-2021-4.jpg);
+}
+
+
+
+
+
+
+
+
+
+
+header {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+@media (min-width: 30em) {
+  .band {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.card {
+  background: white;
+  text-decoration: none;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+  transition: all 0.1s ease-in;
+}
+.card:hover {
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.item-1 .thumb {
+  padding-bottom: 40%;
+}
+
+@media (min-width: 60em) {
+  .item-1 {
+    grid-column: 1 / span 2;
+  }
+}
+
+.item-1 {
+  margin-bottom: 20px;
+}
+.item-2 {
+  margin-bottom: 20px;
+}
+.item-3 {
+  margin-bottom: 20px;
+}
+.item-4 {
+  margin-bottom: 20px;
+}
+.item-5 {
+  margin-bottom: 20px;
+}
+.item-6 {
+  margin-bottom: 20px;
+}
+.item-7 {
+  margin-bottom: 20px;
+}

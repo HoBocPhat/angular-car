@@ -1,6 +1,6 @@
-<h3>Danh sách bài bán xe</h3>
+<h3 (click)="carsClick()">Danh sách bài bán xe</h3>
 
-<table class="table table-striped">
+<table class="table table-striped" *ngIf = "carsDisplay" >
   <thead>
   <tr>
     <th>Id</th>
@@ -21,6 +21,52 @@
     <td>{{car.name}}</td>
     <td>{{car.area}}</td>
     <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+  </tr>
+  </tbody>
+</table>
+
+<h3 (click)="usersClick()">Danh sách người dùng</h3>
+
+<table class="table table-striped" *ngIf = "usersDisplay" >
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Họ và tên</th>
+    <th>Email</th>
+    <th>Mật khẩu</th>
+    <th>Tùy chỉnh</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>ID</td>
+    <td>Họ và tên</td>
+    <td>Email</td>
+    <td>Mật khẩu</td>
+    <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+  </tr>
+  </tbody>
+</table>
+
+<h3 (click)="newsClick()">Danh sách tin tức</h3>
+
+<table class="table table-striped" *ngIf = "newsDisplay" >
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Tiêu đề</th>
+    <th>Tác giả</th>
+    <th>Ngày đăng</th>
+    <th>Tùy chỉnh</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>ID</td>
+    <td>Tiêu đề</td>
+    <td>Tác giả</td>
+    <td>Ngày đăng</td>
+    <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="plus"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon><mdb-icon fas icon="pen"></mdb-icon></td>
   </tr>
   </tbody>
 </table>
