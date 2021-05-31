@@ -58,15 +58,6 @@ export class AuthenticationService {
       map(user => user)
     )
   }
-  login(loginForm: LoginForm) { // chỉ xài phần router được th
-    this.router.navigate(['/trangchu']);
-    return this.http.post<any>('/api',{name: loginForm.name, password: loginForm.password}).pipe(
-      map((token) =>{
-        console.log('token');
-        localStorage.setItem('web-token', token.access_token);
-        return token;
-      })
-    )
-  }
+
 
 }

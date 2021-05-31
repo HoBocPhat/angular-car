@@ -10,10 +10,10 @@ import { AuthService } from 'src/app/_services/auth.service';
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
-  signupSrc = 'assets/img/signup.png';
-  loginSrc = 'assets/img/login.png';
-  postSrc = 'assets/img/post.png';
-  manageSrc = 'assets/img/manage.png';
+  signupSrc !: string;
+  loginSrc !: string;
+  postSrc !: string;
+  manageSrc !: string;
   returnUrl !: string;
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +24,10 @@ export class HeaderComponent implements OnInit {
   // name = this.tokenService.getUser().user.fullname;
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.signupSrc = 'assets/signup.png';
+    this.loginSrc = 'assets/img/login.png';
+    this.postSrc = 'assets/img/post.png';
+    this.manageSrc = 'assets/img/manage.png';
   }
   logout(){
 

@@ -1,0 +1,34 @@
+<form class=" border p-5 " [formGroup]="changeNews" >
+  <div class="container">
+    <p class="h5">Tin tức</p>
+    <div class="divider"></div>
+    <div class="form-group row" ><p class="title" class="h6">Tiêu đề</p>
+      <div>
+        <input type="text"  class="form-control" value="" >
+      </div>
+    </div>
+
+    <div class="form-group row" ><p class="title" class="h6">Nội dung</p>
+      <div>
+        <textarea  class="form-control"value=""></textarea>
+      </div>
+    </div>
+    <div class="form-group row" ><p class="title" class="h6">Tải ảnh lên *</p>
+      <div>
+        <input type="file" class="form-control" formControlName="img" value="">
+        <p></p>
+      </div>
+    </div>
+    <div class="form-group row" ><p class="title" class="h6">Tác giả</p>
+      <div>
+        <input type="text" class="form-control" value="">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="form-group row" ><p class="title" class="h6">Ngày đăng</p>
+        <p class="day">31/5/2021</p>
+    </div>
+  </div>
+  <button mdbBtn class="my-4 text-center" type="submit" (click)="onSubmit()" >Sửa </button>
+  </form>

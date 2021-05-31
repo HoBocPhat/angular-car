@@ -35,7 +35,6 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { PostComponent } from './components/post/post.component';
 import { RecompriceComponent } from './components/recomprice/recomprice.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ApiComponent } from './components/api/api.component';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 
 import { PostService } from './components/services/post/post.service';
@@ -48,6 +47,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { SortPipe } from './pipe/sort.pipe';
 import { NewsComponent } from './components/news/news.component';
 import { AboutComponent } from './components/about/about.component';
+import { AddNewsComponent } from './components/add-news/add-news.component';
+import { ChangeNewsComponent } from './components/change-news/change-news.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,6 @@ import { AboutComponent } from './components/about/about.component';
     ForgotpasswordComponent,
     PostComponent,
     RecompriceComponent,
-    ApiComponent,
     CarsaleComponent,
     CardetailComponent,
     ChangeInfoComponent,
@@ -70,6 +70,8 @@ import { AboutComponent } from './components/about/about.component';
     SortPipe,
     NewsComponent,
     AboutComponent,
+    AddNewsComponent,
+    ChangeNewsComponent,
 
   ],
   imports: [

@@ -70,7 +70,7 @@
             <div class="row">
               <div class="col-lg-3">
                 <div class="content">
-                  <img src="{{signupSrc}}" />
+                  <img src="/assets/img/signup.png" />
 
                  <a routerLink='/dangky' class="title">Đăng ký tài khoản</a>
                 </div>
@@ -114,24 +114,24 @@
         <a routerLink="dangnhap" mdbWavesEffect class="nav-link" *ngIf="!authService.isLoggedIn"  >Đăng nhập</a>
       </li>
       <li class="nav-item">
-        <a routerLink="dangky" mdbWavesEffect class="nav-link" >Đăng ký</a>
+        <a routerLink="dangky" mdbWavesEffect class="nav-link"*ngIf="!authService.isLoggedIn" >Đăng ký</a>
       </li>
       <li class="nav-item" id="user" *ngIf="authService.isLoggedIn" >
         <mat-icon>face</mat-icon>
       </li>
-      <li class="nav-item" routerLink="thongtincanhan"*ngIf="authService.isLoggedIn" >
+      <li class="nav-item" routerLink="/thongtincanhan"*ngIf="authService.isLoggedIn" >
         <!-- <i><mat-icon>face</mat-icon></i> -->
         <a class="nav-link">
           <div class="btn-group" mdbDropdown>
             <a>{{tokenService.getUser().user.fullname}}</a>
             <div class="dropdown-menu dropdown dropdown-primary dropdown-menu-right" role="menu" id='info'>
-              <a class="dropdown-item" href="#"><mat-icon id="icon">face</mat-icon>{{tokenService.getUser().user.fullname}}</a>
-              <h6 class="dropdown-item" routerLink='/thongtintaikhoan' >Chỉnh sửa thông tin cá nhân</h6>
+              <a class="dropdown-item"><mdb-icon far icon="smile"></mdb-icon>{{tokenService.getUser().user.fullname}}</a>
+              <a class="dropdown-item" routerLink='/thongtintaikhoan' >Chỉnh sửa thông tin cá nhân</a>
               <div class="divider dropdown-divider"></div>
-              <a class="dropdown-item" href="#"><mat-icon id="icon">favorite</mat-icon>Tin đã lưu</a>
-              <a class="dropdown-item" href="#"><mat-icon id="icon">bookmark</mat-icon>Quản lý bài đăng</a>
+              <a class="dropdown-item" href="#"><mdb-icon fas icon="heart"></mdb-icon>Tin đã lưu</a>
+              <a class="dropdown-item" href="#"><mdb-icon far icon="bookmark"></mdb-icon>Quản lý bài đăng</a>
               <div class="divider dropdown-divider"></div>
-              <a class="dropdown-item" click='logout()' href="#"><mat-icon id="icon">logout</mat-icon>Đăng xuất</a>
+              <a class="dropdown-item" click='logout()' href="#"><mdb-icon fas icon="sign-out-alt"></mdb-icon>Đăng xuất</a>
             </div>
           </div>
         </a>

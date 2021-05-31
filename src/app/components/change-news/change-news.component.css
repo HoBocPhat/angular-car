@@ -1,0 +1,48 @@
+.divider {
+  border-bottom: solid;
+  margin-bottom: 30px;
+}
+
+textarea, .form-control{
+  width: 850px;
+  max-width: 100%;
+}
+.container{
+  margin-bottom: 50px;
+}
+.container .form-group{
+  font-weight: normal ;
+  min-height: 1.2em;
+  font-size: 1rem;
+  color: #495057;
+  margin-left: 0px;
+}
+
+
+.form-control{
+  margin-left: 0px;
+}
+
+.h6 {
+  margin-left: 50px;
+  width: 150px;
+  padding-top: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-weight: bold;
+  display: inline-block;
+
+}
+
+.button{
+  width: 100%;
+}
+
+.my-4{
+  margin-left: 570px;
+}
+
+.day{
+  margin: auto;
+  margin-left: 30px;
+}

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ApiComponent } from './components/api/api.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import {HeaderComponent} from './components/header/header.component';
 import {HomeComponent} from './components/home/home.component';
@@ -12,7 +11,10 @@ import { CarsaleComponent } from './components/carsale/carsale/carsale.component
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { ChangeInfoComponent } from './components/change-info/change-info.component';
 import { NewsComponent } from './components/news/news.component';
-import { AboutComponent } from './components/about/about.component'
+import { AboutComponent } from './components/about/about.component';
+import { AddNewsComponent } from './components/add-news/add-news.component';
+import { ChangeNewsComponent } from './components/change-news/change-news.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {path: 'trangchu', component: HomeComponent, data: {breadcrumb:'Trang chủ'}},
@@ -23,10 +25,12 @@ const routes: Routes = [
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},
   {path: 'quenmatkhau', component: ForgotpasswordComponent},
-  {path: 'doimatkhau', component: ChangePassComponent},
-  {path: 'thongtintaikhoan', component: ChangeInfoComponent },
+  {path: 'doimatkhau', component: ChangePassComponent, canActivate: [AuthGuard]},
+  {path: 'thongtintaikhoan', component: ChangeInfoComponent, canActivate: [AuthGuard]},
   {path: '',component: HomeComponent},
-  {path: 'api', component: ApiComponent},
+  {path: 'admin/themtintuc', component: AddNewsComponent},
+  {path: 'admin/suatintuc', component: ChangeNewsComponent},
+  {path: 'admin', component: AdminComponent}
   // {
   //   path: '',
   //   children: [
