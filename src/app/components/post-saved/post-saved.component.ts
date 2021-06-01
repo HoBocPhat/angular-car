@@ -27,9 +27,20 @@ interface Cars{
 })
 export class PostSavedComponent implements OnInit {
   public cars: Cars[] = carsData;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onScroll() {
+    let scrollToTop = window.setInterval(() => {
+        let pos = window.pageYOffset;
+        if (pos > 0) {
+            window.scrollTo(0, pos - 100); // how far to scroll on each step
+        } else {
+            window.clearInterval(scrollToTop);
+        }
+    }, 16);
+  }
 }

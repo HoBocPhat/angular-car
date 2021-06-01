@@ -1,1 +1,20 @@
-<p>manage-post works!</p>
+<h2>Quản lý bài đăng</h2>
+<div class="courses-container" *ngFor = "let car of cars">
+	<div class="course">
+		<div class="course-preview">
+			<img src="{{car.img[0]}}">
+
+		</div>
+		<div class="course-info">
+      <h3>Hãng xe - Dòng xe - Năm sản xuất</h3>
+			<h3>Giá</h3>
+      <h6>Số km</h6>
+      <button class="cbtn" >Chỉnh sửa</button>
+			<button class="btn" >Đã bán</button>
+      <a href="#">Xem chi tiết </a>
+		</div>
+	</div>
+</div>
+
+
+<button class="floating-btn" (click)="onScroll()" >🠕</button>

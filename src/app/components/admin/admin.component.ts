@@ -34,25 +34,15 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  carsClick(){
-    if(this.carsDisplay === false){
-    this.carsDisplay = true;}
-    else {
-      this.carsDisplay = false;
-    }
-  }
-  usersClick(){
-    if(this.usersDisplay === false){
-      this.usersDisplay = true;}
-      else {
-        this.usersDisplay = false;
-      }
-  }
-  newsClick(){
-    if(this.newsDisplay === false){
-      this.newsDisplay = true;}
-      else {
-        this.newsDisplay = false;
-      }
+  panelOpenState = false;
+  onScroll() {
+    let scrollToTop = window.setInterval(() => {
+        let pos = window.pageYOffset;
+        if (pos > 0) {
+            window.scrollTo(0, pos - 100); // how far to scroll on each step
+        } else {
+            window.clearInterval(scrollToTop);
+        }
+    }, 16);
   }
 }

@@ -1,15 +1,12 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { MatDialogConfig, MatDialogRef } from "@angular/material/dialog";
-import { MatDialog } from '@angular/material/dialog';
-import { RecompriceComponent } from '../recomprice/recomprice.component';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: 'app-change-post',
+  templateUrl: './change-post.component.html',
+  styleUrls: ['./change-post.component.css']
 })
-export class PostComponent implements OnInit {
+export class ChangePostComponent implements OnInit {
   prosList: Array<any> = [
     { name: 'TP Hà Nội', dists: ['Quận Ba Đình', 'Quận Hoàn Kiếm', 'Quận Tây Hồ', 'Quận Long Biên', 'Quận Cầu Giấy', 'Quận Đống Đa', 'Quận Hai Bà Trưng', 'Quận Hoàng Mai', 'Quận Thanh Xuân', 'Huyện Sóc Sơn', 'Huyện Đông Anh', 'Huyện Gia Lâm', 'Quận Nam Từ Liêm', 'Huyện Thanh Trì', 'Quận Bắc Từ Liêm', 'Huyện Mê Linh', 'Quận Hà Đông', 'Thị xã Sơn Tây', 'Huyện Ba Vì', 'Huyện Phúc Thọ', 'Huyện Đan Phượng', 'Huyện Hoài Đức', 'Huyện Quốc Oai', 'Huyện Thạch Thất', 'Huyện Chương Mỹ', 'Huyện Thanh Oai', 'Huyện Thường Tín', 'Huyện Phú Xuyên', 'Huyện Ứng Hòa', 'Huyện Mỹ Đức'] },
     { name: 'Hà Giang', dists: ['Huyện Bắc Mê', 'Huyện Bắc Quang', 'Huyện Hoàng Su Phì', 'Huyện Đồng Văn', 'Huyện Mèo Vạc', 'Huyện Quản Bạ', 'Huyện Quang Bình', 'Huyện Vị Xuyên', 'Huyện Xin Mần', 'Huyện Yên Minh'] },
@@ -76,10 +73,9 @@ export class PostComponent implements OnInit {
     { name: 'Bạc Liêu', dists: ['TP Bạc Liêu', 'Huyện Hồng Dân', 'Huyện Phước Long', 'Huyện Vĩnh Lợi', 'Thị xã Giá Rai', 'Huyện Đông Hải', 'Huyện Hòa Bình', 'Huyện Thanh Bình'] },
     { name: 'Cà Mau', dists: ['TP Cà Mau', 'Huyện Thới Bình', 'Huyện U Minh', 'Huyện Trần Văn Thời', 'Huyện Cái Nước', 'Huyện Đầm Dơi', 'Huyện Ngọc Hiển', 'Huyện Năm Căn', 'Huyện Phú Tân'] },
   ];
-  dists !: Array<any>
-  postForm !: FormGroup;
+  dists !: Array<any>;
   count !: any;
-  priceDialogRef !: MatDialogRef<RecompriceComponent>;
+  postForm !: FormGroup;
   public brands = ['Acura', 'Alfa Romeo', 'Audi', 'Baic', 'Bentley', 'BMW', 'Brilliance', 'BYD', 'Cadillac',
     'Changan', 'Chery', 'Chevrolet', 'Chrysler', 'Daewoo', 'Daihatsu', 'Dodge', 'Dongfeng',
     'Ferrari', 'Fiat', 'Ford', 'Gaz', 'Geely', 'Haima', 'Hino', 'Honda', 'Hummer', 'Hyundai',
@@ -88,11 +84,8 @@ export class PostComponent implements OnInit {
     'MG', 'Mini', 'Mitsubishi', 'Nissan', 'Opel', 'Peugeot', 'Porsche', 'Proton', 'Ram', 'Renault',
     'Rolls-Royce', 'Samsung', 'Smart', 'Ssangyong', 'Subaru', 'Suzuki', 'Sym', 'Tesla', 'Thaco',
     'Tobe', 'Toyota', 'Uaz', 'Vinaxuki', 'Vinfast', 'Volkswagen', 'Volvo', 'Zotye', 'Hãng khác']
-  changePrice !: number
-  constructor(
-    private dialog: MatDialog,
-    private http: HttpClient,
-  ) { }
+  constructor() { }
+
   ngOnInit(): void {
     this.postForm = new FormGroup({
       phone: new FormControl(null,[
@@ -103,32 +96,14 @@ export class PostComponent implements OnInit {
         Validators.email
       ]
       ),
-      price: new FormControl(Number),
+      price: new FormControl(),
       name: new FormControl(),
       province : new FormControl(),
       color: new FormControl(),
       title: new FormControl(),
       seat: new FormControl(),
-      km: new FormControl(),
-      brand: new FormControl(),
+      km: new FormControl()
     })
-
-    // this.http.get("src/assets/data/post.json").subscribe(
-    //   data =>{
-    //     console.log(data);
-    //     this.posts = data;
-    //   }
-    // )
-  }
-  onRecommend() :void {
-    this.priceDialogRef = this.dialog.open(RecompriceComponent); // open dialog để nhập price recommend
-    this.priceDialogRef.afterClosed().subscribe(p => {// price là giá trị nhập vào
-      // received data from dialog-component
-     this.changePrice = p; // changePrice sẽ được gọi ra ở html
-      this.postForm.get('price')?.setValue(p);
-
-    })
-
   }
   onSubmit(){
     console.log(this.postForm.value)

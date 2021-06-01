@@ -22,6 +22,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,7 @@ import { NewsComponent } from './components/news/news.component';
 import { AboutComponent } from './components/about/about.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { ChangeNewsComponent } from './components/change-news/change-news.component';
+import { ChangePostComponent } from './components/change-post/change-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +74,7 @@ import { ChangeNewsComponent } from './components/change-news/change-news.compon
     AboutComponent,
     AddNewsComponent,
     ChangeNewsComponent,
+    ChangePostComponent,
 
   ],
   imports: [
@@ -101,7 +104,8 @@ import { ChangeNewsComponent } from './components/change-news/change-news.compon
     MatCheckboxModule,
     MatRadioModule,
     MatGridListModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

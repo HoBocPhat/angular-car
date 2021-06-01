@@ -1,73 +1,108 @@
-<h3 (click)="carsClick()">Danh sách bài bán xe</h3>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       <h4>Danh sách bán xe</h4>
+      </mat-panel-title>
 
-<table class="table table-striped" *ngIf = "carsDisplay" >
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Hãng xe</th>
-    <th>Dòng xe</th>
-    <th>Giá bán</th>
-    <th>Người bán</th>
-    <th>Khu vực</th>
-    <th>Tùy chỉnh</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let car of cars ">
-    <td>{{car.id}}</td>
-    <td>{{car.brand}}</td>
-    <td>{{car.model}}</td>
-    <td>{{car.price}}</td>
-    <td>{{car.name}}</td>
-    <td>{{car.area}}</td>
-    <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
-  </tr>
-  </tbody>
-</table>
+    </mat-expansion-panel-header>
+      <table class="table table-striped" >
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Hãng xe</th>
+          <th>Dòng xe</th>
+          <th>Giá bán</th>
+          <th>Người đăng</th>
+          <th>Khu vực</th>
+          <th>Tùy chỉnh</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let car of cars ">
+          <td>{{car.id}}</td>
+          <td>{{car.brand}}</td>
+          <td>{{car.model}}</td>
+          <td>{{car.price}}</td>
+          <td>{{car.name}}</td>
+          <td>{{car.area}}</td>
+          <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+        </tr>
+        </tbody>
+      </table>
+  </mat-expansion-panel>
+</mat-accordion>
 
-<h3 (click)="usersClick()">Danh sách người dùng</h3>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       <h4>Danh sách người dùng</h4>
+      </mat-panel-title>
 
-<table class="table table-striped" *ngIf = "usersDisplay" >
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Họ và tên</th>
-    <th>Email</th>
-    <th>Mật khẩu</th>
-    <th>Tùy chỉnh</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>ID</td>
-    <td>Họ và tên</td>
-    <td>Email</td>
-    <td>Mật khẩu</td>
-    <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
-  </tr>
-  </tbody>
-</table>
+    </mat-expansion-panel-header>
+    <table class="table table-striped" >
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Họ và tên</th>
+        <th>Email</th>
+        <th>Mật khẩu</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ thường trú</th>
+        <th>Tùy chỉnh</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>ID</td>
+        <td>Họ và tên</td>
+        <td>Email</td>
+        <td>Mật khẩu</td>
+        <td>Số điện thoại</td>
+        <td>Địa chỉ thường trú</td>
+        <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+      </tr>
+      </tbody>
+    </table>
+  </mat-expansion-panel>
+</mat-accordion>
 
-<h3 (click)="newsClick()">Danh sách tin tức</h3>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       <h4>Danh sách tin tức</h4>
+      </mat-panel-title>
 
-<table class="table table-striped" *ngIf = "newsDisplay" >
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Tiêu đề</th>
-    <th>Tác giả</th>
-    <th>Ngày đăng</th>
-    <th>Tùy chỉnh</th>
-    <button mat-raised-button routerLink='/admin/themtintuc'>Thêm tin tức</button>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>ID</td>
-    <td>Tiêu đề</td>
-    <td>Tác giả</td>
-    <td>Ngày đăng</td>
-    <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon><mdb-icon fas icon="pen" routerLink='/admin/suatintuc'></mdb-icon></td>
-  </tr>
-  </tbody>
-</table>
+    </mat-expansion-panel-header>
+    <table class="table table-striped"  >
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Tiêu đề</th>
+        <th>Tác giả</th>
+        <th>Ngày đăng</th>
+        <th>Tùy chỉnh</th>
+        <button mat-raised-button routerLink='/admin/themtintuc'>Thêm tin tức</button>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>ID</td>
+        <td>Tiêu đề</td>
+        <td>Tác giả</td>
+        <td>Ngày đăng</td>
+        <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon><mdb-icon fas icon="pen" routerLink='/admin/suatintuc'></mdb-icon></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<button class="floating-btn" (click)="onScroll()" >🠕</button>

@@ -7,8 +7,10 @@
   <p class="h5">Thông tin xe</p>
   <div class="divider"></div>
   <div class="form-group row"><p class="title" class="h6">Hãng xe *</p>
-  <select class="custom-select" id="brand" formControlName="brand">
-    <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
+  <select class="custom-select" id="brand">
+    <select class="custom-select" id="brand">
+      <option *ngFor="let brand of brands" value="">{{brand}}</option>
+    </select>
   </select>
   </div>
 
@@ -114,7 +116,7 @@
 
   <div class="form-group row"><p class="title" class="h6" >Giá *</p>
     <div>
-      <input type="number" class="form-control" value="{{changePrice}}" formControlName="price" >
+      <input type="number" class="form-control"  formControlName="price" >
     </div>
   </div>
 
@@ -179,12 +181,10 @@
       <p></p>
     </div>
   </div>
-</div>
+
 
   <!-- Sign in button -->
-  <button mdbBtn class="my-4 text-center" color="info" (click)="onRecommend()">Giá đề xuất</button>
-  <button mdbBtn class="my-4 text-center" color="info" [disabled]="!postForm.valid" type="submit" (click) ="onSubmit()">Đăng tin</button>
-
+  <button mdbBtn color="info" class="my-4 text-center" type="submit" (click) ="onSubmit()">Lưu</button>
+</div>
 
 </form>
-

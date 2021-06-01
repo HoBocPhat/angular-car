@@ -5,30 +5,27 @@
   font-family: Open Sans;
 } */
 
-section {
+/* section {
 	position:absolute;
    bottom:0;
 
   width: 100%;
   display: inline-block;
-  /* background: #455A64; */
   height: 50vh;
   text-align: center;
   font-size: 22px;
   font-weight: 700;
   text-decoration: underline;
-}
+} */
 
 .footer-distributed{
-	/* background: #455A64; */
-	/* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12); */
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
 	padding: 20px 50px;
 	margin-top: 70px;
-  background-color: #212642;
+  background-color: #142954;
 }
 .footer-distributed .footer-left .icon,
 .footer-distributed .footer-center .icon,
@@ -51,7 +48,7 @@ section {
 /* The company logo */
 
 .footer-distributed h3{
-	color:  #EC8B5E;
+	color:  #FFF;
 	font: normal 36px 'Open Sans', cursive;
 	margin: 0;
 }
@@ -63,7 +60,7 @@ section {
 /* Footer links */
 
 .footer-distributed .footer-links{
-	color:  #EC8B5E;
+	color:  #FFF;
 	margin: 20px 0 12px;
 	padding: 0;
 }
@@ -77,7 +74,7 @@ section {
 }
 
 .footer-distributed .footer-company-name{
-	color: #EC8B5E;
+	color: #FFF;
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
@@ -90,7 +87,7 @@ section {
 }
 
 .footer-distributed .footer-center i{
-  color: #fff;
+  color: #E39574;
 	font-size: 25px;
 	width: 38px;
 	height: 38px;
@@ -105,7 +102,7 @@ section {
 
 .footer-distributed .footer-center p{
 	display: inline-block;
-	color: #EC8B5E;
+	color: #FFF;
   font-weight:400;
 	vertical-align: middle;
 	margin:0;
@@ -121,7 +118,7 @@ section {
 .footer-distributed .footer-center .footer-left p a{
 	/* color:  lightseagreen; */
 	text-decoration: none;
-  color: #EC8B5E;
+  color: #FFF;
 }
 
 .footer-distributed .footer-links a:before {
@@ -129,7 +126,7 @@ section {
   font-weight:300;
   font-size: 20px;
   left: 0;
-  color: #EC8B5E;
+  color: #FFF;
   display: inline-block;
   padding-right: 5px;
 }
@@ -146,7 +143,7 @@ section {
 
 .footer-distributed .footer-company-about{
 	line-height: 20px;
-	color: #EC8B5E;
+	color: #FFF;
 	font-size: 13px;
 	font-weight: normal;
 	margin: 0;
@@ -154,7 +151,7 @@ section {
 
 .footer-distributed .footer-company-about span{
 	display: block;
-	color: #EC8B5E;
+	color: #FFF;
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 20px;
@@ -172,7 +169,7 @@ section {
 	/* background: #262626; */
 	border-radius: 2px;
 	font-size: 20px;
-	color: #EC8B5E;
+	color: #FFF;
   text-align: center;
 	line-height: 35px;
 
@@ -205,7 +202,7 @@ section {
 		margin-left: 0;
 	}
   a{
-    color: #EC8B5E;
+    color: #FFF;
   }
   /* .i {
     background-color: saddlebrown;
