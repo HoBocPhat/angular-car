@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import carsData from 'src/assets/file/car.json';
+import { AuthService } from 'src/app/_services/auth.service';
 interface Cars{
   id: number,
   brand: string,
@@ -26,9 +27,16 @@ interface Cars{
 })
 export class ManagePostComponent implements OnInit {
   public cars: Cars[] = carsData;
-  constructor() { }
+  public posts = [];
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.getAll_Posts().subscribe((data) =>{
+      this.posts = data;
+      console.log(this.posts)
+    }
+
+    )
   }
   onScroll() {
     let scrollToTop = window.setInterval(() => {
@@ -40,4 +48,8 @@ export class ManagePostComponent implements OnInit {
         }
     }, 16);
   }
+  // this.dataService.sendGetRequest().subscribe((data: any[])=>{
+  //   console.log(data);
+  //   this.products = data;
+  // })
 }

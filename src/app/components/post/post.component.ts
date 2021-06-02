@@ -87,8 +87,14 @@ export class PostComponent implements OnInit {
     'Lexus', 'Lifan', 'Lincoln', 'Luxgen', 'Maserati', 'Mazda', 'Mekong', 'Mercedes-Benz',
     'MG', 'Mini', 'Mitsubishi', 'Nissan', 'Opel', 'Peugeot', 'Porsche', 'Proton', 'Ram', 'Renault',
     'Rolls-Royce', 'Samsung', 'Smart', 'Ssangyong', 'Subaru', 'Suzuki', 'Sym', 'Tesla', 'Thaco',
-    'Tobe', 'Toyota', 'Uaz', 'Vinaxuki', 'Vinfast', 'Volkswagen', 'Volvo', 'Zotye', 'Hãng khác']
-  changePrice !: number
+    'Tobe', 'Toyota', 'Uaz', 'Vinaxuki', 'Vinfast', 'Volkswagen', 'Volvo', 'Zotye', 'Hãng khác'];
+  changePrice !: number;
+  public colors = ["-","Bạc","Cát","Ghi","Hồng","Kem","Nâu","Trắng","Vàng",
+                    "Xanh","Xám","Đen","Đỏ","Đồng","Nhiều màu","Màu khác"];
+  public years =["Trước 1990","1990","1991","1992","1993","1994","1995","1996","1997","1998","1999",
+                  "2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
+                  "2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"];
+
   constructor(
     private dialog: MatDialog,
     private http: HttpClient,

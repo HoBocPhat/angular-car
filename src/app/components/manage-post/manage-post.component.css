@@ -61,34 +61,32 @@ img {
 }
 
 
-.btn {
+.sold-btn {
   background-color: #35a65b;
 	border: 0;
 	border-radius: 50px;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	color: #fff;
-	font-size: 16px;
 	padding: 12px 25px;
 	position: absolute;
 	bottom: 20px;
 	right: 30px;
 	letter-spacing: 1px;
 }
-.btn:hover{
+.sold-btn:hover{
   background-color: #15bb4d;
 }
-.btn:active {
+.sold-btn:active {
   background-color: #2ba553;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transform: translateY(4px);
 }
 .cbtn{
-  background-color: #fbb549;
+  background-color: #f0970f;
   border: 0;
 	border-radius: 50px;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	color: #fff;
-	font-size: 16px;
 	padding: 12px 25px;
 	position: absolute;
 	bottom: 20px;
@@ -96,10 +94,10 @@ img {
 	letter-spacing: 1px;
 }
 .cbtn:hover{
-  background-color: #f0970f;
+  background-color: #fbb549;
 }
 .cbtn:active {
-  background-color: #f0970f;
+  background-color: #fbb549;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transform: translateY(4px);
 }

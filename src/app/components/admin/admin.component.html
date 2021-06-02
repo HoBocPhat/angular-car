@@ -12,25 +12,30 @@
         <tr>
           <th>Id</th>
           <th>Hãng xe</th>
-          <th>Dòng xe</th>
+          <th>Số km đã đi</th>
           <th>Giá bán</th>
+          <th>Tỉnh/Thành Phố</th>
+          <th>Liên hệ</th>
           <th>Người đăng</th>
-          <th>Khu vực</th>
+          <th>Thời gian đăng</th>
           <th>Tùy chỉnh</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let car of cars ">
-          <td>{{car.id}}</td>
-          <td>{{car.brand}}</td>
-          <td>{{car.model}}</td>
-          <td>{{car.price}}</td>
-          <td>{{car.name}}</td>
-          <td>{{car.area}}</td>
-          <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+        <tr *ngFor="let post of posts ">
+          <td>{{post.id}}</td>
+          <td>{{post.carBrand}}</td>
+          <td>{{post.carOdometer}}</td>
+          <td>{{post.carPrice}}</td>
+          <td>{{post.contactProvince}}</td>
+          <td>{{post.contactPhone}}</td>
+          <td>{{post.postedBy}}</td>
+          <td>{{post.createdAt}}</td>
+          <td><mdb-icon fas icon="trash-alt"></mdb-icon></td>
         </tr>
         </tbody>
       </table>
+      <button class="del-btn" (click) = "delAllPosts()">Xóa tất cả</button>
   </mat-expansion-panel>
 </mat-accordion>
 
@@ -63,10 +68,11 @@
         <td>Mật khẩu</td>
         <td>Số điện thoại</td>
         <td>Địa chỉ thường trú</td>
-        <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+        <td><mdb-icon fas icon="trash-alt"></mdb-icon></td>
       </tr>
       </tbody>
     </table>
+    <button class="del-btn" >Xóa tất cả</button>
   </mat-expansion-panel>
 </mat-accordion>
 
@@ -82,25 +88,27 @@
     <table class="table table-striped"  >
       <thead>
       <tr>
-        <th>Id</th>
+        <th>ID</th>
         <th>Tiêu đề</th>
         <th>Tác giả</th>
         <th>Ngày đăng</th>
+        <th>Ngày chỉnh sửa</th>
         <th>Tùy chỉnh</th>
-        <button mat-raised-button routerLink='/admin/themtintuc'>Thêm tin tức</button>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>ID</td>
-        <td>Tiêu đề</td>
-        <td>Tác giả</td>
-        <td>Ngày đăng</td>
-        <td><mdb-icon fas icon="eye"></mdb-icon><mdb-icon fas icon="trash-alt"></mdb-icon><mdb-icon fas icon="pen" routerLink='/admin/suatintuc'></mdb-icon></td>
+      <tr *ngFor="let news of newses">
+        <td>{{news.id}}</td>
+        <td>{{news.title}}</td>
+        <td>{{news.postedBy}}</td>
+        <td>{{news.createdAt}}/td>
+        <td>{{news.updatedAt}}</td>
+        <td><mdb-icon fas icon="trash-alt"></mdb-icon><mdb-icon routerLink='/admin/suatintuc' fas icon="pen" ></mdb-icon></td>
       </tr>
       </tbody>
     </table>
-
+    <button class="add-btn" routerLink="/admin/themtintuc">Thêm tin tức</button>
+    <button class="del-btn" >Xóa tất cả</button>
   </mat-expansion-panel>
 </mat-accordion>
 

@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 
 const AUTH_API = 'http://localhost:5000/api/auth/';
 const USER_API = 'http://localhost:5000/api/user/';
+const ADMIN_API = 'http://locoalhost:5000/api/admin';
+const POST_API = 'http://localhost:5000/api/post/';
+const NEWS_API = 'http://localhost:5000/api/news/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,5 +33,18 @@ export class AuthService {
       email,
       password
     }, httpOptions);
+  }
+  //Admin
+  getAll_Posts() : Observable<any> {
+    return this.http.get(POST_API + 'all',httpOptions);
+  }
+  getAllNews() : Observable<any> {
+    return this.http.get(NEWS_API + 'all',httpOptions);
+  }
+  delleteAll_Post(): Observable<any> {
+    return this.http.delete(ADMIN_API + 'post/deletall',httpOptions);
+  }
+  deleteAll_News(): Observable<any> {
+    return this.http.delete(ADMIN_API + 'news/deleteall',httpOptions);
   }
 }

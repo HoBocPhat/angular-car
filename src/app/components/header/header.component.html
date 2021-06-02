@@ -84,7 +84,7 @@
                  <div class="col-lg-3">
                   <div class="content">
                     <img src="{{postSrc}}" />
-                    <a routerLink='/dangthongtin'class="title">Đăng thông tin xe</a>
+                    <a routerLink='/banxe'class="title">Đăng thông tin xe</a>
                   </div>
                  </div>
                  <div class="col-lg-3">
@@ -128,10 +128,10 @@
               <a class="dropdown-item"><mdb-icon far icon="smile"></mdb-icon>{{tokenService.getUser().user.fullname}}</a>
               <a class="dropdown-item" routerLink='/thongtintaikhoan' >Chỉnh sửa thông tin cá nhân</a>
               <div class="divider dropdown-divider"></div>
-              <a class="dropdown-item" href="#"><mdb-icon fas icon="heart"></mdb-icon>Tin đã lưu</a>
-              <a class="dropdown-item" href="#"><mdb-icon far icon="bookmark"></mdb-icon>Quản lý bài đăng</a>
+              <a class="dropdown-item" routerLink='/bailuu'><mdb-icon fas icon="heart"></mdb-icon>Tin đã lưu</a>
+              <a class="dropdown-item"routerLink='/quanlybaidang'><mdb-icon far icon="bookmark"></mdb-icon>Quản lý bài đăng</a>
               <div class="divider dropdown-divider"></div>
-              <a class="dropdown-item" click='logout()' href="#"><mdb-icon fas icon="sign-out-alt"></mdb-icon>Đăng xuất</a>
+              <a class="dropdown-item" click='logout()'><mdb-icon fas icon="sign-out-alt"></mdb-icon>Đăng xuất</a>
             </div>
           </div>
         </a>

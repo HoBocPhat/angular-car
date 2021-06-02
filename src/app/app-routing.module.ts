@@ -15,6 +15,9 @@ import { AboutComponent } from './components/about/about.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { ChangeNewsComponent } from './components/change-news/change-news.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { PostSavedComponent } from './components/post-saved/post-saved.component';
+import { ManagePostComponent } from './components/manage-post/manage-post.component';
+import { ChangePostComponent } from './components/change-post/change-post.component';
 
 const routes: Routes = [
   {path: 'trangchu', component: HomeComponent, data: {breadcrumb:'Trang chủ'}},
@@ -27,6 +30,9 @@ const routes: Routes = [
   {path: 'quenmatkhau', component: ForgotpasswordComponent},
   {path: 'doimatkhau', component: ChangePassComponent, canActivate: [AuthGuard]},
   {path: 'thongtintaikhoan', component: ChangeInfoComponent, canActivate: [AuthGuard]},
+  {path: 'bailuu', component: PostSavedComponent, canActivate: [AuthGuard]},
+  {path: 'quanlybaidang', component: ManagePostComponent, canActivate: [AuthGuard]},
+  {path: 'suabaidang', component: ChangePostComponent,canActivate: [AuthGuard] },
   {path: '',component: HomeComponent},
   {path: 'admin/themtintuc', component: AddNewsComponent},
   {path: 'admin/suatintuc', component: ChangeNewsComponent},

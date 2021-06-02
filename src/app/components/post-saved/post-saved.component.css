@@ -61,23 +61,22 @@ img {
 }
 
 
-.btn {
+.del-btn {
 	background-color: #cc1525;
 	border: 0;
 	border-radius: 50px;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	color: #fff;
-	font-size: 16px;
 	padding: 12px 25px;
 	position: absolute;
 	bottom: 20px;
 	right: 30px;
 	letter-spacing: 1px;
 }
-.btn:hover{
+.del-btn:hover{
   background-color: #950000;
 }
-.btn:active {
+.del-btn:active {
   background-color: #950000;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transform: translateY(4px);
