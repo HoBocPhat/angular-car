@@ -4,35 +4,60 @@
       <input type="text" class="form-control" placeholder="Tìm kiếm" [(ngModel)]="filterTerm">
     </div>
     <div class="form-group">
-    <select class="custom-select" [(ngModel)] = 'SortbyParam'>
-      <option value="brand">Brand</option>
-      <option value="price">Price</option>
-      <option value="km">Km</option>
-    </select>
-    <button type="button" (click) = "onSortDirection()">
-      <i *ngIf="SortDirection==='asc'" class="fas fa-sort-alpha-up"></i>
-      <i *ngIf="SortDirection==='desc'" class="fas fa-sort-alpha-down"></i>
-    </button>
-  </div>
-
-  </div>
-  <div class="col-sm-9">
-    <div class="card" style="width: 280px;" *ngFor ="let car of cars | filter: filterTerm
-    | sort:[SortbyParam,SortDirection] | paginate: { id: 'listening_pagination',
-    itemsPerPage: 9,
-    currentPage: page,
-    totalItems: totalLength}">
-      <a routerLink=""><img class="card-img-top" src="{{car.img[0]}}" alt="Card image cap"></a>
-      <div class="card-body">
-        <h5 class="card-title"><a routerLink="">{{car.brand}} - {{car.model}} - {{car.year}}</a></h5>
-        <h6 class="card-text" class="price">{{car.price}} VND </h6>
-        <p class="card-text" class="km">{{car.km}} km</p>
-        <button href="#" class="button view">Xem</button>
-        <button class="button save">Lưu</button>
-      </div>
+      <select class="custom-select" [(ngModel)]='SortbyParam'>
+        <option value="brand">Brand</option>
+        <option value="price">Price</option>
+        <option value="km">Km</option>
+      </select>
+      <button type="button" (click)="onSortDirection()">
+        <i *ngIf="SortDirection==='asc'" class="fas fa-sort-alpha-down"></i>
+        <i *ngIf="SortDirection==='desc'" class="fas fa-sort-alpha-up"></i>
+      </button>
     </div>
   </div>
+
+
+
+  <div class="col-sm-9">
+    <div class="card" style="width: 280px;" *ngFor="let post of posts| filter: filterTerm
+    | sort:[SortbyParam,SortDirection] | paginate: { id: 'listening_pagination',
+      itemsPerPage: 9,
+      currentPage: page}">
+
+      <a routerLink=""><img class="card-img-top" src="#" alt="Card image cap"></a>
+
+      <div class="card-body">
+        <div class="card-content">
+          <h5 class="card-title"><a routerLink="/muaxe/{{post.slug}}">{{post.carBrand}}&nbsp;&nbsp;{{post.carYear}}</a></h5>
+          <p class="card-text" id="price" >Giá bán</p>
+          <h6 class="card-text" class="price">{{post.carPrice}} VND </h6>
+          <table>
+            <tr>
+              <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="users" class="user"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.carSeats}}</p></td>
+              <td><p class="card-text" class="info"><mdb-icon fas icon="tachometer-alt"></mdb-icon>&nbsp;&nbsp;{{post.carOdometer}} km</p></td>
+            </tr>
+            <tr>
+              <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.contactProvince}}</p></td>
+              <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{post.color}}</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="card-button">
+          <button href="#" class="view" routerLink="/muaxe/{{post.slug}}">Xem</button>
+          <button class="save">Lưu</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
 </div>
 <div class="pagination">
-  <pagination-controls id="listening_pagination" previousLabel="trước" nextLabel="sau" (pageChange)="page = $event"></pagination-controls>
+  <pagination-controls id="listening_pagination" previousLabel="trước" nextLabel="sau" (pageChange)="page = $event">
+  </pagination-controls>
 </div>
+
+<button class="floating-btn" (click)="onScroll()" >🠕</button>

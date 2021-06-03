@@ -1,0 +1,142 @@
+[
+  {
+    "brand": "Alfa-Romeo",
+    "img": "https://www.paylaterparts.co.uk/content/large/images/logos/alfa_romeo.jpg"
+  },
+  {
+    "brand": "Audi",
+    "img": "https://datxeviet.vn/uploads/audi-logo.png"
+  },
+  {
+    "brand": "Bentley",
+    "img": "https://allcarbrandslist.com/wp-content/uploads/2021/01/Logo-Bentley.png"
+  },
+  {
+    "brand": "BMW",
+    "img": "https://i2.wp.com/thinkmarketingmagazine.com/wp-content/uploads/2012/08/bmw-logo.png?ssl=1"
+  },
+  {
+    "brand": "Cadillac",
+    "img": "https://printgo.vn/uploads/file-logo/1/512x512.18f2d40cd13bceb54bf9333def03726d.ai.1.png"
+  },
+  {
+    "brand": "Chevrolet",
+    "img": "https://media3.scdn.vn/img3/2019/4_16/797KWP_simg_de2fe0_500x500_maxb.jpg"
+  },
+  {
+    "brand": "Ferrari",
+    "img": "https://baoloixe.com/wp-content/uploads/2018/10/logo-xe-ferrari-hien-nay.jpg"
+  },
+  {
+    "brand": "Ford",
+    "img": "https://logoart.vn/blog/wp-content/uploads/2013/02/thiet-ke-logo-dep-mat3.png"
+  },
+  {
+    "brand": "Honda",
+    "img": "https://muaxegiatot.vn/wp-content/uploads/2018/06/honda-logo-thumb-218x150.png"
+  },
+  {
+    "brand": "Hummer",
+    "img": "https://datxeviet.vn/uploads/hummer-logo.png"
+  },
+  {
+    "brand": "Huyndai",
+    "img": "https://listcarbrands.com/wp-content/uploads/2016/03/logo-Hyundai.png"
+  },
+  {
+    "brand": "Infiniti",
+    "img": "https://www.carlogos.org/logo/Infiniti-logo.png"
+  },
+  {
+    "brand": "Isuzu",
+    "img": "https://xeotogiadinh.com/wp-content/uploads/2018/02/Logo-Isuzu-1024x1768.jpg"
+  },
+  {
+    "brand": "Jaguar",
+    "img": "https://app.fixter.co.uk/car-logos/jaguar.png"
+  },
+  {
+    "brand": "Jeep",
+    "img": "https://www.locknmore.com/wp-content/uploads/2017/11/Jeep-logo.png"
+  },
+  {
+    "brand": "Kia",
+    "img": "https://png.pngitem.com/pimgs/s/141-1416543_kia-motors-logo-png-image-transparent-png.png"
+  },
+  {
+    "brand": "Lamborghini",
+    "img": "http://chothuexecuoihanoi.com/wp-content/uploads/2016/05/lich-su-va-y-nghia-logo-hang-xe-lamborghini-15.jpg"
+  },
+  {
+    "brand": "Landrover",
+    "img": "https://muaxegiatot.vn/wp-content/uploads/2018/06/land-rover-logo-thumb.png"
+  },
+  {
+    "brand": "Lexus",
+    "img": "https://thuviendohoa.vn/upload/images/items/logo-lexus-logo-xe-lexus-png-374.webp"
+  },
+  {
+    "brand": "Maserati",
+    "img": "https://www.logocentral.info/wp-content/uploads/2018/12/Maserati-Logo-240x180.jpg"
+  },
+  {
+    "brand": "Mazda",
+    "img": "https://bizweb.dktcdn.net/100/200/904/products/logo-mazda-v1.jpg?v=1528162950777"
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "img": "https://otomydinhthc.com/wp-content/uploads/2020/04/61vaohj7iblsx425.jpg"
+  },
+  {
+    "brand": "Mistubishi",
+    "img": "https://vienauto.com/wp-content/uploads/2019/01/Mitsubishi-logo.jpg"
+  },
+  {
+    "brand": "Nissan",
+    "img": "http://www.otophutung.net/wp-content/uploads/2020/05/nissan-logo.png"
+  },
+  {
+    "brand": "Peugeot",
+    "img": "https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_crop,f_auto,fl_lossy,x_170,y_66,w_613,h_460/w_784,h_588,c_fill/auto-client/ab97f13d3f5c812e1c94209a9283bcef/peugeot_logo_2021.jpg"
+  },
+  {
+    "brand": "Porsche",
+    "img": "https://xeotogiadinh.com/wp-content/uploads/2019/02/45326-Sticker-Porsche-Logo.png"
+  },
+  {
+    "brand": "Roll-Royce",
+    "img": "https://i.xeoto.com.vn/auto/rolls-royce/logo-rolls-royce.png"
+  },
+  {
+    "brand": "Suzuki",
+    "img": "http://www.otophutung.net/wp-content/uploads/2020/06/suzuki-logo.png"
+  },
+  {
+    "brand": "Sym",
+    "img": "https://cdn-0.motorcycle-logos.com/wp-content/uploads/2017/11/SYM-logo.png"
+  },
+  {
+    "brand": "Tesla",
+    "img": "http://car-logos.org/wp-content/uploads/2011/09/tesla.png"
+  },
+  {
+    "brand": "Thaco",
+    "img": "https://muabanxekhach.com.vn/wp-content/uploads/2020/02/gia-xe-thaco-bus-2020-379x282.jpg"
+  },
+  {
+    "brand": "Toyota",
+    "img": "http://www.otophutung.net/wp-content/uploads/2020/05/toyota-logo.png"
+  },
+  {
+    "brand": "Vinfast",
+    "img": "https://vinfasthaiphong.com.vn/wp-content/uploads/2020/10/logo-vinfast.png"
+  },
+  {
+    "brand": "Volkswagen",
+    "img": "https://logoxe.net/wp-content/uploads/2019/02/logo-of-volkswagen.jpg"
+  },
+  {
+    "brand": "Volvo",
+    "img": "https://www.brandsvietnam.com/upload/forum2/2016/03/9081Volvo2_1458881113.jpg"
+  }
+]

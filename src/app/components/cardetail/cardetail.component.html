@@ -1,40 +1,42 @@
 <div class="row">
 <div class="gallerize-example" class="col-sm-7">
 	<p class="container" gallerize>
-		<img *ngFor="let img of imageData; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
+		<img *ngFor="let img of images; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
 	</p>
   <div class="title">
-    <h4>Tiêu đề</h4>
-    <h6>Nội dung</h6>
+    <h4>{{post[0].title}}</h4>
+    <h6>{{post[0].postContent}}</h6>
   </div>
   <div class="car">
     <h5>Thông tin xe</h5>
     <div class="row">
       <div class="col-sm-6">
-        <p> <mdb-icon fas icon="car-alt"></mdb-icon>Hãng xe</p>
-        <p> <mdb-icon fas icon="palette"></mdb-icon>Màu xe</p>
-        <p> <mdb-icon fas icon="pallet"></mdb-icon>Xuất xứ</p>
-        <p> <mdb-icon fas icon="tachometer-alt"></mdb-icon>Số km</p>
+        <p> <mdb-icon fas icon="car-alt"></mdb-icon>{{post[0].carBrand}}</p>
+        <p> <mdb-icon fas icon="palette"></mdb-icon>{{post[0].carColor}}</p>
+        <p> <mdb-icon fas icon="pallet"></mdb-icon>{{post[0].carType}}</p>
+        <p> <mdb-icon fas icon="tachometer-alt"></mdb-icon>{{post[0].carOdometer}} km</p>
       </div>
       <div class="col-sm-6">
-        <p> <mdb-icon fas icon="tag"></mdb-icon>Dòng xe</p>
-        <p> <mdb-icon fas icon="calendar-alt"></mdb-icon>Năm sản xuất</p>
+        <p> <mdb-icon fas icon="tag"></mdb-icon>{{post[0].carModel}}</p>
+        <p> <mdb-icon fas icon="calendar-alt"></mdb-icon>{{post[0].carYear}}</p>
         <p> <mdb-icon fas icon="certificate"></mdb-icon>Tình trạng</p>
-        <p> <mdb-icon fas icon="users" class="user"></mdb-icon>Số ghế</p>
+        <p> <mdb-icon fas icon="users" class="user"></mdb-icon>{{post[0].carSeats}}</p>
       </div>
     </div>
   </div>
   <div class="location">
     <h5>Khu vực</h5>
-    <p><mdb-icon fas icon="map-marker-alt"></mdb-icon>quận/huyện, tỉnh/thành phố</p>
+    <p><mdb-icon fas icon="map-marker-alt"></mdb-icon>{{post[0].contactDistrict}}, {{post[0].contactProvince}}</p>
   </div>
 </div>
 <div class="col-sm-5">
-  <h2>Năm sản xuất - Hãng xe - Dòng xe</h2>
-  <h3 class="price">Giá xe</h3>
+  <h2>{{post[0].carYear}} - {{post[0].carBrand}} - {{post[0].carModel}}</h2>
+  <h3 class="price">{{post[0].carPrice}} VNĐ</h3>
   <div class="contact">
     <h5>Tên người bán</h5>
-    <h5>Số điện thoại</h5>
+    <h5>{{post[0].contactPhone}}</h5>
   </div>
 </div>
 </div>
+
+<button class="floating-btn" (click)="onScroll()" >🠕</button>

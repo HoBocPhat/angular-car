@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 const AUTH_API = 'http://localhost:5000/api/auth/';
 const USER_API = 'http://localhost:5000/api/user/';
-const ADMIN_API = 'http://locoalhost:5000/api/admin';
+const ADMIN_API = 'http://locoalhost:5000/api/admin/';
 const POST_API = 'http://localhost:5000/api/post/';
 const NEWS_API = 'http://localhost:5000/api/news/';
 
@@ -44,7 +44,15 @@ export class AuthService {
   delleteAll_Post(): Observable<any> {
     return this.http.delete(ADMIN_API + 'post/deletall',httpOptions);
   }
+
   deleteAll_News(): Observable<any> {
     return this.http.delete(ADMIN_API + 'news/deleteall',httpOptions);
+  }
+  deleteNews(id): Observable<any> {
+    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete')
+  }
+  // User
+  getDetailPost(slug): Observable<any> {
+    return this.http.get(POST_API + `${slug}`,httpOptions)
   }
 }

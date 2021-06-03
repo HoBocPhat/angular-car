@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
 
     this.tokenService.signOut();
     this.authService.isLoggedIn = false;
+    this.router.navigate(['/trangchu']);
   }
 
 }

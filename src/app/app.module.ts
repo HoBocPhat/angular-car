@@ -51,6 +51,8 @@ import { AboutComponent } from './components/about/about.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { ChangeNewsComponent } from './components/change-news/change-news.component';
 import { ChangePostComponent } from './components/change-post/change-post.component';
+import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +77,8 @@ import { ChangePostComponent } from './components/change-post/change-post.compon
     AddNewsComponent,
     ChangeNewsComponent,
     ChangePostComponent,
+    ResetPassComponent,
+    NewsDetailComponent,
 
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import carsData from 'src/assets/file/car.json';
 import { AuthService } from 'src/app/_services/auth.service';
+import { UserService } from 'src/app/_services/user.service';
 interface Cars{
   id: number,
   brand: string,
@@ -28,10 +29,11 @@ interface Cars{
 export class ManagePostComponent implements OnInit {
   public cars: Cars[] = carsData;
   public posts = [];
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private userService: UserService) { }
 
   ngOnInit(): void {
-    this.authService.getAll_Posts().subscribe((data) =>{
+    this.userService.getListPost().subscribe((data) =>{
       this.posts = data;
       console.log(this.posts)
     }

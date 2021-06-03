@@ -18,22 +18,26 @@ import { AdminComponent } from './components/admin/admin.component';
 import { PostSavedComponent } from './components/post-saved/post-saved.component';
 import { ManagePostComponent } from './components/manage-post/manage-post.component';
 import { ChangePostComponent } from './components/change-post/change-post.component';
+import { CardetailComponent } from './components/cardetail/cardetail.component';
+import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 
 const routes: Routes = [
   {path: 'trangchu', component: HomeComponent, data: {breadcrumb:'Trang chủ'}},
   {path: 'muaxe', component: CarsaleComponent, data: {breadcrumb:'Mua xe'}},
   {path: 'banxe', component: PostComponent, canActivate: [AuthGuard]},
+  {path: 'muaxe/:slug', component: CardetailComponent},
   {path: 'tintuc', component: NewsComponent},
   {path: 'vechungtoi', component: AboutComponent },
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},
   {path: 'quenmatkhau', component: ForgotpasswordComponent},
+  {path: 'quenmatkhau/matkhaumoi', component: ResetPassComponent},
   {path: 'doimatkhau', component: ChangePassComponent, canActivate: [AuthGuard]},
   {path: 'thongtintaikhoan', component: ChangeInfoComponent, canActivate: [AuthGuard]},
   {path: 'bailuu', component: PostSavedComponent, canActivate: [AuthGuard]},
   {path: 'quanlybaidang', component: ManagePostComponent, canActivate: [AuthGuard]},
   {path: 'suabaidang', component: ChangePostComponent,canActivate: [AuthGuard] },
-  {path: '',component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'admin/themtintuc', component: AddNewsComponent},
   {path: 'admin/suatintuc', component: ChangeNewsComponent},
   {path: 'admin', component: AdminComponent}

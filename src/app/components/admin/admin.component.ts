@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import carsData from 'src/assets/file/car.json';
 import { AuthService } from 'src/app/_services/auth.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 interface Posts{
   id: string,
   carBrand: string,
@@ -12,7 +13,8 @@ interface Posts{
   postContent: string,
   contactPhone: string,
   postedBy: string,
-  slug: string
+  slug: string,
+  imgPost: any
 }
 interface Newses{
   content: string,
@@ -32,10 +34,12 @@ interface Newses{
 export class AdminComponent implements OnInit {
   public posts !: Posts[];
   public newses !: Newses[];
+  public currentNews !: Newses [];
   public carsDisplay = false;
   public usersDisplay = false;
   public newsDisplay = false;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     this.authService.getAll_Posts().subscribe((data) =>{
@@ -46,6 +50,7 @@ export class AdminComponent implements OnInit {
       this.newses = data;
       console.log(this.newses)
     })
+
   }
 
 
@@ -61,6 +66,9 @@ export class AdminComponent implements OnInit {
     }, 16);
   }
   delAllPosts() {
-    this.authService.delleteAll_Post();
+    this.authService.delleteAll_Post()
+  }
+  delNews(id) {
+    this.authService.deleteNews(this.currentNews)
   }
 }

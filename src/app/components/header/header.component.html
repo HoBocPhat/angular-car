@@ -119,7 +119,7 @@
       <li class="nav-item" id="user" *ngIf="authService.isLoggedIn" >
         <mat-icon>face</mat-icon>
       </li>
-      <li class="nav-item" routerLink="/thongtincanhan"*ngIf="authService.isLoggedIn" >
+      <li class="nav-item" *ngIf="authService.isLoggedIn" >
         <!-- <i><mat-icon>face</mat-icon></i> -->
         <a class="nav-link">
           <div class="btn-group" mdbDropdown>
@@ -131,7 +131,7 @@
               <a class="dropdown-item" routerLink='/bailuu'><mdb-icon fas icon="heart"></mdb-icon>Tin đã lưu</a>
               <a class="dropdown-item"routerLink='/quanlybaidang'><mdb-icon far icon="bookmark"></mdb-icon>Quản lý bài đăng</a>
               <div class="divider dropdown-divider"></div>
-              <a class="dropdown-item" click='logout()'><mdb-icon fas icon="sign-out-alt"></mdb-icon>Đăng xuất</a>
+              <a class="dropdown-item"  (click)='logout()'><mdb-icon fas icon="sign-out-alt"></mdb-icon>Đăng xuất</a>
             </div>
           </div>
         </a>
