@@ -1,33 +1,35 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
+    <li class="breadcrumb-item"><a routerLink='/admin'>Admin</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Chỉnh sửa tin tức</li>
+  </ol>
+</nav>
+
 <form class=" border p-5 " [formGroup]="changeNews" >
   <div class="container">
     <p class="h5">Tin tức</p>
     <div class="divider"></div>
     <div class="form-group row" ><p class="title" class="h6">Tiêu đề</p>
       <div>
-        <input type="text"  class="form-control" value="" >
+        <input type="text" class="form-control" formControlName="title" value="{{news['article'].title}}" placeholder=" {{news['article'].title}}">
       </div>
     </div>
 
     <div class="form-group row" ><p class="title" class="h6">Nội dung</p>
       <div>
-        <textarea  class="form-control"value=""></textarea>
-      </div>
-    </div>
-    <div class="form-group row" ><p class="title" class="h6">Tải ảnh lên *</p>
-      <div>
-        <input type="file" class="form-control" formControlName="img" value="">
-        <p></p>
+        <textarea class="form-control"  formControlName="content" value="{{news['article'].content}}" placeholder=" {{news['article'].content}}"></textarea>
       </div>
     </div>
     <div class="form-group row" ><p class="title" class="h6">Tác giả</p>
       <div>
-        <input type="text" class="form-control" value="">
+        <input type="text" formControlName="author" value=""  placeholder=" {{news['authorName']}}" class="form-control" value="">
         <p></p>
       </div>
     </div>
 
     <div class="form-group row" ><p class="title" class="h6">Ngày đăng</p>
-        <p class="day">31/5/2021</p>
+        <p class="form-control" formControlName = "createdDate">{{news['article'].createdAt}}</p>
     </div>
   </div>
   <button mdbBtn class="my-4 text-center" type="submit" (click)="onSubmit()" >Sửa </button>

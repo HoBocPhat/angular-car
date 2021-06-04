@@ -1,40 +1,48 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
+    <li class="breadcrumb-item"><a routerLink='/muaxe'>Mua xe</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{post['data'].title}}</li>
+  </ol>
+</nav>
+
 <div class="row">
 <div class="gallerize-example" class="col-sm-7">
 	<p class="container" gallerize>
 		<img *ngFor="let img of images; let first = first" [src]="img.srcUrl" [class.first-item]="first" >
 	</p>
   <div class="title">
-    <h4>{{post[0].title}}</h4>
-    <h6>{{post[0].postContent}}</h6>
+    <h4>{{post['data'].title}}</h4>
+    <h6>{{post['data'].postContent}}</h6>
   </div>
   <div class="car">
     <h5>Thông tin xe</h5>
     <div class="row">
       <div class="col-sm-6">
-        <p> <mdb-icon fas icon="car-alt"></mdb-icon>{{post[0].carBrand}}</p>
-        <p> <mdb-icon fas icon="palette"></mdb-icon>{{post[0].carColor}}</p>
-        <p> <mdb-icon fas icon="pallet"></mdb-icon>{{post[0].carType}}</p>
-        <p> <mdb-icon fas icon="tachometer-alt"></mdb-icon>{{post[0].carOdometer}} km</p>
+        <p> <mdb-icon fas icon="car-alt"></mdb-icon>{{post['data'].carBrand}}</p>
+        <p> <mdb-icon fas icon="palette"></mdb-icon>{{post['data'].carColor}}</p>
+        <p> <mdb-icon fas icon="pallet"></mdb-icon>{{post['data'].carType}}</p>
+        <p> <mdb-icon fas icon="tachometer-alt"></mdb-icon>{{post['data'].carOdometer}} km</p>
       </div>
       <div class="col-sm-6">
-        <p> <mdb-icon fas icon="tag"></mdb-icon>{{post[0].carModel}}</p>
-        <p> <mdb-icon fas icon="calendar-alt"></mdb-icon>{{post[0].carYear}}</p>
+        <p> <mdb-icon fas icon="tag"></mdb-icon>{{post['data'].carModel}}</p>
+        <p> <mdb-icon fas icon="calendar-alt"></mdb-icon>{{post['data'].carYear}}</p>
         <p> <mdb-icon fas icon="certificate"></mdb-icon>Tình trạng</p>
-        <p> <mdb-icon fas icon="users" class="user"></mdb-icon>{{post[0].carSeats}}</p>
+        <p> <mdb-icon fas icon="users" class="user"></mdb-icon>{{post['data'].carSeats}}</p>
       </div>
     </div>
   </div>
   <div class="location">
     <h5>Khu vực</h5>
-    <p><mdb-icon fas icon="map-marker-alt"></mdb-icon>{{post[0].contactDistrict}}, {{post[0].contactProvince}}</p>
+    <p><mdb-icon fas icon="map-marker-alt"></mdb-icon>{{post['data'].contactDistrict}}, {{post['data'].contactProvince}}</p>
   </div>
 </div>
 <div class="col-sm-5">
-  <h2>{{post[0].carYear}} - {{post[0].carBrand}} - {{post[0].carModel}}</h2>
-  <h3 class="price">{{post[0].carPrice}} VNĐ</h3>
+  <h2>{{post['data'].carYear}} - {{post['data'].carBrand}} - {{post['data'].carModel}}</h2>
+  <h3 class="price">{{post['data'].carPrice}} VNĐ</h3>
   <div class="contact">
-    <h5>Tên người bán</h5>
-    <h5>{{post[0].contactPhone}}</h5>
+    <h5>{{post['userName']}}</h5>
+    <h5>{{post['data'].contactPhone}}</h5>
   </div>
 </div>
 </div>

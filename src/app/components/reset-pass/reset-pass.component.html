@@ -1,3 +1,12 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
+    <li class="breadcrumb-item"><a routerLink='/dangnhap'>Đăng nhập</a></li>
+    <li class="breadcrumb-item"><a routerLink='/quenmatkhau'>Xác thực</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Reset mật khẩu</li>
+  </ol>
+</nav>
+
 <form class="text-center border border-light p-5" [formGroup]="resetForm" (ngSubmit)="onSubmit()">
 
   <p class="h4 mb-4">Đổi mật khẩu</p>

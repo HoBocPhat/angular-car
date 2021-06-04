@@ -1,3 +1,10 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Admin</li>
+  </ol>
+</nav>
+
 <mat-accordion>
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
@@ -103,7 +110,7 @@
         <td>{{news.postedBy}}</td>
         <td>{{news.createdAt}}/td>
         <td>{{news.updatedAt}}</td>
-        <td><mdb-icon fas icon="trash-alt"></mdb-icon><mdb-icon routerLink='/admin/suatintuc' fas icon="pen" ></mdb-icon></td>
+        <td><mdb-icon fas icon="trash-alt" (click)="delNews(news.id)"></mdb-icon><mdb-icon routerLink='/admin/{{news.slug}}' fas icon="pen" ></mdb-icon></td>
       </tr>
       </tbody>
     </table>

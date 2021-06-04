@@ -49,10 +49,18 @@ export class AuthService {
     return this.http.delete(ADMIN_API + 'news/deleteall',httpOptions);
   }
   deleteNews(id): Observable<any> {
-    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete')
+    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete',httpOptions);
   }
+  upNews(id): Observable<any> {
+    return this.http.put(ADMIN_API + 'news/' + `${id}` + '/edit', httpOptions);
+  }
+  getDetailNews(slug): Observable<any> {
+    return this.http.get(NEWS_API + `${slug}`,httpOptions);
+  }
+
   // User
   getDetailPost(slug): Observable<any> {
-    return this.http.get(POST_API + `${slug}`,httpOptions)
+    return this.http.get(POST_API + `${slug}`,httpOptions);
   }
+
 }

@@ -4,26 +4,7 @@ import { Gallery, GalleryItem } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-interface Post{
-  id: string,
-  carBrand: string,
-  carType: string,
-  carModel: string,
-  carSeats: string,
-  carColor: string,
-  carYear: string,
-  carOdometer: number,
-  carPrice: number,
-  contactDistrict: string,
-  contactProvince: string,
-  createdAt: string,
-  postContent: string,
-  contactPhone: string,
-  postedBy: any,
-  slug: string,
-  postImage: any,
-  title: string,
-}
+
 interface imageData {
   srcUrl: string
 }
@@ -35,7 +16,7 @@ interface imageData {
 
 })
 export class CardetailComponent implements OnInit {
-  public post !: Post; // xóa
+  public post : any; // xóa
   // imgCollection:  //xóa
   imgCollection = data;
   images : imageData [] = [];
@@ -52,16 +33,16 @@ export class CardetailComponent implements OnInit {
   lightboxRef.load(this.items);
   }
   getPost(slug) { this.authService.getDetailPost(slug).subscribe((data) => {
-      this.post=data;
-       console.log(this.post[0].postImage.length);
+      this.post = data
+       console.log(this.post['data']);
        this.getImage();
      })
 
   }
   getImage() {
-    for (var i = 0; i < this.post[0].postImage.length; i++)
+    for (var i = 0; i < this.post['data'].postImage.length; i++)
     {
-      var image : imageData = {srcUrl: this.post[0].postImage[i].image }
+      var image : imageData = {srcUrl: this.post['data'].postImage[i].image }
       this.images.push(image)
     }
     console.log(this.images)

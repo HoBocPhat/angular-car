@@ -66,9 +66,11 @@ export class AdminComponent implements OnInit {
     }, 16);
   }
   delAllPosts() {
-    this.authService.delleteAll_Post()
+    this.authService.delleteAll_Post();
   }
   delNews(id) {
-    this.authService.deleteNews(this.currentNews)
+    this.authService.deleteNews(id).subscribe((response) => {
+      console.log(response)
+    });
   }
 }
