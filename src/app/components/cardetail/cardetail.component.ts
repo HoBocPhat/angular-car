@@ -16,9 +16,7 @@ interface imageData {
 
 })
 export class CardetailComponent implements OnInit {
-  public post : any; // xóa
-  // imgCollection:  //xóa
-  imgCollection = data;
+  public post : any;
   images : imageData [] = [];
   items !: GalleryItem[];
   // image !: imageData ;//tất cả ảnh của một xe cái này được gọi ở html
@@ -57,27 +55,7 @@ export class CardetailComponent implements OnInit {
         }
     }, 16);
   }
+
 }
 
-const data = [
-  {
-    srcUrl: 'assets/car_img/car.jpg',
-    // previewUrl:  'assets/car_img/car.jpg'
-  },
-  {
-    srcUrl: 'assets/car_img/car.jpg',
-    // previewUrl: 'assets/car_img/car.jpg'
-  },
-  {
-    srcUrl: 'assets/car_img/car.jpg',
-    // previewUrl: 'assets/car_img/car.jpg'
-  },
-  {
-    srcUrl: 'assets/car_img/car.jpg',
-    // previewUrl: 'assets/car_img/car.jpg'
-  },
-  {
-    srcUrl: 'assets/car_img/car.jpg',
-    // previewUrl: 'assets/car_img/car.jpg'
-  }
-]; // xóa cái này để lấy data thử th
+

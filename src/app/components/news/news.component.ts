@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from 'src/app/_services/auth.service';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
-
+  getNews() {
+    this.authService.getAllNews().subscribe(data => {console.log(data)})
+  }
 }

@@ -11,6 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class RecompriceComponent implements OnInit {
   recommendForm !: FormGroup;
+  setPrice !: number;
   priceRe = this.priceService.price; // gán giá trị để placeholder
   constructor(
     private priceService: PriceService,

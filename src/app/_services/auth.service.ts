@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 const AUTH_API = 'http://localhost:5000/api/auth/';
 const USER_API = 'http://localhost:5000/api/user/';
@@ -9,15 +10,17 @@ const POST_API = 'http://localhost:5000/api/post/';
 const NEWS_API = 'http://localhost:5000/api/news/';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({
+                            'Content-Type': 'application/json' } )
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isLoggedIn = false;
-  constructor(private http: HttpClient) { }
+  isLoggedIn !: boolean;
+  constructor(private http: HttpClient,
+              private tokenService: TokenStorageService) { }
 
   login(email: string, password: string): Observable<any> {
     this.isLoggedIn = true;
@@ -49,7 +52,7 @@ export class AuthService {
     return this.http.delete(ADMIN_API + 'news/deleteall',httpOptions);
   }
   deleteNews(id): Observable<any> {
-    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete',httpOptions);
+    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete');
   }
   upNews(id): Observable<any> {
     return this.http.put(ADMIN_API + 'news/' + `${id}` + '/edit', httpOptions);
@@ -57,10 +60,33 @@ export class AuthService {
   getDetailNews(slug): Observable<any> {
     return this.http.get(NEWS_API + `${slug}`,httpOptions);
   }
-
+  createNews (title: string, content: string, image: string): Observable <any> {
+    return this.http.post(ADMIN_API + 'news/create',{
+      title,
+      content,
+      image
+    }, httpOptions);
+  }
   // User
   getDetailPost(slug): Observable<any> {
     return this.http.get(POST_API + `${slug}`,httpOptions);
   }
-
+  savePost(id) : Observable<any> {
+    return this.http.post(USER_API + 'saved/' + `${id}` , httpOptions)
+  }
+  getSavedPost() : Observable<any> {
+    return this.http.get(USER_API + 'saved/list',httpOptions);
+  }
+  removeSavedPost(id) : Observable<any> {
+    return this.http.put(USER_API + 'saved/remove/' + `${id}`, httpOptions);
+  }
+  createNewPost (title: string, contactProvince: string, contactDistric: string,
+                contactPhone: string, postContent: string, carType: string, carBrand: string,
+                carModel: string, carSeat: number, carColor: string, carOdometer: number,
+                carYear: number, carPrice: number, image: any) : Observable<any>{
+      return this.http.post (USER_API + 'post/create', {
+        title, contactProvince, contactDistric, contactPhone, postContent, carType, carBrand,
+        carModel, carSeat, carColor, carOdometer, carYear, carPrice, image
+      }, httpOptions)
+  }
 }

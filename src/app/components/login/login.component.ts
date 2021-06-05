@@ -30,11 +30,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  // if (this.tokenStorage.getToken()) {
-  //   // this.authService.isLoggedIn = true;
-  //   this.roles = this.tokenStorage.getUser().roles;
 
-  // }
   this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
   this.loginForm = new FormGroup({
     email: new FormControl(null,[
@@ -47,17 +43,7 @@ export class LoginComponent implements OnInit {
     ])
   })
 }
-  // gotoSignup() {
-  //   this.router.navigate(["dangky"]);
-  // }
-  // onSubmit() {
-  //   console.log(this.loginForm.value);
-  //   const loginData = new LoginData(this.loginForm.value.name, this.loginForm.value.password);
-  //   this.authenticationService.authenticate(loginData);
-  //   this.authenticationService.login(this.loginForm.value).pipe(
-  //     map(token => this.router.navigate(['/trangchu']))
-  //   ).subscribe();
-  // }
+
   onSubmit(): void {
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
@@ -65,20 +51,12 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenStorage.saveToken(data.userToken);
         this.tokenStorage.saveUser(data);
-
+        this.tokenStorage.getToken();
 
         this.roles = this.tokenStorage.getUser().roles;
+        console.log(data)
         this.reloadPage();
       },
-  //     // err => {
-  //     //   this.errorMessage = err.error.message;
-  //     //   this.isLoginFailed = true;
-  //     // }
-  //   //   const loginData = new LoginData(this.loginForm.value.name, this.loginForm.value.password);
-  //   //   this.authenticationService.authenticate(loginData);
-  //   //   this.authenticationService.login(this.loginForm.value).pipe(
-  //   //   map(token => this.router.navigate(['/trangchu']))
-  //   // ).subscribe();
     );
 
   }

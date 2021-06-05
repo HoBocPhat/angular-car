@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import carsData from 'src/assets/file/car.json';
 // import { GridComponent, FilterService, FilterType } from '@syncfusion/ej2-angular-grids';
 import { AuthService } from 'src/app/_services/auth.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 interface Posts{
   id: string,
   carBrand: string,
@@ -35,7 +36,9 @@ export class CarsaleComponent implements OnInit {
   filterTerm !: string;
   SortbyParam = '';
   SortDirection = 'asc';
-  constructor( private authService: AuthService
+  token !: any;
+  constructor( private authService: AuthService,
+              private tokenService: TokenStorageService,
 
   ) {
    }
@@ -45,8 +48,8 @@ export class CarsaleComponent implements OnInit {
       this.posts = data;
       console.log(data)
     })
-
-
+    console.log(this.tokenService.getToken())
+    this.token = this.tokenService.getToken();
   }
   onSortDirection() {
     if (this.SortDirection === 'desc') {
@@ -64,6 +67,11 @@ export class CarsaleComponent implements OnInit {
             window.clearInterval(scrollToTop);
         }
     }, 16);
+  }
+  savePost(id) {
+    this.authService.savePost(id).subscribe(data => {
+      console.log(data);
+    })
   }
 }
 

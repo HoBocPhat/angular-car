@@ -6,19 +6,23 @@
 </nav>
 
 <h2>Tin đã lưu</h2>
-<div class="courses-container" *ngFor = "let car of cars">
+<div class="courses-container" *ngFor = "let post of posts">
 	<div class="course">
 		<div class="course-preview">
-			<img src="{{car.img[0]}}">
+			<img src="{{post.postImage[0].image}}">
 
 		</div>
 		<div class="course-info">
-      <h3>Hãng xe - Dòng xe - Năm sản xuất</h3>
-			<h3>Giá</h3>
-      <h6>Số km</h6>
-			<button class="del-btn" >Xóa</button>
-      <a href="#">Xem chi tiết </a>
+      <h3>{{post.carBrand}} - {{post.carModel}} - {{post.carYear}}</h3>
+			<h3>{{post.carPrice}} VNĐ</h3>
+      <h6>{{post.carOdometer}} km</h6>
+			<button class="del-btn" (click)="removeSavePost(post.id)">Xóa</button>
+      <a routerLink="/muaxe/{{post.slug}}">Xem chi tiết </a>
 		</div>
 	</div>
 </div>
 <button class="floating-btn" (click)="onScroll()" >🠕</button>
+
+<!-- <div class="alert" [class.visible]="isVisible">
+ Xóa bài thành công
+</div> -->

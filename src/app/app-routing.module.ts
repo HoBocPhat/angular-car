@@ -22,9 +22,9 @@ import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 
 const routes: Routes = [
-  {path: 'trangchu', component: HomeComponent, data: {breadcrumb:'Trang chủ'} },
-  {path: 'muaxe', component: CarsaleComponent,data: {breadcrumb:'Mua xe'}},
-  {path: 'banxe', component: PostComponent, canActivate: [AuthGuard]},
+  {path: 'trangchu', component: HomeComponent },
+  {path: 'muaxe', component: CarsaleComponent},
+  {path: 'banxe', component: PostComponent},
   {path: 'muaxe/:slug', component: CardetailComponent},
   {path: 'tintuc', component: NewsComponent},
   {path: 'vechungtoi', component: AboutComponent },

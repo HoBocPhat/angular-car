@@ -104,19 +104,25 @@ export class PostComponent implements OnInit {
       phone: new FormControl(null,[
         Validators.required
       ]),
-      email: new FormControl(null,[
-        Validators.required,
-        Validators.email
-      ]
-      ),
-      price: new FormControl(Number),
-      name: new FormControl(),
+      // email: new FormControl(null,[
+      //   Validators.required,
+      //   Validators.email
+      // ]
+      // ),
+      price: new FormControl(),
+      // name: new FormControl(),
       province : new FormControl(),
+      district : new FormControl(),
       color: new FormControl(),
       title: new FormControl(),
       seat: new FormControl(),
       km: new FormControl(),
       brand: new FormControl(),
+      model: new FormControl(),
+      year: new FormControl(),
+      type: new FormControl(),
+      content: new FormControl(),
+      image: new FormControl()
     })
 
     // this.http.get("src/assets/data/post.json").subscribe(
@@ -130,15 +136,14 @@ export class PostComponent implements OnInit {
     this.priceDialogRef = this.dialog.open(RecompriceComponent); // open dialog để nhập price recommend
     this.priceDialogRef.afterClosed().subscribe(p => {// price là giá trị nhập vào
       // received data from dialog-component
-     this.changePrice = p; // changePrice sẽ được gọi ra ở html
-      this.postForm.get('price')?.setValue(p);
+     this.changePrice = + p; // changePrice sẽ được gọi ra ở html
+      this.postForm.get('price')?.setValue(this.changePrice);
 
     })
 
   }
   onSubmit(){
     console.log(this.postForm.value)
-    console.log((this.postForm.get('price')?.value))
   }
   changePros(count) {
     this.dists = this.prosList.find(con => con.name == count).dists;//thay đổi quận huyện khi chọn tỉnh khác

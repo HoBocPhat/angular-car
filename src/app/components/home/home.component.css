@@ -2,6 +2,54 @@
   margin: auto;
 }
 
+/* container component */
+.carousel_container {
+  margin-top: 100px;
+}
+#carousel_container_b {
+  margin-top: 230px;
+}
+
+.carousel_container .link_all {
+  float: right;
+}
+
+.carousel_container_1 {
+  margin-top: 50px;
+  clear: both;
+}
+
+.carousel_container_2 {
+  margin-top: 50px;
+  margin-bottom: 50px
+}
+
+.carousel_container h1 {
+  text-align: justify;
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+  font-weight: bold;
+}
+span {
+  text-align: justify;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: bold;
+}
+.sp_1 {
+  margin-right: 50px;
+}
+.sp_2 {
+  margin-right: 10px;
+}
+.carousel-cell h1 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+
+/* logo */
 .logo {
   text-align: center;
 }
@@ -20,9 +68,11 @@
 
 
 
+/* Search bar */
 .search {
   margin-top: 100px;
   text-align: center;
+  margin-bottom: 100px;
 }
 
 .search table {
@@ -72,64 +122,41 @@
 
 
 
-
-
-
-
-.carousel_container {
-  margin-top: 100px;
-}
-#carousel_container_a {
-  margin-top: 330px;
+/* Search result */
+.More-Search {
+  display: none;
 }
 
-.carousel_container .link_all {
+.carousel-cell_a{
+  display: inline-block;
+}
+#card-img_c {
+  position: relative;
+}
+#card-body_a {
+  position: relative;
+}
+.pagination{
   float: right;
-}
-
-.carousel_container_1 {
-  margin-top: 50px;
-}
-
-.carousel_container_2 {
-  margin-top: 50px;
-  margin-bottom: 50px
-}
-
-.carousel_container h1 {
-  text-align: justify;
-  font-size: 30px;
-  font-weight: 500;
-  color: #333;
-  font-weight: bold;
-}
-span {
-  text-align: justify;
-  font-size: 15px;
-  line-height: 1.7;
-  font-weight: bold;
-}
-.sp_1 {
+  margin-top: 30px;
   margin-right: 50px;
+  font-weight: bold;
+  color: white;
 }
-.sp_2 {
-  margin-right: 10px;
+.search_span {
+  color: dodgerblue;
+  font-weight: bold;
+  font-size: 30px;
 }
-.carousel-cell h1 {
-  margin-bottom: 50px;
-  text-align: center;
+#carousel_container_a h1 {
+  margin-left: 28px;
 }
 
 
 
 
 
-
-
-
-
-
-
+/* Card chung */
 .card {
   display: inline-flex;
   width: 300px;
@@ -170,7 +197,6 @@ span {
   z-index: 2;
 }
 
-
 .card-body {
   height: 100%;
   width: 100%;
@@ -183,7 +209,6 @@ span {
 
 .card-body .card-content {
   display: block;
-  margin-bottom: 100px;
   padding-bottom: 20px;
 }
 
@@ -222,6 +247,10 @@ span {
   margin: 0px;
 }
 
+
+
+
+/* Hãng xe */
 #card {
   width: 250px;
   height: 250px;
@@ -251,7 +280,7 @@ span {
 
 
 
-
+/* Các bước mua/bán xe */
 #card_1 {
   width: 1090px;
   height: 253px;
@@ -324,7 +353,7 @@ span {
 
 
 
-
+/* Button Scroll */
 .floating-btn {
 	border-radius: 30px;
 	background-color: #142954;
@@ -346,3 +375,7 @@ span {
 	color: #142954;
 }
 
+
+.floating-btn:focus {
+	outline: none;
+}

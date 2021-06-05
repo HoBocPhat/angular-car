@@ -1,24 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import carsData from 'src/assets/file/car.json';
-interface Cars{
-  id: number,
-  brand: string,
-  model: string,
-  color:string,
-  year: number,
-  imp_exp: string,
-  type: string,
-  km: number,
-  seat: number,
-  price: number,
-  area: string,
-  name: string,
-  phone: string,
-  email: string,
-  title: string,
-  content: string,
-  img: any;
-}
+import { AuthService } from 'src/app/_services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-post-saved',
@@ -26,11 +9,20 @@ interface Cars{
   styleUrls: ['./post-saved.component.css']
 })
 export class PostSavedComponent implements OnInit {
-  public cars: Cars[] = carsData;
 
-  constructor() { }
+  public posts !: any;
+  returnUrl !: string;
+  public isVisible: boolean = false;
+  constructor(private authService: AuthService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.authService.getSavedPost().subscribe((data) => {
+      this.posts = data;
+      console.log(this.posts);
+    })
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
   }
 
   onScroll() {
@@ -42,5 +34,23 @@ export class PostSavedComponent implements OnInit {
             window.clearInterval(scrollToTop);
         }
     }, 16);
+  }
+  refresh(): void {
+    window.location.reload();
+
+}
+  showAlert() : void {
+    if (this.isVisible) {
+      return;
+    }
+    this.isVisible = true;
+    setTimeout(()=> this.isVisible = false,2500)
+}
+  removeSavePost(id) {
+    this.authService.removeSavedPost(id).subscribe(data => {
+      console.log(data);
+      this.showAlert();
+      this.refresh();
+    })
   }
 }

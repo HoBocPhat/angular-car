@@ -10,12 +10,12 @@
     <h1 [textContent] = slogan ></h1>
   </div>
 
-  <div class="search">
+  <form class="search" (ngSubmit)="onSubmit()">
     <table>
       <tr>
         <td class="td_search-1">
           <div class="form-group">
-                <input type="text" class="form-control" placeholder="Tìm kiếm " [(ngModel)]="filterTerm">
+                <input type="text" class="form-control" placeholder="Tìm kiếm" [formControl]="name">
           </div>
         </td>
         <td class="td_search-2">
@@ -24,10 +24,53 @@
       </tr>
     </table>
 
-  </div>
+  </form>
 
   <!--Carousel-->
-  <div class="carousel_container" id="carousel_container_a">
+  <div [class.More-Search]="Search" class="carousel_container" id="carousel_container_a">
+    <h1>Kết quả tìm kiếm: <span class="search_span">" {{name.value}} "</span></h1>
+    <div class="pagination">
+      <pagination-controls id="listening_pagination" previousLabel="trước" nextLabel="sau" (pageChange)="page = $event">
+      </pagination-controls>
+    </div>
+    <div class="carousel_container_1">
+      <div class="carousel-cell_a" style=" width: 360px ; height: 435px ; padding-top: 10px"
+      *ngFor="let car of cars | filter: filterTerm | paginate: { id: 'listening_pagination',
+      itemsPerPage: 3,
+      currentPage: page,
+      totalItems: totalLength}">
+        <div class="card" id="card_a" >
+
+          <a routerLink=""><img class="card-img-top" id="card-img_c" src="{{car.img[0]}}" alt="Card image cap"></a>
+
+          <div class="card-body" id="card-body_a">
+            <div class="card-content" id="card-content_a">
+              <h5 class="card-title"><a routerLink="">{{car.brand}}&nbsp;&nbsp;{{car.model}}&nbsp;&nbsp;{{car.year}}</a></h5>
+              <p class="card-text" id="price" >Giá bán</p>
+              <h5 class="card-text" class="price">{{car.price}} VND </h5>
+              <table>
+                <tr>
+                  <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="users" class="user"></mdb-icon>&nbsp;&nbsp;{{car.seat}}</p></td>
+                  <td><p class="card-text" class="info"><mdb-icon fas icon="tachometer-alt"></mdb-icon>&nbsp;&nbsp;{{car.km}} km</p></td>
+                </tr>
+                <tr>
+                  <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{car.area}}</p></td>
+                  <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{car.color}}</p></td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>&nbsp;</div>
+  <!--Carousel-->
+  <div class="carousel_container" id="carousel_container_b">
     <h1>Sản phẩm ưu đãi</h1>
     <div class="link_all">
       <a href="#"><span class="sp_1">Tất cả >></span></a>
@@ -37,15 +80,15 @@
       [height]="425"
       [cellWidth]="360"
       [margin]="3.8"
-      [autoplay]="false"
+      [autoplay]="true"
       [autoplayInterval]="10000"
       [pauseOnHover]="true"
       [loop]="true"
       [arrowsOutside]="true"
       [cellsToScroll]=2
-      [minSwipeDistance]="10">
+      [minSwipeDistance]="100">
 
-      <div class="carousel-cell" style=" width: 280px ; height: 435px ; padding-top: 10px" *ngFor="let car of cars">
+      <div class="carousel-cell" style=" width: 500px ; height: 435px ; padding-top: 10px" *ngFor="let car of cars">
         <div class="card" >
 
           <a routerLink=""><img class="card-img-top" src="{{car.img[0]}}" alt="Card image cap"></a>
@@ -54,7 +97,7 @@
             <div class="card-content">
               <h5 class="card-title"><a routerLink="">{{car.brand}}&nbsp;&nbsp;{{car.model}}&nbsp;&nbsp;{{car.year}}</a></h5>
               <p class="card-text" id="price" >Giá bán</p>
-              <h5 class="card-text" class="price">1000000000 VND </h5>
+              <h5 class="card-text" class="price">{{car.price}} VND </h5>
               <table>
                 <tr>
                   <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="users" class="user"></mdb-icon>&nbsp;&nbsp;{{car.seat}}</p></td>
@@ -86,7 +129,7 @@
       [height]="275"
       [cellWidth]="270"
       [margin]="10"
-      [autoplay]="false"
+      [autoplay]="true"
       [autoplayInterval]="10000"
       [pauseOnHover]="true"
       [loop]="true"
@@ -119,7 +162,7 @@
       [height]="980"
       [cellWidth]="1110"
       [margin]="10"
-      [autoplay]="false"
+      [autoplay]="true"
       [autoplayInterval]="100000000000000000000000000000000000000"
       [pauseOnHover]="true"
       [loop]="true"

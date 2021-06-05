@@ -35,7 +35,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { PostComponent } from './components/post/post.component';
 import { RecompriceComponent } from './components/recomprice/recomprice.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 
 import { PostService } from './components/services/post/post.service';
@@ -53,6 +53,7 @@ import { ChangeNewsComponent } from './components/change-news/change-news.compon
 import { ChangePostComponent } from './components/change-post/change-post.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
+import  { authInterceptorProviders } from 'src/app/_helpers/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +112,9 @@ import { NewsDetailComponent } from './components/news-detail/news-detail.compon
     IvyCarouselModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [
+      authInterceptorProviders
+  ],
   bootstrap: [AppComponent],
   entryComponents: [RecompriceComponent,LoginComponent]
 })

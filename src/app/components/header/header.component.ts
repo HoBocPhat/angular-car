@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit {
     this.loginSrc = 'assets/img/login.png';
     this.postSrc = 'assets/img/post.png';
     this.manageSrc = 'assets/img/manage.png';
+    if(this.tokenService.getToken() != null)
+    {
+      this.authService.isLoggedIn = true;
+    }
   }
   logout(){
 

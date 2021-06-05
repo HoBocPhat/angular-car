@@ -69,8 +69,9 @@ export class AdminComponent implements OnInit {
     this.authService.delleteAll_Post();
   }
   delNews(id) {
-    this.authService.deleteNews(id).subscribe((response) => {
-      console.log(response)
+    this.authService.deleteNews(id).subscribe(() => {
+      // roles = this.tokenStorage.getUser().roles;
+      // console.log(response);
     });
   }
 }
