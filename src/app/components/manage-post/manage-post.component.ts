@@ -28,7 +28,7 @@ interface Cars{
 })
 export class ManagePostComponent implements OnInit {
   public cars: Cars[] = carsData;
-  public posts = [];
+  public posts : any;
   constructor(private authService: AuthService,
               private userService: UserService) { }
 
@@ -50,8 +50,25 @@ export class ManagePostComponent implements OnInit {
         }
     }, 16);
   }
-  // this.dataService.sendGetRequest().subscribe((data: any[])=>{
+  refresh(): void {
+    window.location.reload();
+
+  }
+  delPost(id) {
+    this.authService.delRelatedPost(id).subscribe(data => {
+      console.log(data);
+      this.refresh()
+    });
+  }
+  delAllPost (){
+    this.authService.delRelatedAllPost().subscribe(data => {
+      this.refresh();
+    })
+  }
+
+ // this.dataService.sendGetRequest().subscribe((data: any[])=>{
   //   console.log(data);
   //   this.products = data;
   // })
+
 }

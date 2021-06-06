@@ -15,38 +15,36 @@
   <p class="h5">Thông tin xe</p>
   <div class="divider"></div>
   <div class="form-group row"><p class="title" class="h6">Hãng xe *</p>
-  <select class="custom-select" id="brand">
-    <select class="custom-select" id="brand">
-      <option *ngFor="let brand of brands" value="">{{brand}}</option>
+    <select class="custom-select" id="brand" formControlName="brand">
+      <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
     </select>
-  </select>
   </div>
 
   <div class="form-group row" ><p class="title" class="h6">Dòng xe *</p>
     <div>
-      <input type="text" class="form-control" id='model' value="">
+      <input type="text" class="form-control" id='model' formControlName="model" value="" placeholder="{{post['data'].carModel}}">
     </div>
   </div>
 
   <div class="form-group row"><p class="title" class="h6">Màu xe *</p>
     <select class="custom-select" id="color" formControlName="color">
-      <option *ngFor="let color of colors" value="">{{color}}</option>
+      <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
     </select>
   </div>
 
   <div class="form-group row"><p class="title" class="h6">Năm sản xuất *</p>
-    <select class="custom-select" id='year'>
-      <option *ngFor="let year of years" value="">{{year}}</option>
+    <select class="custom-select" id='year' formControlName="year">
+      <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
     </select>
   </div>
 
   <div class="form-group row" ><p class="title" class="h6">Xuất xứ *</p>
     <div class="imp_exp">
       <div class="form-check-inline">
-        <input class="form-check-input" type="radio" name="imp_exp" id="incountry" value="">Lắp ráp trong nước
+        <input class="form-check-input" type="radio" name="imp_exp" id="incountry"formControlName="type" value="Lắp ráp trong nước">Lắp ráp trong nước
       </div>
       <div class="form-check-inline">
-        <input class="form-check-input" type="radio" name="imp_exp" id="outcountry"  value="">Nhập khẩu
+        <input class="form-check-input" type="radio" name="imp_exp" id="outcountry"formControlName="type" value="Nhập khẩu">Nhập khẩu
       </div>
     </div>
   </div>
@@ -54,19 +52,19 @@
 
   <div class="form-group row" ><p class="title" class="h6">Số km đi được *</p>
     <div>
-      <input type="number" class="form-control" value="" formControlName="km">
+      <input type="number" class="form-control" value="" formControlName="km" placeholder="{{post['data'].carOdometer}}">
     </div>
   </div>
 
   <div class="form-group row"><p class="title" class="h6" >Số ghế *</p>
     <div>
-      <input type="number" class="form-control" value="" formControlName="seat">
+      <input type="number" class="form-control" value="" formControlName="seat" placeholder="{{post['data'].carSeats}}">
     </div>
   </div>
 
   <div class="form-group row"><p class="title" class="h6" >Giá *</p>
     <div>
-      <input type="number" class="form-control"  formControlName="price" >
+      <input type="number" class="form-control"  formControlName="price" placeholder="{{post['data'].carPrice}}" >
     </div>
   </div>
 
@@ -76,7 +74,7 @@
   </select>
   </div>
   <div class="form-group row" ><p class="title" class="h6">Quận/Huyện</p>
-  <select class="custom-select">
+  <select class="custom-select" formControlName="district">
     <option *ngFor ="let d of dists">{{d}} </option>
 </select>
   </div>
@@ -88,21 +86,16 @@
   <div class="divider"></div>
   <div class="form-group row" ><p class="title" class="h6">Tên người bán</p>
     <div>
-      <input type="text" class="form-control" value="" formControlName="name">
+     {{post['userName']}}
     </div>
   </div>
 
   <div class="form-group row" ><p class="title" class="h6">Số điện thoại *</p>
     <div>
-      <input type="tel"  class="form-control" formControlName="phone" value="">
+      <input type="tel"  class="form-control" formControlName="phone" value="" placeholder="{{post['data'].contactPhone}}">
     </div>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Email</p>
-    <div>
-      <input type="email" class="form-control" value="" formControlName="email">
-    </div>
-  </div>
 </div>
 
   <!--Tiêu đề - Nội dung-->
@@ -111,16 +104,16 @@
   <div class="divider"></div>
   <div class="form-group row" ><p class="title" class="h6">Tiêu đề *</p>
     <div>
-      <input type="text"  class="form-control" value="" formControlName="title">
+      <input type="text"  class="form-control" value="" formControlName="title" placeholder="{{post['data'].title}}">
     </div>
   </div>
 
   <div class="form-group row" ><p class="title" class="h6">Nội dung *</p>
     <div>
-      <textarea  class="form-control"value=""></textarea>
+      <textarea  class="form-control"value="" formControlName="content" placeholder="{{post['data'].postContent}}"></textarea>
     </div>
   </div>
 </div>
-  <!--Hình ảnh-->
+<button mdbBtn class="my-4 text-center" color="info"  type="submit" (click) ="editPost(post['data'].id)">Chỉnh sửa</button>
 
 </form>

@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'thongtintaikhoan', component: ChangeInfoComponent, canActivate: [AuthGuard]},
   {path: 'bailuu', component: PostSavedComponent, canActivate: [AuthGuard]},
   {path: 'quanlybaidang', component: ManagePostComponent, canActivate: [AuthGuard]},
-  {path: 'suabaidang', component: ChangePostComponent,canActivate: [AuthGuard] },
+  {path: 'suabaidang/:slug', component: ChangePostComponent,canActivate: [AuthGuard] },
   {path: '', component: HomeComponent},
   {path: 'admin/themtintuc', component: AddNewsComponent},
   {path: 'admin/:slug', component: ChangeNewsComponent},

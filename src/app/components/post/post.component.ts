@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RecompriceComponent } from '../recomprice/recomprice.component';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService} from "src/app/_services/auth.service";
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -97,7 +98,7 @@ export class PostComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private http: HttpClient,
+    private authService: AuthService,
   ) { }
   ngOnInit(): void {
     this.postForm = new FormGroup({
@@ -143,9 +144,34 @@ export class PostComponent implements OnInit {
 
   }
   onSubmit(){
-    console.log(this.postForm.value)
+    const title = this.postForm.get('title')?.value;
+    const postContent = this.postForm.get('content')?.value;
+    const contactDistrict = this.postForm.get('district')?.value;
+    const contactProvince = this.postForm.get('province')?.value;
+    const contactPhone = this.postForm.get('phone')?.value;
+    const carBrand = this.postForm.get('brand')?.value;
+    const carModel = this.postForm.get('model')?.value;
+    const carType = this.postForm.get('type')?.value;
+    const carSeats = this.postForm.get('seat')?.value;
+    const carColor = this.postForm.get('color')?.value;
+    const carOdometer = this.postForm.get('km')?.value;
+    const carYear = this.postForm.get('year')?.value;
+    const carPrice = this.postForm.get('price')?.value;
+    const carImage = this.postForm.get('image')?.value;
+    this.authService.createNewPost(title, postContent, contactProvince, contactDistrict,
+      contactPhone, carBrand, carModel, carType, carSeats, carColor, carOdometer, carYear,
+      carPrice, carImage).subscribe((data) =>{
+        console.log(data);
+      })
+  console.log(this.postForm.get('image')?.value)
   }
   changePros(count) {
     this.dists = this.prosList.find(con => con.name == count).dists;//thay đổi quận huyện khi chọn tỉnh khác
+  }
+  onFile(event) {
+      const file = event.target.files[0]
+      this.postForm.controls['image'].setValue(file);
+
+
   }
 }

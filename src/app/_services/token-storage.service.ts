@@ -19,6 +19,13 @@ export class TokenStorageService {
     });
   }
 
+  signOutAll(): Observable<Object> {
+    window.sessionStorage.clear();
+    return this.http.post(AUTH_API + 'dangxuat-all', {
+
+    })
+  }
+
   public saveToken(userToken: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, userToken);

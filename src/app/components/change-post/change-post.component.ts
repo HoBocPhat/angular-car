@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/_services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-change-post',
   templateUrl: './change-post.component.html',
@@ -76,6 +79,7 @@ export class ChangePostComponent implements OnInit {
   dists !: Array<any>;
   count !: any;
   postForm !: FormGroup;
+  post !: any;
   public brands = ['Acura', 'Alfa Romeo', 'Audi', 'Baic', 'Bentley', 'BMW', 'Brilliance', 'BYD', 'Cadillac',
     'Changan', 'Chery', 'Chevrolet', 'Chrysler', 'Daewoo', 'Daihatsu', 'Dodge', 'Dongfeng',
     'Ferrari', 'Fiat', 'Ford', 'Gaz', 'Geely', 'Haima', 'Hino', 'Honda', 'Hummer', 'Hyundai',
@@ -92,32 +96,64 @@ export class ChangePostComponent implements OnInit {
                   "2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
                   "2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"];
 
-  constructor() { }
+  constructor(private authService: AuthService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
       phone: new FormControl(null,[
         Validators.required
       ]),
-      email: new FormControl(null,[
-        Validators.required,
-        Validators.email
-      ]
-      ),
+
       price: new FormControl(),
-      name: new FormControl(),
+      // name: new FormControl(),
       province : new FormControl(),
+      district : new FormControl(),
       color: new FormControl(),
       title: new FormControl(),
       seat: new FormControl(),
-      km: new FormControl()
-    })
+      km: new FormControl(),
+      brand: new FormControl(),
+      model: new FormControl(),
+      year: new FormControl(),
+      type: new FormControl(),
+      content: new FormControl(),
+      image: new FormControl()
+    });
+    this.getPost(this.route.snapshot.paramMap.get('slug'))
+
+
   }
+  getPost(slug) { this.authService.getDetailPost(slug).subscribe((data) => {
+    this.post = data
+     console.log(this.post['data']);
+   })}
   onSubmit(){
     console.log(this.postForm.value)
     console.log((this.postForm.get('price')?.value))
   }
   changePros(count) {
     this.dists = this.prosList.find(con => con.name == count).dists;//thay đổi quận huyện khi chọn tỉnh khác
+  }
+  editPost(id) {
+    const title = this.postForm.get('title')?.value;
+    const postContent = this.postForm.get('content')?.value;
+    const contactDistrict = this.postForm.get('district')?.value;
+    const contactProvince = this.postForm.get('province')?.value;
+    const contactPhone = this.postForm.get('phone')?.value;
+    const carBrand = this.postForm.get('brand')?.value;
+    const carModel = this.postForm.get('model')?.value;
+    const carType = this.postForm.get('type')?.value;
+    const carSeats = this.postForm.get('seat')?.value;
+    const carColor = this.postForm.get('color')?.value;
+    const carOdometer = this.postForm.get('km')?.value;
+    const carYear = this.postForm.get('year')?.value;
+    const carPrice = this.postForm.get('price')?.value;
+    this.authService.updatePost(id ,title, postContent, contactProvince, contactDistrict,
+      contactPhone, carBrand, carModel, carType, carSeats, carColor, carOdometer, carYear,
+      carPrice).subscribe((data) =>{
+        console.log(data);
+      })
+
   }
 }

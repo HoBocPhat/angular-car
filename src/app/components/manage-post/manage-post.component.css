@@ -25,6 +25,7 @@ body {
   margin-top: 50px;
 	overflow: hidden;
 	width: 900px;
+  margin-bottom: 30px;
 }
 
 .course h6 {
@@ -104,6 +105,31 @@ img {
 h2{
   text-align: center;
   margin-top: 30px;
+}
+.del-btn {
+	background-color: #950000;
+	border: 0;
+  display: block;
+	border-radius: 50px;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	padding: 12px 25px;
+	bottom: 20px;
+	right: 30px;
+	letter-spacing: 1px;
+  margin: auto;
+  margin-top: 50px;
+}
+.del-btn:hover{
+  background-color: #cc1525;
+}
+.del-btn:active {
+  background-color: #cc1525;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transform: translateY(4px);
+}
+.container{
+  margin-bottom: 50px;
 }
 
 .floating-btn {
