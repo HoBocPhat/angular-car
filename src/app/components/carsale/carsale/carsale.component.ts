@@ -10,6 +10,7 @@ interface Posts{
   carModel: string,
   carSeats: string,
   carColor: string,
+  carFueltype: string,
   carYear: string,
   carOdometer: number,
   carPrice: number,
@@ -22,8 +23,15 @@ interface Posts{
   slug: string,
   postPics: any,
 }
-// xóa
-
+interface Brand{
+  brand: string
+}
+interface Price{
+  price: string
+}
+interface Km {
+  km: string
+}
 @Component({
   selector: 'app-carsale',
   templateUrl: './carsale.component.html',
@@ -37,6 +45,8 @@ export class CarsaleComponent implements OnInit {
   SortbyParam = '';
   SortDirection = 'asc';
   token !: any;
+  public brands : Brand[] = [];
+  brand !: Array<string>;
   constructor( private authService: AuthService,
               private tokenService: TokenStorageService,
 
@@ -46,10 +56,21 @@ export class CarsaleComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getAll_Posts().subscribe((data) =>{
       this.posts = data;
-      console.log(data)
+      console.log(this.posts);
+      for (var i = 0; i < this.posts.length; i++)
+      {
+        // var brand  : Brand = { brand: this.posts[i].carBrand};
+
+        // this.brands.push(brand);
+        let b = this.posts[i].carBrand;
+        this.brand.push(b);
+      }
+      console.log(this.brand)
+        // console.log(this.brands);
     })
     console.log(this.tokenService.getToken())
     this.token = this.tokenService.getToken();
+    // this.getSortItem();
   }
   onSortDirection() {
     if (this.SortDirection === 'desc') {
@@ -73,5 +94,12 @@ export class CarsaleComponent implements OnInit {
       console.log(data);
     })
   }
+//   getSortItem(){
+//     for (var i = 0; i < this.posts.length; i++) {
+//       var brand : Brand = { brand: this.posts[i].carBrand }
+//       this.brands.push(brand)
+//     }
+//     console.log(this.brands);
+// }
 }
 

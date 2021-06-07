@@ -12,9 +12,9 @@
     </div>
     <div class="form-group">
       <select class="custom-select" [(ngModel)]='SortbyParam'>
-        <option value="brand">Brand</option>
-        <option value="price">Price</option>
-        <option value="km">Km</option>
+        <option value="{{brands}}">Brand</option>
+        <!-- <option value="{{posts.carPrice}}">Price</option>
+        <option value="{{posts.carOdometer}}">Km</option> -->
       </select>
       <button type="button" (click)="onSortDirection()">
         <i *ngIf="SortDirection==='asc'" class="fas fa-sort-alpha-down"></i>
@@ -45,7 +45,7 @@
             </tr>
             <tr>
               <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.contactProvince}}</p></td>
-              <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{post.color}}</p></td>
+              <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{post.carColor}}</p></td>
             </tr>
           </table>
         </div>

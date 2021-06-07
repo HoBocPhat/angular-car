@@ -20,6 +20,7 @@ import { ManagePostComponent } from './components/manage-post/manage-post.compon
 import { ChangePostComponent } from './components/change-post/change-post.component';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 const routes: Routes = [
   {path: 'trangchu', component: HomeComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'quenmatkhau', component: ForgotpasswordComponent},
   {path: 'quenmatkhau/matkhaumoi', component: ResetPassComponent},
   {path: 'doimatkhau', component: ChangePassComponent, canActivate: [AuthGuard]},
-  {path: 'thongtintaikhoan', component: ChangeInfoComponent, canActivate: [AuthGuard]},
+  {path: 'thongtintaikhoan', component: UserInfoComponent },
+  {path: 'suathongtintaikhoan', component: ChangeInfoComponent},
   {path: 'bailuu', component: PostSavedComponent, canActivate: [AuthGuard]},
   {path: 'quanlybaidang', component: ManagePostComponent, canActivate: [AuthGuard]},
   {path: 'suabaidang/:slug', component: ChangePostComponent,canActivate: [AuthGuard] },

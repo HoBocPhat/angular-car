@@ -41,3 +41,6 @@ select, textarea, .form-control{
 .btn{
   margin:  auto;
 }
+.username{
+  padding-top: 10px;
+}

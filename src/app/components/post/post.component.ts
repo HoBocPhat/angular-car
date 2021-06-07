@@ -123,7 +123,8 @@ export class PostComponent implements OnInit {
       year: new FormControl(),
       type: new FormControl(),
       content: new FormControl(),
-      image: new FormControl()
+      image: new FormControl(),
+      fuel: new FormControl()
     })
 
     // this.http.get("src/assets/data/post.json").subscribe(
@@ -154,16 +155,18 @@ export class PostComponent implements OnInit {
     const carType = this.postForm.get('type')?.value;
     const carSeats = this.postForm.get('seat')?.value;
     const carColor = this.postForm.get('color')?.value;
+    const carFuelType = this.postForm.get('fuel')?.value;
     const carOdometer = this.postForm.get('km')?.value;
     const carYear = this.postForm.get('year')?.value;
     const carPrice = this.postForm.get('price')?.value;
-    const carImage = this.postForm.get('image')?.value;
+    // const carImage = this.postForm.get('image')?.value;
     this.authService.createNewPost(title, postContent, contactProvince, contactDistrict,
-      contactPhone, carBrand, carModel, carType, carSeats, carColor, carOdometer, carYear,
-      carPrice, carImage).subscribe((data) =>{
+      contactPhone, carBrand,
+      carModel, carType, carYear,  carSeats, carColor, carFuelType, carOdometer,
+      carPrice).subscribe((data) =>{
         console.log(data);
       })
-  console.log(this.postForm.get('image')?.value)
+  console.log(this.postForm.value)
   }
   changePros(count) {
     this.dists = this.prosList.find(con => con.name == count).dists;//thay đổi quận huyện khi chọn tỉnh khác

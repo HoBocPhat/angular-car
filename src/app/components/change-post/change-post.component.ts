@@ -97,7 +97,7 @@ export class ChangePostComponent implements OnInit {
                   "2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"];
 
   constructor(private authService: AuthService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) { this.getPost(this.route.snapshot.paramMap.get('slug'))}
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
@@ -118,9 +118,9 @@ export class ChangePostComponent implements OnInit {
       year: new FormControl(),
       type: new FormControl(),
       content: new FormControl(),
-      image: new FormControl()
+      fuel : new FormControl()
     });
-    this.getPost(this.route.snapshot.paramMap.get('slug'))
+
 
 
   }
@@ -136,24 +136,54 @@ export class ChangePostComponent implements OnInit {
     this.dists = this.prosList.find(con => con.name == count).dists;//thay đổi quận huyện khi chọn tỉnh khác
   }
   editPost(id) {
-    const title = this.postForm.get('title')?.value;
-    const postContent = this.postForm.get('content')?.value;
-    const contactDistrict = this.postForm.get('district')?.value;
-    const contactProvince = this.postForm.get('province')?.value;
-    const contactPhone = this.postForm.get('phone')?.value;
-    const carBrand = this.postForm.get('brand')?.value;
-    const carModel = this.postForm.get('model')?.value;
-    const carType = this.postForm.get('type')?.value;
-    const carSeats = this.postForm.get('seat')?.value;
-    const carColor = this.postForm.get('color')?.value;
-    const carOdometer = this.postForm.get('km')?.value;
-    const carYear = this.postForm.get('year')?.value;
-    const carPrice = this.postForm.get('price')?.value;
+    let title = this.postForm.get('title')?.value;
+    if(title === null) {title = this.post['data'].title}
+
+    let postContent = this.postForm.get('content')?.value;
+    if(postContent === null) {postContent = this.post['data'].postContent}
+
+    let contactDistrict = this.postForm.get('district')?.value;
+    if(contactDistrict  ===null) {contactDistrict = this.post['data'].contactDistrict}
+
+    let contactProvince = this.postForm.get('province')?.value;
+    if(contactProvince === null) {contactProvince = this.post['data'].contactProvince}
+
+    let contactPhone = this.postForm.get('phone')?.value;
+    if(contactPhone === null) {contactPhone = this.post['data'].contactPhone}
+
+    let carBrand = this.postForm.get('brand')?.value;
+    if(carBrand === null) {carBrand = this.post['data'].carBrand}
+
+    let carModel = this.postForm.get('model')?.value;
+    if(carModel === null) {carModel = this.post['data'].carModel}
+
+    let carType = this.postForm.get('type')?.value;
+    if(carType === null) {carType = this.post['data'].carType}
+
+    let carSeats = this.postForm.get('seat')?.value;
+    if(carSeats === null) {carSeats = this.post['data'].carSeats}
+
+    let carColor = this.postForm.get('color')?.value;
+    if(carColor === null) {carColor = this.post['data'].carColor}
+
+    let carOdometer = this.postForm.get('km')?.value;
+    if(carOdometer === null) {carOdometer = this.post['data'].carOdometer}
+
+    let carYear = this.postForm.get('year')?.value;
+    if(carYear === null) {carYear = this.post['data'].carYear}
+
+    let carPrice = this.postForm.get('price')?.value;
+    if(carPrice === null) {carPrice = this.post['data'].carPrice}
+
+    let carFuelType = this.postForm.get('fuel')?.value;
+    if(carFuelType === null) {carFuelType = this.post['data'].carFuelType}
+
     this.authService.updatePost(id ,title, postContent, contactProvince, contactDistrict,
-      contactPhone, carBrand, carModel, carType, carSeats, carColor, carOdometer, carYear,
+      contactPhone, carBrand,
+      carModel, carType, carYear,  carSeats, carColor, carFuelType, carOdometer,
       carPrice).subscribe((data) =>{
         console.log(data);
       })
-
+    console.log(this.post['data'].carPrice)
   }
 }

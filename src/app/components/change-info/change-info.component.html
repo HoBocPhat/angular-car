@@ -1,7 +1,8 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Thông tin tài khoản</li>
+    <li class="breadcrumb-item"><a routerLink='/thongtintaikhoan'>Thông tin tài khoản</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Sửa thông tin</li>
   </ol>
 </nav>
 
@@ -11,22 +12,22 @@
   <div class="divider"></div>
   <div class="form-group row" ><p  class="h6">Họ và tên</p>
     <div>
-      <input type="text" class="form-control" value="" formControlName="name">
+      <input type="text" class="form-control" value="" formControlName="fullname" placeholder="{{user['fullname']}}">
     </div>
   </div>
   <div class="form-group row" ><p class="h6">Email</p>
     <div class="email">
-      <p>Email</p>
+      <p>{{user['email']}}</p>
     </div>
   </div>
   <div class="form-group row" ><p class="h6">Số điện thoại</p>
     <div>
-      <input type="email" class="form-control" value="" >
+      <input type="email" class="form-control" formControlName="phone" placeholder="{{user['phone']}}" value="" >
     </div>
   </div>
   <div class="form-group row" ><p class="h6">Địa chỉ thường trú</p>
     <div>
-      <input type="email" class="form-control" value="">
+      <input type="email" class="form-control" formControlName="address" placeholder="{{user['address']}}" value="">
     </div>
   </div>
   <button mdbBtn color="info" class="my-4"  type="submit" >Lưu</button>

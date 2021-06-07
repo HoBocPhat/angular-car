@@ -98,20 +98,20 @@ export class AuthService {
 
   createNewPost (title: string,postContent: string, contactProvince: string, contactDistrict: string,
                 contactPhone: string, carBrand: string,
-                carModel: string, carType: string,  carSeats: number, carColor: string, carOdometer: number,
-                carYear: number, carPrice: number, image: []) : Observable<any>{
+                carModel: string, carType: string, carYear: string,  carSeats: number, carColor: string, carFuelType: string, carOdometer: number,
+                carPrice: number ) : Observable<any>{
       return this.http.post (USER_API + 'post/create', {
-        title, contactProvince, contactDistrict, contactPhone, postContent, carType, carBrand,
-        carModel, carSeats, carColor, carOdometer, carYear, carPrice, image
+        title, contactProvince, contactDistrict, contactPhone, postContent, carType, carYear, carBrand,
+        carModel, carSeats, carColor,carFuelType, carOdometer, carPrice
       }, httpOptions)
   }
   updatePost (id , title: string,postContent: string, contactProvince: string, contactDistrict: string,
     contactPhone: string, carBrand: string,
-    carModel: string, carType: string,  carSeats: number, carColor: string, carOdometer: number,
-    carYear: number, carPrice: number){
+    carModel: string, carType: string, carYear: string,  carSeats: number, carColor: string, carFuelType: string, carOdometer: number,
+    carPrice: number){
       return this.http.put(USER_API + 'post/' + `${id}` + '/edit',{
         title, contactProvince, contactDistrict, contactPhone, postContent, carType, carBrand,
-        carModel, carSeats, carColor, carOdometer, carYear, carPrice
+        carModel, carSeats, carColor,carFuelType, carOdometer, carYear, carPrice
       }, httpOptions)
     }
 
@@ -136,9 +136,8 @@ export class AuthService {
     }, httpOptions)
   }
 
-  changePass (email: string, oldpass: string, newpass: string): Observable<any>{
+  changePass ( oldpass: string, newpass:string ): Observable<any>{
     return this.http.post(AUTH_API + 'updatePassword',{
-      email,
       oldpass,
       newpass
     }, httpOptions)
@@ -156,5 +155,8 @@ export class AuthService {
 
   loginGoogle(): Observable<any> {
     return this.http.post(AUTH_API + 'loginGoogle',httpOptions);
+  }
+  getInfor(): Observable<any> {
+    return this.http.get(USER_API + 'account',httpOptions);
   }
 }

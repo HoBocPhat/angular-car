@@ -1,0 +1,38 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Thông tin tài khoản</li>
+  </ol>
+</nav>
+
+<div class=" p-5 " >
+<div class="container">
+  <div class="h5">Thông tin tài khoản</div>
+  <div class="divider"></div>
+  <div class=group class="first"><div  class="h6">Họ và tên</div>
+    <div class="info">
+      {{user['fullname']}}
+    </div>
+  </div>
+  <div class=group><div class="h6">Email</div>
+    <div class="info">
+      <p>{{user['email']}}</p>
+    </div>
+  </div>
+  <div class=group><div class="h6">Số điện thoại</div>
+    <div class="info">
+     {{user['phone']}}
+    </div>
+  </div>
+  <div class=group ><div class="h6">Địa chỉ thường trú</div>
+    <div class="info">
+      {{user['address']}}
+    </div>
+  </div>
+
+</div>
+<p>
+  <a class="center" routerLink='/suathongtintaikhoan'>Chỉnh sửa thông tin cá nhân</a>
+</p>
+
+</div>
