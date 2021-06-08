@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup ,FormControl,Validators  } from '@angular/forms';
 import { AccountService } from '../services/account/account.service';
+import { AuthService } from 'src/app/_services/auth.service';
 @Component({
   selector: 'app-reset-pass',
   templateUrl: './reset-pass.component.html',
@@ -8,7 +9,8 @@ import { AccountService } from '../services/account/account.service';
 })
 export class ResetPassComponent implements OnInit {
   resetForm !: FormGroup;
-  constructor(private acc: AccountService) { }
+  constructor(private acc: AccountService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.resetForm = new FormGroup({
@@ -21,7 +23,11 @@ export class ResetPassComponent implements OnInit {
   }
   onSubmit(){
     if(!this.ConfirmedValidator())
-    {return;} // kh giống thì kh làm gì cả
-    console.log(this.resetForm.value)
+    {return;}
+    else{
+      const password = this.resetForm.get('password')?.value;
+      this.authService.resetPass(password).subscribe(()=>{})
+    }
+    // console.log(this.resetForm.value)
   }
 }

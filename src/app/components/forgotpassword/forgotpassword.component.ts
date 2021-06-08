@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
-
+import { AuthService } from 'src/app/_services/auth.service';
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
@@ -13,6 +13,7 @@ export class ForgotpasswordComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private authSercvice: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +24,13 @@ export class ForgotpasswordComponent implements OnInit {
         Validators.email
       ])
     })
+  }
+  onSubmit(){
+    const email = this.forgotForm.get('email')?.value;
+    this.authSercvice.forgotPass(email).subscribe((data)=>{
+      console.log(data);
+      this.router.navigate(['/quenmatkhau/matkhaumoi']);
+    });
   }
 
 }

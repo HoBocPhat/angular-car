@@ -1,0 +1,70 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Mua xe</li>
+  </ol>
+</nav>
+
+<div class="row" id="container">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Tìm kiếm" [(ngModel)]="filterTerm">
+    </div>
+    <div class="form-group">
+      <select class="custom-select" [(ngModel)]='SortbyParam'>
+        <option value="{{brands}}">Brand</option>
+        <!-- <option value="{{posts.carPrice}}">Price</option>
+        <option value="{{posts.carOdometer}}">Km</option> -->
+      </select>
+      <button type="button" (click)="onSortDirection()">
+        <i *ngIf="SortDirection==='asc'" class="fas fa-sort-alpha-down"></i>
+        <i *ngIf="SortDirection==='desc'" class="fas fa-sort-alpha-up"></i>
+      </button>
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-9">
+    <div class="card" style="width: 280px;" *ngFor="let post of posts| filter: filterTerm
+    | sort:[SortbyParam,SortDirection] | paginate: { id: 'listening_pagination',
+      itemsPerPage: 9,
+      currentPage: page}">
+
+      <a routerLink=""><img class="card-img-top" src="#" alt="Card image cap"></a>
+
+      <div class="card-body">
+        <div class="card-content">
+          <h5 class="card-title"><a routerLink="/muaxe/{{post.slug}}">{{post.carBrand}}&nbsp;&nbsp;{{post.carYear}}</a></h5>
+          <p class="card-text" id="price" >Giá bán</p>
+          <h6 class="card-text" class="price">{{post.carPrice}} VND </h6>
+          <table>
+            <tr>
+              <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="users" class="user"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.carSeats}}</p></td>
+              <td><p class="card-text" class="info"><mdb-icon fas icon="tachometer-alt"></mdb-icon>&nbsp;&nbsp;{{post.carOdometer}} km</p></td>
+            </tr>
+            <tr>
+              <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.contactProvince}}</p></td>
+              <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{post.carColor}}</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="card-button">
+          <button href="#" class="view" routerLink="/muaxe/{{post.slug}}">Xem</button>
+          <button class="save" (click)="savePost(post.id)">Lưu</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+<div class="pagination">
+  <pagination-controls id="listening_pagination" previousLabel="trước" nextLabel="sau" (pageChange)="page = $event">
+  </pagination-controls>
+</div>
+
+<button class="floating-btn" (click)="onScroll()" >🠕</button>

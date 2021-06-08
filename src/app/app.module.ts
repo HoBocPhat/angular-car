@@ -55,6 +55,7 @@ import { ResetPassComponent } from './components/reset-pass/reset-pass.component
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 import  { authInterceptorProviders } from 'src/app/_helpers/auth.interceptor';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { CarBrandComponent } from './components/car-brand/car-brand.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +83,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     ResetPassComponent,
     NewsDetailComponent,
     UserInfoComponent,
+    CarBrandComponent,
 
   ],
   imports: [

@@ -37,6 +37,9 @@ export class AuthService {
       password
     }, httpOptions);
   }
+  getCarByBrand(brand: string) : Observable<any> {
+    return this.http.get(POST_API + 'list/brand/' + `${brand}`, httpOptions);
+  }
   //Admin
 
   getAll_Posts() : Observable<any> {
@@ -136,10 +139,10 @@ export class AuthService {
     }, httpOptions)
   }
 
-  changePass ( oldpass: string, newpass:string ): Observable<any>{
-    return this.http.post(AUTH_API + 'updatePassword',{
-      oldpass,
-      newpass
+  changePass (id , oldPassword: string, newPassword:string ): Observable<any>{
+    return this.http.post(AUTH_API + `${id}` + '/updatePassword',{
+      oldPassword,
+      newPassword
     }, httpOptions)
   }
 
@@ -147,6 +150,11 @@ export class AuthService {
     return this.http.post(AUTH_API + 'forgotpassword',{
       email
     }, httpOptions)
+  }
+  resetPass (newPass: string) : Observable <any> {
+    return this.http.post(AUTH_API + 'resetpassword',{
+      newPass
+    },httpOptions)
   }
 
   loginFace(): Observable<any> {
