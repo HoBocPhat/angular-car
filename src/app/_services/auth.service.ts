@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError} from 'rxjs';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
-
+import {catchError, map} from 'rxjs/operators';
+// import {catch} from 'rxjs/operators'
+import { error } from '@angular/compiler/src/util';
 const AUTH_API = 'http://localhost:5000/api/auth/';
 const USER_API = 'http://localhost:5000/api/user/';
 const ADMIN_API = 'http://locoalhost:5000/api/admin/';
@@ -21,13 +23,13 @@ export class AuthService {
   isLoggedIn !: boolean;
   constructor(private http: HttpClient,
               private tokenService: TokenStorageService) { }
-
+  handleError(error) {
+    return throwError(error.message)}
   login(email: string, password: string): Observable<any> {
-    this.isLoggedIn = true;
     return this.http.post(AUTH_API + 'dangnhap', {
       email,
       password
-    }, httpOptions);
+    }, httpOptions).pipe(catchError(this.handleError));
   }
 
   register(fullname: string, email: string, password: string): Observable<any> {
@@ -151,9 +153,9 @@ export class AuthService {
       email
     }, httpOptions)
   }
-  resetPass (newPass: string) : Observable <any> {
-    return this.http.post(AUTH_API + 'resetpassword',{
-      newPass
+  resetPass (token, newPass: string) : Observable <any> {
+    return this.http.post(AUTH_API + 'resetpassword/' + `${token}`,{
+      newPass,
     },httpOptions)
   }
 

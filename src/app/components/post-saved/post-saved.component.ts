@@ -13,6 +13,7 @@ export class PostSavedComponent implements OnInit {
   public posts !: any;
   returnUrl !: string;
   public isVisible: boolean = false;
+  public message !: string;
   constructor(private authService: AuthService,
               private router: Router,
               private route: ActivatedRoute) { }
@@ -48,9 +49,11 @@ export class PostSavedComponent implements OnInit {
 }
   removeSavePost(id) {
     this.authService.removeSavedPost(id).subscribe(data => {
-      console.log(data);
+      // this.message = data;
       this.showAlert();
       this.refresh();
+    },  message => {
+      this.message = message;
     })
   }
 }

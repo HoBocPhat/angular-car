@@ -26,7 +26,7 @@ import { CarBrandComponent } from './components/car-brand/car-brand.component';
 const routes: Routes = [
   {path: 'trangchu', component: HomeComponent },
   {path: 'muaxe', component: CarsaleComponent},
-  {path: ':brand', component: CarBrandComponent},
+  {path: 'muaxe/hãng/:brand', component: CarBrandComponent},
   {path: 'banxe', component: PostComponent},
   {path: 'muaxe/:slug', component: CardetailComponent},
   {path: 'tintuc', component: NewsComponent},
@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},
   {path: 'quenmatkhau', component: ForgotpasswordComponent},
-  {path: 'quenmatkhau/matkhaumoi', component: ResetPassComponent},
+  {path: 'quenmatkhau/:token', component: ResetPassComponent},
   {path: 'doimatkhau', component: ChangePassComponent, canActivate: [AuthGuard]},
   {path: 'thongtintaikhoan', component: UserInfoComponent },
   {path: 'suathongtintaikhoan', component: ChangeInfoComponent},

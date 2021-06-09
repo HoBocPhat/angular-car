@@ -13,8 +13,8 @@
         <a routerLink="trangchu" class="nav-link">Trang chủ</a>
       </li>
       <!-- Dropdown -->
-      <li routerLink="muaxe" class="nav-item dropdown has-megamenu">
-        <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown" routerLink="muaxe">
+      <li class="nav-item dropdown has-megamenu">
+        <a class="nav-link  dropdown-toggle" data-bs-toggle="dropdown" routerLink="/muaxe">
           Mua xe</a>
         <ul class="dropdown-menu megamenu" role="menu">
           <div class="p-2">
@@ -23,12 +23,7 @@
                   <h5>Cao cấp</h5>
                   <div>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="dropdown-item">Bentley</a></li>
-                        <li><a href="#" class="dropdown-item">Rolls-Royce</a></li>
-                        <li><a href="#" class="dropdown-item">Porsche</a></li>
-                        <li><a href="#" class="dropdown-item">Ferrari</a></li>
-                        <li><a href="#" class="dropdown-item">BMW</a></li>
-                        <li><a href="#" class="dropdown-item">Lexus</a></li>
+                        <li *ngFor= "let brand of brand_luxury"><a routerLink="/{{brand}}" class="dropdown-item">{{brand}}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -36,12 +31,7 @@
                 <h5>Phổ thông</h5>
               <div>
                 <ul class="list-unstyled">
-                  <li><a href="#" class="dropdown-item">Toyota</a></li>
-                  <li><a href="#" class="dropdown-item">Honda</a></li>
-                  <li><a href="#" class="dropdown-item">Chevrolet</a></li>
-                  <li><a href="#" class="dropdown-item">Ford</a></li>
-                  <li><a href="#" class="dropdown-item">Huyndai</a></li>
-                  <li><a href="#" class="dropdown-item">Mazda</a></li>
+                  <li *ngFor= "let brand of brand_mass"><a routerLink="/muaxe/hãng/{{brand}}" class="dropdown-item">{{brand}}</a></li>
                 </ul>
               </div>
               </div>
@@ -49,11 +39,7 @@
               <h5>Thể thao</h5>
               <div>
                 <ul class="list-unstyled">
-                  <li><a href="#" class="dropdown-item">Jeep</a></li>
-                  <li><a href="#" class="dropdown-item">Porsche</a></li>
-                  <li><a href="#" class="dropdown-item">Ferrari</a></li>
-                  <li><a href="#" class="dropdown-item">Maserati</a></li>
-                  <li><a href="#" class="dropdown-item">Land Rover</a></li>
+                  <li *ngFor= "let brand of brand_sport"><a routerLink="/muaxe/hãng/{{brand}}" class="dropdown-item">{{brand}}</a></li>
                 </ul>
               </div>
               </div>
@@ -126,9 +112,9 @@
         <!-- <i><mat-icon>face</mat-icon></i> -->
         <a class="nav-link">
           <div class="btn-group" mdbDropdown>
-            <a>{{tokenService.getUser().user.fullname}}</a>
+            <a>{{name}}</a>
             <div class="dropdown-menu dropdown dropdown-primary dropdown-menu-right" role="menu" id='info'>
-              <a class="dropdown-item" routerLink='/thongtintaikhoan'><mdb-icon far icon="smile"></mdb-icon>{{tokenService.getUser().user.fullname}}</a>
+              <a class="dropdown-item" routerLink='/thongtintaikhoan'><mdb-icon far icon="smile"></mdb-icon>{{name}}</a>
               <a class="dropdown-item" routerLink='/suathongtintaikhoan' >Chỉnh sửa thông tin cá nhân</a>
               <div class="divider dropdown-divider"></div>
               <a class="dropdown-item" routerLink='/bailuu'><mdb-icon fas icon="heart"></mdb-icon>Tin đã lưu</a>

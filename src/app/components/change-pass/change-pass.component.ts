@@ -30,15 +30,15 @@ export class ChangePassComponent implements OnInit {
     return this.acc.mustMatch(this.passForm.get('password')?.value,this.passForm.get('confirmPassword')?.value);
   }
   onSubmit(id){
-    // if(!this.ConfirmedValidator())
-    // {console.log("không đúng xác nhận password");
-    //   return;} // kh giống thì kh làm gì cả
-    // else {
+    if(!this.ConfirmedValidator())
+    {console.log("không đúng xác nhận password");
+      return;} // kh giống thì kh làm gì cả
+    else {
       let oldPass = this.passForm.get('oldPassword')?.value;
       let newPass = this.passForm.get('password')?.value;
       this.authService.changePass(id, oldPass,newPass).subscribe((data)=>{console.log(data)});
       console.log(oldPass,newPass);
-    // }
+    }
 
   }
 }

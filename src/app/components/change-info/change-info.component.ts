@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup ,FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/_services/auth.service';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-change-info',
   templateUrl: './change-info.component.html',
@@ -10,7 +11,9 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class ChangeInfoComponent implements OnInit {
   changeForm !: FormGroup;
   user !: any;
-  constructor(private authService: AuthService ) {
+  constructor(private authService: AuthService,
+              private snackBar: MatSnackBar,
+              private router: Router ) {
 
 
    }
@@ -38,6 +41,8 @@ export class ChangeInfoComponent implements OnInit {
 
     this.authService.changeInfo(fullname, phone, address).subscribe(data => {
       console.log(data);
+      this.snackBar.open("Thay đổi thành công !!!",'', {duration: 2000});
+      this.router.navigate(['/thongtintaikhoan']);
     })
   }
 }

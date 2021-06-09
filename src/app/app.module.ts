@@ -23,6 +23,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -114,7 +115,8 @@ import { CarBrandComponent } from './components/car-brand/car-brand.component';
     MatRadioModule,
     MatGridListModule,
     IvyCarouselModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSnackBarModule
   ],
   providers: [
       authInterceptorProviders

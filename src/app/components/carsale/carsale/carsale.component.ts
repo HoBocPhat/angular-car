@@ -3,6 +3,8 @@ import carsData from 'src/assets/file/car.json';
 // import { GridComponent, FilterService, FilterType } from '@syncfusion/ej2-angular-grids';
 import { AuthService } from 'src/app/_services/auth.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 interface Posts{
   id: string,
   carBrand: string,
@@ -47,8 +49,10 @@ export class CarsaleComponent implements OnInit {
   token !: any;
   public brands : Brand[] = [];
   brand !: Array<string>;
+  public message !: any;
   constructor( private authService: AuthService,
               private tokenService: TokenStorageService,
+              private snackBar: MatSnackBar
 
   ) {
    }
@@ -90,8 +94,9 @@ export class CarsaleComponent implements OnInit {
     }, 16);
   }
   savePost(id) {
-    this.authService.savePost(id).subscribe(data => {
-      console.log(data);
+    this.authService.savePost(id).subscribe((message) => {
+      console.log(message)
+      this.snackBar.open(`${message.message}`, '', {duration: 2000})
     })
   }
 //   getSortItem(){

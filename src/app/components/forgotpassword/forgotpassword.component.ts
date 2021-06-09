@@ -29,7 +29,6 @@ export class ForgotpasswordComponent implements OnInit {
     const email = this.forgotForm.get('email')?.value;
     this.authSercvice.forgotPass(email).subscribe((data)=>{
       console.log(data);
-      this.router.navigate(['/quenmatkhau/matkhaumoi']);
     });
   }
 

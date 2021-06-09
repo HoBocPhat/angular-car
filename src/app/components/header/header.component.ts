@@ -15,6 +15,10 @@ export class HeaderComponent implements OnInit {
   postSrc !: string;
   manageSrc !: string;
   returnUrl !: string;
+  public name !: string;
+  public brand_luxury = ["Bentley", "Rolls-Royce", "Mercedes-Benz", "Ferrari", "BMW"];
+  public brand_mass = [ "Toyota", "Honda", "Chevrolet", "Ford", "Huyndai" , "Mazda"];
+  public brand_sport = ["Jeep", "Porches", "Lamborghini", "Maserati", "Land Rover"];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -31,6 +35,7 @@ export class HeaderComponent implements OnInit {
     if(this.tokenService.getToken() != null)
     {
       this.authService.isLoggedIn = true;
+      this.name = this.tokenService.getUser().user.fullname;
     }
   }
   logout(){

@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-// import { HttpClient} from '@angular/common/http';
-// import { Router } from '@angular/router-deprecated';
-// import {ActivatedRoute} from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LoginData } from 'src/app/models/loginData';
-import { AuthenticationService } from '../services/authentication/authentication.service';
-import {map} from "rxjs/operators";
 import { AuthService } from 'src/app/_services/auth.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -24,9 +19,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
     private authService: AuthService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -54,9 +49,12 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.getToken();
 
         this.roles = this.tokenStorage.getUser().roles;
-        console.log(data)
-        this.reloadPage();
-      },
+        this.authService.isLoggedIn = true;
+        console.log(data);
+        this.reloadPage();}
+      , (error) => {
+        this.snackBar.open('Đăng nhập thất bại :((((', '', {duration: 2000})
+      }
     );
 
   }
