@@ -3,9 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import {AccountService} from "../services/account/account.service";
-import {map} from "rxjs/operators";
 import { AuthService} from "src/app/_services/auth.service";
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -19,10 +18,9 @@ export class SignupComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private http:HttpClient,
     private authService: AuthService,
-    private formBuilder: FormBuilder,
-    private acc: AccountService
+    private acc: AccountService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -37,12 +35,10 @@ export class SignupComponent implements OnInit {
         Validators.email
       ]),
       password: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(6)
+        Validators.required
       ]),
       passwordConfirm: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(6)
+        Validators.required
       ])
     })
   }
@@ -51,7 +47,8 @@ export class SignupComponent implements OnInit {
   }
   onSubmit(){
     if(!this.ConfirmedValidator())
-    {return;}
+    { this.snackBar.open('Xác nhận password không đúng.','',{duration: 2000});
+      return;}
     else{
     const name = this.registerForm.get('name')?.value;
     const email = this.registerForm.get('email')?.value;
@@ -59,8 +56,11 @@ export class SignupComponent implements OnInit {
     console.log(this.registerForm.value);
     this.authService.register(name, email, password).subscribe(
       data => {
-        console.log(data);
+        this.snackBar.open('Bạn đã đăng ký thành công.','',{duration: 2000});
         this.router.navigate(['dangnhap']);
+      }, (error) => {
+        console.log(error);
+        this.snackBar.open('Đăng ký thất bại. Xin mời đăng ký lại.', '', {duration: 2000})
       }
     );
     }

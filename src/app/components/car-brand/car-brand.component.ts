@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Posts{
   id: string,
@@ -45,7 +46,8 @@ export class CarBrandComponent implements OnInit {
   public brands : Brand[] = [];
   brand !: string;
   constructor( private authService: AuthService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private SnackbarService: MatSnackBar,
   ) {
    }
 
@@ -77,8 +79,9 @@ export class CarBrandComponent implements OnInit {
     }, 16);
   }
   savePost(id) {
-    this.authService.savePost(id).subscribe(data => {
-      console.log(data);
+    this.authService.savePost(id).subscribe((message) => {
+      console.log(message);
+      this.SnackbarService.open(`${message.message}`,'', {duration: 2000})
     })
   }
 //   getSortItem(){

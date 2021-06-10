@@ -41,8 +41,12 @@ export class ChangeInfoComponent implements OnInit {
 
     this.authService.changeInfo(fullname, phone, address).subscribe(data => {
       console.log(data);
+
+      window.location.reload();
       this.snackBar.open("Thay đổi thành công !!!",'', {duration: 2000});
-      this.router.navigate(['/thongtintaikhoan']);
-    })
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+    });
+    this.router.navigate(['/thongtintaikhoan'])
   }
 }

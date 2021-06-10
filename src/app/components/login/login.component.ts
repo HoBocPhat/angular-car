@@ -50,15 +50,18 @@ export class LoginComponent implements OnInit {
 
         this.roles = this.tokenStorage.getUser().roles;
         this.authService.isLoggedIn = true;
-        console.log(data);
-        this.reloadPage();}
+        window.location.reload();
+
+
+        }
       , (error) => {
         this.snackBar.open('Đăng nhập thất bại :((((', '', {duration: 2000})
       }
     );
-
+    this.reloadPage();
   }
   reloadPage(): void {
+
     this.router.navigate(['/trangchu']);
   }
 }

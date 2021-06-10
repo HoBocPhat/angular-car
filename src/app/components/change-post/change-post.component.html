@@ -26,12 +26,6 @@
     </div>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Loại xăng</p>
-    <div>
-      <input type="text" class="form-control" id='model' formControlName="fuel" value="" placeholder="{{post['data'].carFuelType}}">
-    </div>
-  </div>
-
   <div class="form-group row"><p class="title" class="h6">Màu xe *</p>
     <select class="custom-select" id="color" formControlName="color">
       <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
@@ -81,7 +75,7 @@
   </div>
   <div class="form-group row" ><p class="title" class="h6">Quận/Huyện</p>
   <select class="custom-select" formControlName="district">
-    <option *ngFor ="let d of dists" value="{{d}}">{{d}} </option>
+    <option *ngFor ="let d of dists">{{d}} </option>
 </select>
   </div>
 </div>
@@ -91,7 +85,7 @@
   <p class="h5">Thông tin liên hệ</p>
   <div class="divider"></div>
   <div class="form-group row" ><p class="title" class="h6">Tên người bán</p>
-    <div class="username">
+    <div>
      {{post['userName']}}
     </div>
   </div>

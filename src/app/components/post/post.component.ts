@@ -123,7 +123,9 @@ export class PostComponent implements OnInit {
       year: new FormControl(),
       type: new FormControl(),
       content: new FormControl(),
-      image: new FormControl(),
+      image: new FormControl(null, [
+        Validators.required
+      ]),
       fuel: new FormControl()
     })
 
@@ -159,11 +161,11 @@ export class PostComponent implements OnInit {
     const carOdometer = this.postForm.get('km')?.value;
     const carYear = this.postForm.get('year')?.value;
     const carPrice = this.postForm.get('price')?.value;
-    // const carImage = this.postForm.get('image')?.value;
+    const image = this.postForm.get('image')?.value;
     this.authService.createNewPost(title, postContent, contactProvince, contactDistrict,
       contactPhone, carBrand,
       carModel, carType, carYear,  carSeats, carColor, carFuelType, carOdometer,
-      carPrice).subscribe((data) =>{
+      carPrice, image ).subscribe((data) =>{
         console.log(data);
       })
   console.log(this.postForm.value)

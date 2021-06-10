@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import carsData from 'src/assets/file/car.json';
 import { AuthService } from 'src/app/_services/auth.service';
 import { UserService } from 'src/app/_services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 interface Cars{
   id: number,
   brand: string,
@@ -30,7 +32,8 @@ export class ManagePostComponent implements OnInit {
   public cars: Cars[] = carsData;
   public posts : any;
   constructor(private authService: AuthService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.userService.getListPost().subscribe((data) =>{
@@ -55,14 +58,21 @@ export class ManagePostComponent implements OnInit {
 
   }
   delPost(id) {
-    this.authService.delRelatedPost(id).subscribe(data => {
-      console.log(data);
-      this.refresh()
+    this.authService.delRelatedPost(id).subscribe((message) => {
+      console.log(message);
+      this.snackBar.open(`${message.message}`,'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },2000);
     });
   }
   delAllPost (){
-    this.authService.delRelatedAllPost().subscribe(data => {
-      this.refresh();
+    this.authService.delRelatedAllPost().subscribe((message) => {
+      console.log(message);
+      this.snackBar.open(`${message.message}`,'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },2000);
     })
   }
 

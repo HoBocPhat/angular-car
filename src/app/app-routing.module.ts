@@ -22,7 +22,7 @@ import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { CarBrandComponent } from './components/car-brand/car-brand.component';
-
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 const routes: Routes = [
   {path: 'trangchu', component: HomeComponent },
   {path: 'muaxe', component: CarsaleComponent},
@@ -30,6 +30,7 @@ const routes: Routes = [
   {path: 'banxe', component: PostComponent},
   {path: 'muaxe/:slug', component: CardetailComponent},
   {path: 'tintuc', component: NewsComponent},
+  {path: 'tintuc/:slug', component: NewsDetailComponent},
   {path: 'vechungtoi', component: AboutComponent },
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},

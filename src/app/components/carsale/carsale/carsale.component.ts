@@ -60,7 +60,7 @@ export class CarsaleComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getAll_Posts().subscribe((data) =>{
       this.posts = data;
-      console.log(this.posts);
+      console.log(data);
       for (var i = 0; i < this.posts.length; i++)
       {
         // var brand  : Brand = { brand: this.posts[i].carBrand};

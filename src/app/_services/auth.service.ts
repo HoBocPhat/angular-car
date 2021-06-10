@@ -7,7 +7,7 @@ import {catchError, map} from 'rxjs/operators';
 import { error } from '@angular/compiler/src/util';
 const AUTH_API = 'http://localhost:5000/api/auth/';
 const USER_API = 'http://localhost:5000/api/user/';
-const ADMIN_API = 'http://locoalhost:5000/api/admin/';
+const ADMIN_API = 'http://localhost:5000/api/admin/';
 const POST_API = 'http://localhost:5000/api/post/';
 const NEWS_API = 'http://localhost:5000/api/news/';
 
@@ -24,7 +24,7 @@ export class AuthService {
   constructor(private http: HttpClient,
               private tokenService: TokenStorageService) { }
   handleError(error) {
-    return throwError(error.message)}
+    return throwError(error)}
   login(email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'dangnhap', {
       email,
@@ -37,7 +37,7 @@ export class AuthService {
       fullname,
       email,
       password
-    }, httpOptions);
+    }, httpOptions).pipe(catchError(this.handleError));
   }
   getCarByBrand(brand: string) : Observable<any> {
     return this.http.get(POST_API + 'list/brand/' + `${brand}`, httpOptions);
@@ -61,11 +61,13 @@ export class AuthService {
   }
 
   deleteNews(id): Observable<any> {
-    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete');
+    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete',httpOptions);
   }
 
-  upNews(id): Observable<any> {
-    return this.http.put(ADMIN_API + 'news/' + `${id}` + '/edit', httpOptions);
+  upNews(id, title: string, content: string): Observable<any> {
+    return this.http.put(ADMIN_API + 'news/' + `${id}` + '/edit',{
+      title, content
+    }, httpOptions);
   }
 
   getDetailNews(slug): Observable<any> {
@@ -81,7 +83,7 @@ export class AuthService {
   }
 
   getUser () : Observable<any> {
-    return this.http.get(ADMIN_API + 'user', httpOptions);
+    return this.http.get(ADMIN_API + 'users', httpOptions);
   }
   // User
 
@@ -104,10 +106,10 @@ export class AuthService {
   createNewPost (title: string,postContent: string, contactProvince: string, contactDistrict: string,
                 contactPhone: string, carBrand: string,
                 carModel: string, carType: string, carYear: string,  carSeats: number, carColor: string, carFuelType: string, carOdometer: number,
-                carPrice: number ) : Observable<any>{
+                carPrice: number , image: File) : Observable<any>{
       return this.http.post (USER_API + 'post/create', {
         title, contactProvince, contactDistrict, contactPhone, postContent, carType, carYear, carBrand,
-        carModel, carSeats, carColor,carFuelType, carOdometer, carPrice
+        carModel, carSeats, carColor,carFuelType, carOdometer, carPrice, image
       }, httpOptions)
   }
   updatePost (id , title: string,postContent: string, contactProvince: string, contactDistrict: string,
@@ -138,25 +140,25 @@ export class AuthService {
       fullname,
       phone,
       address
-    }, httpOptions)
+    }, httpOptions).pipe(catchError(this.handleError))
   }
 
   changePass (id , oldPassword: string, newPassword:string ): Observable<any>{
     return this.http.post(AUTH_API + `${id}` + '/updatePassword',{
       oldPassword,
       newPassword
-    }, httpOptions)
+    }, httpOptions).pipe(catchError(this.handleError))
   }
 
   forgotPass (email: string) : Observable <any> {
     return this.http.post(AUTH_API + 'forgotpassword',{
       email
-    }, httpOptions)
+    }, httpOptions).pipe(catchError(this.handleError));
   }
   resetPass (token, newPass: string) : Observable <any> {
     return this.http.post(AUTH_API + 'resetpassword/' + `${token}`,{
       newPass,
-    },httpOptions)
+    },httpOptions).pipe(catchError(this.handleError));
   }
 
   loginFace(): Observable<any> {

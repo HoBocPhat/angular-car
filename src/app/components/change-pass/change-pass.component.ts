@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup ,FormControl,Validators  } from '@angular/forms';
 import { AccountService } from '../services/account/account.service';// so sánh pass vs confirm pass
 import { AuthService } from 'src/app/_services/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-change-pass',
   templateUrl: './change-pass.component.html',
@@ -11,7 +14,9 @@ export class ChangePassComponent implements OnInit {
   passForm !: FormGroup;
   public user !: any;
   constructor(private acc: AccountService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private snackBar: MatSnackBar,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.passForm = new FormGroup({
@@ -31,13 +36,17 @@ export class ChangePassComponent implements OnInit {
   }
   onSubmit(id){
     if(!this.ConfirmedValidator())
-    {console.log("không đúng xác nhận password");
+    {this.snackBar.open("Không đúng xác nhận lại password",'',{duration: 2000} );
       return;} // kh giống thì kh làm gì cả
     else {
       let oldPass = this.passForm.get('oldPassword')?.value;
       let newPass = this.passForm.get('password')?.value;
-      this.authService.changePass(id, oldPass,newPass).subscribe((data)=>{console.log(data)});
-      console.log(oldPass,newPass);
+      this.authService.changePass(id, oldPass,newPass).subscribe((data)=>{
+        this.snackBar.open('Đổi password thành công.','',{duration: 2000});
+        this.router.navigate(['/trangchu'])
+      }, (error) => {
+        this.snackBar.open('Đổi password không thành công.','',{duration: 2000})
+      })
     }
 
   }

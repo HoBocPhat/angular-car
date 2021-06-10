@@ -35,7 +35,11 @@ export class HeaderComponent implements OnInit {
     if(this.tokenService.getToken() != null)
     {
       this.authService.isLoggedIn = true;
-      this.name = this.tokenService.getUser().user.fullname;
+      this.authService.getInfor().subscribe(data => {
+        // window.location.reload();
+        this.name = data['fullname'];
+        // console.log(data['fullname'])
+      });
     }
   }
   logout(){

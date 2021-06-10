@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/_services/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
@@ -13,7 +14,8 @@ export class ForgotpasswordComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authSercvice: AuthService
+    private authSercvice: AuthService,
+    private snackBar : MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,9 @@ export class ForgotpasswordComponent implements OnInit {
   onSubmit(){
     const email = this.forgotForm.get('email')?.value;
     this.authSercvice.forgotPass(email).subscribe((data)=>{
-      console.log(data);
+      this.snackBar.open('Xác thực thành công. Xin mời bạn kiểm tra email.','',{duration: 2000})
+    },(error) => {
+      this.snackBar.open('Xác thực thất bại. Xin mời thử lại.','',{duration: 2000})
     });
   }
 

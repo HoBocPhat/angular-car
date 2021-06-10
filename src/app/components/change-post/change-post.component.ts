@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/_services/auth.service';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute,Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-change-post',
   templateUrl: './change-post.component.html',
@@ -97,7 +97,9 @@ export class ChangePostComponent implements OnInit {
                   "2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"];
 
   constructor(private authService: AuthService,
-              private route: ActivatedRoute) { this.getPost(this.route.snapshot.paramMap.get('slug'))}
+              private route: ActivatedRoute,
+              private snackBar: MatSnackBar,
+              private router: Router) { this.getPost(this.route.snapshot.paramMap.get('slug'))}
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
@@ -181,8 +183,10 @@ export class ChangePostComponent implements OnInit {
     this.authService.updatePost(id ,title, postContent, contactProvince, contactDistrict,
       contactPhone, carBrand,
       carModel, carType, carYear,  carSeats, carColor, carFuelType, carOdometer,
-      carPrice).subscribe((data) =>{
-        console.log(data);
+      carPrice).subscribe((message) =>{
+        console.log(message);
+        this.snackBar.open("Chỉnh sửa bài đăng thành công !!!",'', {duration: 2000});
+        this.router.navigate(['/quanlybaidang']);
       })
     console.log(this.post['data'].carPrice)
   }

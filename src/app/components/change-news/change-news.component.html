@@ -1,4 +1,4 @@
-<nav aria-label="breadcrumb">
+<<nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
     <li class="breadcrumb-item"><a routerLink='/admin'>Admin</a></li>
@@ -12,24 +12,23 @@
     <div class="divider"></div>
     <div class="form-group row" ><p class="title" class="h6">Tiêu đề</p>
       <div>
-        <input type="text" class="form-control" formControlName="title" value="{{news['article'].title}}" placeholder=" {{news['article'].title}}">
+        <input type="text" class="form-control" formControlName="title" value="{{news.title}}" placeholder=" {{news.title}}">
       </div>
     </div>
 
     <div class="form-group row" ><p class="title" class="h6">Nội dung</p>
       <div>
-        <textarea class="form-control"  formControlName="content" value="{{news['article'].content}}" placeholder=" {{news['article'].content}}"></textarea>
+        <textarea class="form-control"  formControlName="content" value="{{news.content}}" placeholder=" {{news.content}}"></textarea>
       </div>
     </div>
     <div class="form-group row" ><p class="title" class="h6">Tác giả</p>
       <div>
-        <input type="text" formControlName="author" value=""  placeholder=" {{news['authorName']}}" class="form-control" value="">
-        <p></p>
+        <p type="text" formControlName="author" class="form-control">{{news.postedBy.fullname}}</p>
       </div>
     </div>
 
     <div class="form-group row" ><p class="title" class="h6">Ngày đăng</p>
-        <p class="form-control" formControlName = "createdDate">{{news['article'].createdAt}}</p>
+        <p class="form-control" formControlName = "createdDate">{{news.createdAt}}</p>
     </div>
   </div>
   <button mdbBtn class="my-4 text-center" type="submit" (click)="onSubmit()" >Sửa </button>

@@ -29,16 +29,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let post of posts ">
-          <td>{{post.id}}</td>
-          <td>{{post.carBrand}}</td>
-          <td>{{post.carOdometer}}</td>
-          <td>{{post.carPrice}}</td>
-          <td>{{post.contactProvince}}</td>
-          <td>{{post.contactPhone}}</td>
-          <td>{{post.postedBy}}</td>
-          <td>{{post.createdAt}}</td>
-          <td><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+        <tr *ngFor="let post of posts" class="list">
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.id}}</td>
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.carBrand}}</td>
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.carOdometer}}</td>
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.carPrice}}</td>
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.contactProvince}}</td>
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.contactPhone}}</td>
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.postedBy.fullname}}</td>
+          <td routerLink='/muaxe/{{post.slug}}'>{{post.createdAt}}</td>
+          <td class="trash"><mdb-icon fas icon="trash-alt"(click)="delPost(post.id)"></mdb-icon></td>
         </tr>
         </tbody>
       </table>
@@ -58,28 +58,25 @@
     <table class="table table-striped" >
       <thead>
       <tr>
-        <th>Id</th>
+        <th>ID</th>
         <th>Họ và tên</th>
         <th>Email</th>
         <th>Mật khẩu</th>
         <th>Số điện thoại</th>
         <th>Địa chỉ thường trú</th>
-        <th>Tùy chỉnh</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>ID</td>
-        <td>Họ và tên</td>
-        <td>Email</td>
-        <td>Mật khẩu</td>
-        <td>Số điện thoại</td>
-        <td>Địa chỉ thường trú</td>
-        <td><mdb-icon fas icon="trash-alt"></mdb-icon></td>
+      <tr *ngFor="let user of users ">
+        <td>{{user.id}}</td>
+        <td>{{user.fullname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.address}}</td>
       </tr>
       </tbody>
     </table>
-    <button class="del-btn" >Xóa tất cả</button>
   </mat-expansion-panel>
 </mat-accordion>
 
@@ -104,18 +101,18 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let news of newses">
-        <td>{{news.id}}</td>
-        <td>{{news.title}}</td>
-        <td>{{news.postedBy}}</td>
-        <td>{{news.createdAt}}/td>
-        <td>{{news.updatedAt}}</td>
+      <tr *ngFor="let news of newses" class="list">
+        <td routerLink='/tintuc/{{news.slug}}'>{{news.id}}</td>
+        <td routerLink='/tintuc/{{news.slug}}'>{{news.title}}</td>
+        <td routerLink='/tintuc/{{news.slug}}'>{{news.postedBy.fullname}}</td>
+        <td routerLink='/tintuc/{{news.slug}}'>{{news.createdAt}}/td>
+        <td routerLink='/tintuc/{{news.slug}}'>{{news.updatedAt}}</td>
         <td><mdb-icon fas icon="trash-alt" (click)="delNews(news.id)"></mdb-icon><mdb-icon routerLink='/admin/{{news.slug}}' fas icon="pen" ></mdb-icon></td>
       </tr>
       </tbody>
     </table>
     <button class="add-btn" routerLink="/admin/themtintuc">Thêm tin tức</button>
-    <button class="del-btn" >Xóa tất cả</button>
+    <button class="del-btn" (click) = "delAllNews()">Xóa tất cả</button>
   </mat-expansion-panel>
 </mat-accordion>
 

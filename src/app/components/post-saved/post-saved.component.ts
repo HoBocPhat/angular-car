@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-post-saved',
@@ -10,12 +10,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PostSavedComponent implements OnInit {
 
-  public posts !: any;
-  returnUrl !: string;
-  public isVisible: boolean = false;
-  public message !: string;
+  public posts : any;
   constructor(private authService: AuthService,
               private router: Router,
+              private snackBar: MatSnackBar,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,8 +21,13 @@ export class PostSavedComponent implements OnInit {
       this.posts = data;
       console.log(this.posts);
     })
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
+    this.getPosts(this.route.snapshot.paramMap.get("slug"));
   }
+  getPosts(slug) { this.authService.getDetailPost(slug).subscribe((data) => {
+    this.posts = data;
+    console.log(this.posts);
+  })
+ }
 
   onScroll() {
     let scrollToTop = window.setInterval(() => {
@@ -40,20 +43,14 @@ export class PostSavedComponent implements OnInit {
     window.location.reload();
 
 }
-  showAlert() : void {
-    if (this.isVisible) {
-      return;
-    }
-    this.isVisible = true;
-    setTimeout(()=> this.isVisible = false,2500)
-}
+
   removeSavePost(id) {
-    this.authService.removeSavedPost(id).subscribe(data => {
-      // this.message = data;
-      this.showAlert();
-      this.refresh();
-    },  message => {
-      this.message = message;
+    this.authService.removeSavedPost(id).subscribe((message) => {
+      console.log(message);
+      this.snackBar.open("Xóa tin đã lưu thành công",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     })
   }
 }
