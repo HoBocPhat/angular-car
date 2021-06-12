@@ -90,7 +90,11 @@ export class AdminComponent implements OnInit {
       setTimeout(() => {
         this.refresh()
       },2000);
-
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     });
   }
 
@@ -101,6 +105,11 @@ export class AdminComponent implements OnInit {
       setTimeout(() => {
         this.refresh()
       },2000);
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     })
   }
   delNews(id) {
@@ -111,6 +120,11 @@ export class AdminComponent implements OnInit {
       setTimeout(() => {
         this.refresh()
       },2000);
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     });
   }
   delAllNews(){
@@ -120,6 +134,11 @@ export class AdminComponent implements OnInit {
       setTimeout(() => {
         this.refresh()
       },2000);
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     })
   }
 

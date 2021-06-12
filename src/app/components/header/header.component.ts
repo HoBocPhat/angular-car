@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
   public brand_luxury = ["Bentley", "Rolls-Royce", "Mercedes-Benz", "Ferrari", "BMW"];
   public brand_mass = [ "Toyota", "Honda", "Chevrolet", "Ford", "Huyndai" , "Mazda"];
   public brand_sport = ["Jeep", "Porches", "Lamborghini", "Maserati", "Land Rover"];
+  public roles : string [] = [];
+  public admin = false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -35,6 +37,11 @@ export class HeaderComponent implements OnInit {
     if(this.tokenService.getToken() != null)
     {
       this.authService.isLoggedIn = true;
+      this.roles = this.tokenService.getUser().roles;
+      if(this.roles[1] === "ROLE_ADMIN")
+      {
+        this.admin = true;
+      }
       this.authService.getInfor().subscribe(data => {
         // window.location.reload();
         this.name = data['fullname'];
@@ -46,7 +53,8 @@ export class HeaderComponent implements OnInit {
 
     this.tokenService.signOut();
     this.authService.isLoggedIn = false;
-    this.router.navigate(['/trangchu']);
+    // this.router.navigate(['/trangchu']);
+    window.location.reload();
   }
 
 }

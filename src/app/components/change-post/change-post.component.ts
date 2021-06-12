@@ -187,6 +187,9 @@ export class ChangePostComponent implements OnInit {
         console.log(message);
         this.snackBar.open("Chỉnh sửa bài đăng thành công !!!",'', {duration: 2000});
         this.router.navigate(['/quanlybaidang']);
+      }, (error) => {
+        this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+        this.router.navigate(['/quanlybaidang']);
       })
     console.log(this.post['data'].carPrice)
   }

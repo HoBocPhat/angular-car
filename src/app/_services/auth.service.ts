@@ -13,9 +13,14 @@ const NEWS_API = 'http://localhost:5000/api/news/';
 
 const httpOptions = {
   headers: new HttpHeaders({
-                            'Content-Type': 'application/json' } )
+                            'Content-Type': 'application/json'} )
 };
+const http = {
+  headers : new HttpHeaders({
+  'Content-Type': ' application/json',
+  'Accept': 'multipart/form-data; boundary{}',
 
+})};
 @Injectable({
   providedIn: 'root'
 })
@@ -53,21 +58,21 @@ export class AuthService {
   }
 
   delleteAll_Post(): Observable<any> {
-    return this.http.delete(ADMIN_API + 'post/deletall',httpOptions);
+    return this.http.delete(ADMIN_API + 'post/deletall',httpOptions).pipe(catchError(this.handleError));
   }
 
   deleteAll_News(): Observable<any> {
-    return this.http.delete(ADMIN_API + 'news/deleteall',httpOptions);
+    return this.http.delete(ADMIN_API + 'news/deleteall',httpOptions).pipe(catchError(this.handleError));
   }
 
   deleteNews(id): Observable<any> {
-    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete',httpOptions);
+    return this.http.delete(ADMIN_API + 'news/' + `${id}` + '/delete',httpOptions).pipe(catchError(this.handleError));
   }
 
   upNews(id, title: string, content: string): Observable<any> {
     return this.http.put(ADMIN_API + 'news/' + `${id}` + '/edit',{
       title, content
-    }, httpOptions);
+    }, httpOptions).pipe(catchError(this.handleError));
   }
 
   getDetailNews(slug): Observable<any> {
@@ -79,7 +84,7 @@ export class AuthService {
       title,
       content,
       image
-    }, httpOptions);
+    }, httpOptions).pipe(catchError(this.handleError));
   }
 
   getUser () : Observable<any> {
@@ -92,7 +97,7 @@ export class AuthService {
   }
 
   savePost(id) : Observable<any> {
-    return this.http.post(USER_API + 'saved/' + `${id}` , httpOptions)
+    return this.http.post(USER_API + 'saved/' + `${id}` , httpOptions).pipe(catchError(this.handleError));
   }
 
   getSavedPost() : Observable<any> {
@@ -107,10 +112,13 @@ export class AuthService {
                 contactPhone: string, carBrand: string,
                 carModel: string, carType: string, carYear: string,  carSeats: number, carColor: string, carFuelType: string, carOdometer: number,
                 carPrice: number , image: File) : Observable<any>{
+                // let headers = new HttpHeaders();
+                //   headers = headers.append('Content-Type', ' application/json; multipart/form-data; boundary {}');
+                //   headers = headers.append('enctype', 'multipart/form-data');
       return this.http.post (USER_API + 'post/create', {
         title, contactProvince, contactDistrict, contactPhone, postContent, carType, carYear, carBrand,
         carModel, carSeats, carColor,carFuelType, carOdometer, carPrice, image
-      }, httpOptions)
+      }, http)
   }
   updatePost (id , title: string,postContent: string, contactProvince: string, contactDistrict: string,
     contactPhone: string, carBrand: string,

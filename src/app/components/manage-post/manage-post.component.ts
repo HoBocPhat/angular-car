@@ -64,6 +64,11 @@ export class ManagePostComponent implements OnInit {
       setTimeout(() => {
         this.refresh()
       },2000);
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     });
   }
   delAllPost (){
@@ -73,12 +78,14 @@ export class ManagePostComponent implements OnInit {
       setTimeout(() => {
         this.refresh()
       },2000);
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     })
   }
 
- // this.dataService.sendGetRequest().subscribe((data: any[])=>{
-  //   console.log(data);
-  //   this.products = data;
-  // })
+
 
 }

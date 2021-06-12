@@ -46,9 +46,12 @@ header h1 {
   height: 100%;
   text-align: justify;
 }
-.content p {
+.content pre {
   margin-top: 20px;
   text-align: justify;
+  line-height: 2em;
+  font-family:"Roboto", sans-serif;
+  font-size: 17px
 }
 .img-content {
   margin-top: 30px;
@@ -59,4 +62,16 @@ header h1 {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+
+
+.update {
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 5em 0 0 0;
 }

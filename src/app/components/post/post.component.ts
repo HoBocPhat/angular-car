@@ -3,13 +3,17 @@ import { MatDialogConfig, MatDialogRef } from "@angular/material/dialog";
 import { MatDialog } from '@angular/material/dialog';
 import { RecompriceComponent } from '../recomprice/recomprice.component';
 import { FormGroup, Validators,FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { AuthService} from "src/app/_services/auth.service";
+import { HttpHeaders } from '@angular/common/http';
+interface postImage{
+  image: string
+};
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
+
 export class PostComponent implements OnInit {
   prosList: Array<any> = [
     { name: 'TP Hà Nội', dists: ['Quận Ba Đình', 'Quận Hoàn Kiếm', 'Quận Tây Hồ', 'Quận Long Biên', 'Quận Cầu Giấy', 'Quận Đống Đa', 'Quận Hai Bà Trưng', 'Quận Hoàng Mai', 'Quận Thanh Xuân', 'Huyện Sóc Sơn', 'Huyện Đông Anh', 'Huyện Gia Lâm', 'Quận Nam Từ Liêm', 'Huyện Thanh Trì', 'Quận Bắc Từ Liêm', 'Huyện Mê Linh', 'Quận Hà Đông', 'Thị xã Sơn Tây', 'Huyện Ba Vì', 'Huyện Phúc Thọ', 'Huyện Đan Phượng', 'Huyện Hoài Đức', 'Huyện Quốc Oai', 'Huyện Thạch Thất', 'Huyện Chương Mỹ', 'Huyện Thanh Oai', 'Huyện Thường Tín', 'Huyện Phú Xuyên', 'Huyện Ứng Hòa', 'Huyện Mỹ Đức'] },
@@ -80,6 +84,10 @@ export class PostComponent implements OnInit {
   dists !: Array<any>
   postForm !: FormGroup;
   count !: any;
+  fileHolder !: FileList;
+  file !: File;
+  images !: [] ;
+  postImage !: postImage;
   priceDialogRef !: MatDialogRef<RecompriceComponent>;
   public brands = ['Acura', 'Alfa Romeo', 'Audi', 'Baic', 'Bentley', 'BMW', 'Brilliance', 'BYD', 'Cadillac',
     'Changan', 'Chery', 'Chevrolet', 'Chrysler', 'Daewoo', 'Daihatsu', 'Dodge', 'Dongfeng',
@@ -105,29 +113,38 @@ export class PostComponent implements OnInit {
       phone: new FormControl(null,[
         Validators.required
       ]),
-      // email: new FormControl(null,[
-      //   Validators.required,
-      //   Validators.email
-      // ]
-      // ),
-      price: new FormControl(),
-      // name: new FormControl(),
-      province : new FormControl(),
-      district : new FormControl(),
+      price: new FormControl(null,[
+        Validators.required
+      ]),
+      province : new FormControl(null,[
+        Validators.required
+      ]),
+      district : new FormControl(null, [
+        Validators.required
+      ]),
       color: new FormControl(),
-      title: new FormControl(),
+      title: new FormControl(null, [
+        Validators.required,
+        Validators.maxLength(255)
+      ]),
       seat: new FormControl(),
-      km: new FormControl(),
-      brand: new FormControl(),
+      km: new FormControl(null , [
+        Validators.required
+      ]),
+      brand: new FormControl(null , [
+        Validators.required
+      ]),
       model: new FormControl(),
       year: new FormControl(),
       type: new FormControl(),
       content: new FormControl(),
       image: new FormControl(null, [
-        Validators.required
+        Validators.required,
       ]),
-      fuel: new FormControl()
+      fuel: new FormControl(),
+      filesource : new FormControl()
     })
+
 
     // this.http.get("src/assets/data/post.json").subscribe(
     //   data =>{
@@ -161,22 +178,66 @@ export class PostComponent implements OnInit {
     const carOdometer = this.postForm.get('km')?.value;
     const carYear = this.postForm.get('year')?.value;
     const carPrice = this.postForm.get('price')?.value;
-    const image = this.postForm.get('image')?.value;
+    // formData.append('image', this.file, this.file.name)
+    // const image = formData;
+    // const postImage = this.images;
     this.authService.createNewPost(title, postContent, contactProvince, contactDistrict,
       contactPhone, carBrand,
       carModel, carType, carYear,  carSeats, carColor, carFuelType, carOdometer,
-      carPrice, image ).subscribe((data) =>{
+      carPrice, this.file ).subscribe((data) =>{
         console.log(data);
+        console.log(this.file)
       })
-  console.log(this.postForm.value)
+  // console.log(image)
+  // console.log(this.fileHolder)
+    // console.log(this.postForm.get('postImage')?.value)
   }
   changePros(count) {
     this.dists = this.prosList.find(con => con.name == count).dists;//thay đổi quận huyện khi chọn tỉnh khác
   }
   onFile(event) {
-      const file = event.target.files[0]
-      this.postForm.controls['image'].setValue(file);
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'multipart/form-data');
+    // headers.append('Accept', 'application/json');
+    // this.fileHolder = event.target.files;
+    // let formData: FormData = new FormData();
+    // for (let i = 0; i < event.target.files.length; i ++)
+    // {
+    //   this.file = this.fileHolder[i];
+    //   // formData.append('image', this.file, this.file.name)
+    //   this.images.push(this.file);
+    //   this.postForm.patchValue({
+    //     image: this.images
+    //  });
+    // }
+    // // console.log(event.target.files);
 
+
+    // console.log(this.images);
+  // if (event.target.files && event.target.files[0]) {
+    // var filesAmount = event.target.files.length;
+    // // let formData: FormData = new FormData();
+    this.file = event.target.files[0];
+    // this.postForm.get('image')?.setValue(file);
+    // this.postForm.controls['image'].push(file);
+    // this.images = file;
+    // this.postForm.controls['image'] = file
+    // for (let i = 0; i < filesAmount; i++) {
+    //         // var reader = new FileReader();
+
+    //         // reader.onload = (event:any) => {
+    //           // console.log(event.target.result);
+    //           //  event.target.files[i]
+
+            // }
+
+    //         // reader.readAsDataURL(event.target.files[i]);
+    // }
+    // console.log(this.images);
+    //
+    // console.log(file)
+    console.log(this.file)
 
   }
+
 }

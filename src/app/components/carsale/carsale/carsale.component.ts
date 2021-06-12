@@ -95,16 +95,11 @@ export class CarsaleComponent implements OnInit {
   }
   savePost(id) {
     this.authService.savePost(id).subscribe((message) => {
-      console.log(message)
-      this.snackBar.open(`${message.message}`, '', {duration: 2000})
+      console.log(message);
+      this.snackBar.open(`${message.message}`,'', {duration: 2000})
+    }, (error) => {
+      this.snackBar.open("Lưu tin thất bại.",'', {duration: 2000})
     })
   }
-//   getSortItem(){
-//     for (var i = 0; i < this.posts.length; i++) {
-//       var brand : Brand = { brand: this.posts[i].carBrand }
-//       this.brands.push(brand)
-//     }
-//     console.log(this.brands);
-// }
 }
 

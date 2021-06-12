@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PostComponent} from './components/post/post.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 import { CarsaleComponent } from './components/carsale/carsale/carsale.component';
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { ChangeInfoComponent } from './components/change-info/change-info.component';
@@ -27,25 +28,25 @@ const routes: Routes = [
   {path: 'trangchu', component: HomeComponent },
   {path: 'muaxe', component: CarsaleComponent},
   {path: 'muaxe/hãng/:brand', component: CarBrandComponent},
-  {path: 'banxe', component: PostComponent},
+  {path: 'banxe', component: PostComponent,canActivate: [AuthGuard]},
   {path: 'muaxe/:slug', component: CardetailComponent},
   {path: 'tintuc', component: NewsComponent},
   {path: 'tintuc/:slug', component: NewsDetailComponent},
   {path: 'vechungtoi', component: AboutComponent },
   {path: 'dangky', component: SignupComponent},
   {path: 'dangnhap', component: LoginComponent},
-  {path: 'quenmatkhau', component: ForgotpasswordComponent},
-  {path: 'quenmatkhau/:token', component: ResetPassComponent},
+  {path: 'quenmatkhau', component: ForgotpasswordComponent, canActivate: [AuthGuard]},
+  {path: 'quenmatkhau/:token', component: ResetPassComponent, canActivate: [AuthGuard]},
   {path: 'doimatkhau', component: ChangePassComponent, canActivate: [AuthGuard]},
-  {path: 'thongtintaikhoan', component: UserInfoComponent },
-  {path: 'suathongtintaikhoan', component: ChangeInfoComponent},
+  {path: 'thongtintaikhoan', component: UserInfoComponent, canActivate: [AuthGuard]},
+  {path: 'suathongtintaikhoan', component: ChangeInfoComponent, canActivate: [AuthGuard]},
   {path: 'bailuu', component: PostSavedComponent, canActivate: [AuthGuard]},
   {path: 'quanlybaidang', component: ManagePostComponent, canActivate: [AuthGuard]},
   {path: 'suabaidang/:slug', component: ChangePostComponent,canActivate: [AuthGuard] },
   {path: '', component: HomeComponent},
-  {path: 'admin/themtintuc', component: AddNewsComponent},
-  {path: 'admin/:slug', component: ChangeNewsComponent},
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin/themtintuc', component: AddNewsComponent , canActivate: [AdminGuard]},
+  {path: 'admin/:slug', component: ChangeNewsComponent , canActivate: [AdminGuard]},
+  {path: 'admin', component: AdminComponent , canActivate: [AdminGuard]}
   // {
   //   path: '',
   //   children: [

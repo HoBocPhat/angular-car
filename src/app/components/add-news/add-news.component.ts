@@ -21,7 +21,6 @@ export class AddNewsComponent implements OnInit {
       content: new FormControl(null),
       image : new FormControl(null)
     })
-    this.onSubmit();
   }
   onSubmit(): void {
     const title = this.addNewsForm.get('title')?.value;
@@ -30,6 +29,9 @@ export class AddNewsComponent implements OnInit {
     this.authService.createNews(title,content,image).subscribe((message) => {
       console.log(message);
       this.snackBar.open("Thêm tin tức thành công !!!",'', {duration: 2000});
+      this._router.navigate(['/admin']);
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
       this._router.navigate(['/admin']);
     })
   }

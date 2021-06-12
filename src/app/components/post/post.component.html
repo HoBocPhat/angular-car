@@ -13,7 +13,7 @@
   <div class="container">
   <p class="h5">Thông tin xe</p>
   <div class="divider"></div>
-  <div class="form-group row"><p class="title" class="h6">Hãng xe</p>
+  <div class="form-group row"><p class="title" class="h6">Hãng xe *</p>
   <select class="custom-select" id="brand" formControlName="brand">
     <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
   </select>
@@ -55,7 +55,7 @@
   </div>
 
 
-  <div class="form-group row" ><p class="title" class="h6">Số km đi được</p>
+  <div class="form-group row" ><p class="title" class="h6">Số km đi được *</p>
     <div>
       <input type="number" class="form-control" value="" formControlName="km">
     </div>
@@ -67,18 +67,18 @@
     </div>
   </div>
 
-  <div class="form-group row"><p class="title" class="h6" >Giá</p>
+  <div class="form-group row"><p class="title" class="h6" >Giá *</p>
     <div>
       <input type="number" class="form-control" value="" formControlName="price" >
     </div>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Tỉnh/Thành Phố*</p>
+  <div class="form-group row" ><p class="title" class="h6">Tỉnh/Thành Phố *</p>
     <select class="custom-select" #location (change)="changePros(location.value)" formControlName="province">
       <option *ngFor ="let count of prosList">{{count.name}} </option>
   </select>
   </div>
-  <div class="form-group row" ><p class="title" class="h6">Quận/Huyện</p>
+  <div class="form-group row" ><p class="title" class="h6">Quận/Huyện *</p>
   <select class="custom-select" formControlName="district">
     <option *ngFor ="let d of dists" value="{{d}}">{{d}} </option>
 </select>
@@ -109,7 +109,7 @@
     </div>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Nội dung *</p>
+  <div class="form-group row" ><p class="title" class="h6">Nội dung</p>
     <div>
       <textarea formControlName="content" class="form-control"value=""></textarea>
     </div>
@@ -121,7 +121,7 @@
   <div class="divider"></div>
   <div class="form-group row" ><p class="title" class="h6">Tải ảnh lên *</p>
     <div>
-      <input type="file" class="form-control" formControlName="image" (change)="onFile($event)" value="">
+      <input type="file" class="form-control" formControlName="image" name="image" multiple="" (change)="onFile($event)">
     </div>
   </div>
 </div>
@@ -129,7 +129,7 @@
   <!-- Sign in button -->
   <button mdbBtn class="my-4 text-center" color="info" (click)="onRecommend()">Giá đề xuất</button>
   <button mdbBtn class="my-4 text-center" color="info" [disabled]="!postForm.valid" type="submit" (click) ="onSubmit()">Đăng tin</button>
-
+  <!-- <button mdbBtn class="my-4 text-center" color="info"  type="submit" (click) ="onSubmit()">Đăng tin</button> -->
 
 </form>
 

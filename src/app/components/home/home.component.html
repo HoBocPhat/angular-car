@@ -59,9 +59,7 @@
                 </tr>
               </table>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -75,47 +73,34 @@
     <div class="link_all">
       <a routerLink="/muaxe"><span class="sp_1">Tất cả >></span></a>
     </div>
-    <div class="carousel_container_1">
-      <carousel objectFit='contain'
-      [height]="425"
-      [cellWidth]="360"
-      [margin]="3.8"
-      [autoplay]="true"
-      [autoplayInterval]="10000"
-      [pauseOnHover]="true"
-      [loop]="true"
-      [arrowsOutside]="true"
-      [cellsToScroll]=2
-      [minSwipeDistance]="100">
+    <div class="carousel_container" id="carousel_container_a">
+      <div class="carousel_container_1">
+        <div class="carousel-cell_a" style=" width: 360px ; height: 435px ; padding-top: 10px"
+        *ngFor="let post of posts.slice(0,6)">
+          <div class="card" id="card_a" >
 
-      <div class="carousel-cell" style=" width: 500px ; height: 435px ; padding-top: 10px" *ngFor="let post of posts">
-        <div class="card" >
+            <!-- <a routerLink=""><img class="card-img-top" id="card-img_c" src="{{car.img[0]}}" alt="Card image cap"></a> -->
 
-          <!-- <a routerLink=""><img class="card-img-top" src="{{car.img[0]}}" alt="Card image cap"></a> -->
-
-          <div class="card-body">
-            <div class="card-content">
-              <h5 class="card-title"><a routerLink="">{{post.carBrand}}&nbsp;&nbsp;{{post.carModel}}&nbsp;&nbsp;{{post.carYear}}</a></h5>
-              <p class="card-text" id="price" >Giá bán</p>
-              <h5 class="card-text" class="price">{{post.carPrice}} VND </h5>
-              <table>
-                <tr>
-                  <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="users" class="user"></mdb-icon>&nbsp;&nbsp;{{post.carSeats}}</p></td>
-                  <td><p class="card-text" class="info"><mdb-icon fas icon="tachometer-alt"></mdb-icon>&nbsp;&nbsp;{{post.carOdometer}} km</p></td>
-                </tr>
-                <tr>
-                  <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.carProvince}}</p></td>
-                  <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{post.carColor}}</p></td>
-                </tr>
-              </table>
+            <div class="card-body" id="card-body_a">
+              <div class="card-content" id="card-content_a">
+                <h5 class="card-title"><a routerLink="/muaxe/{{post.slug}}">{{post.carBrand}}&nbsp;&nbsp;{{post.carModel}}&nbsp;&nbsp;{{post.carYear}}</a></h5>
+                <p class="card-text" id="price" >Giá bán</p>
+                <h5 class="card-text" class="price">{{post.carPrice}} VND </h5>
+                <table>
+                  <tr>
+                    <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="users" class="user"></mdb-icon>&nbsp;&nbsp;{{post.carSeats}}</p></td>
+                    <td><p class="card-text" class="info"><mdb-icon fas icon="tachometer-alt"></mdb-icon>&nbsp;&nbsp;{{post.carOdometer}} km</p></td>
+                  </tr>
+                  <tr>
+                    <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.contactProvince}}</p></td>
+                    <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{post.carColor}}</p></td>
+                  </tr>
+                </table>
+              </div>
             </div>
-
           </div>
-
         </div>
       </div>
-
-      </carousel>
     </div>
   </div>
 
@@ -163,7 +148,7 @@
       [cellWidth]="1110"
       [margin]="10"
       [autoplay]="true"
-      [autoplayInterval]="100000000000000000000000000000000000000"
+      [autoplayInterval]="10000"
       [pauseOnHover]="true"
       [loop]="true"
       [arrowsOutside]="true"

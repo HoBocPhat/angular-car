@@ -51,6 +51,11 @@ export class PostSavedComponent implements OnInit {
       setTimeout(() => {
         this.refresh()
       },1000);
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      setTimeout(() => {
+        this.refresh()
+      },1000);
     })
   }
 }

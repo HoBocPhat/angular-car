@@ -42,7 +42,9 @@ export class ChangeNewsComponent implements OnInit {
       console.log(message);
       this.snackBar.open(`${message.message}`,'', {duration: 2000});
       this.router.navigate(['/admin']);
-
+    }, (error) => {
+      this.snackBar.open("Thay đổi thất bại.",'', {duration: 2000})
+      this.router.navigate(['/admin']);
     })
   }
 

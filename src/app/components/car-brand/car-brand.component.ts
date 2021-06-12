@@ -47,7 +47,7 @@ export class CarBrandComponent implements OnInit {
   brand !: string;
   constructor( private authService: AuthService,
               private route: ActivatedRoute,
-              private SnackbarService: MatSnackBar,
+              private snackBar: MatSnackBar,
   ) {
    }
 
@@ -81,14 +81,10 @@ export class CarBrandComponent implements OnInit {
   savePost(id) {
     this.authService.savePost(id).subscribe((message) => {
       console.log(message);
-      this.SnackbarService.open(`${message.message}`,'', {duration: 2000})
+      this.snackBar.open(`${message.message}`,'', {duration: 2000})
+    }, (error) => {
+      this.snackBar.open("Lưu tin thất bại.",'', {duration: 2000})
     })
   }
-//   getSortItem(){
-//     for (var i = 0; i < this.posts.length; i++) {
-//       var brand : Brand = { brand: this.posts[i].carBrand }
-//       this.brands.push(brand)
-//     }
-//     console.log(this.brands);
-// }
+
 }
