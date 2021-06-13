@@ -14,7 +14,7 @@
 		</div>
 		<div class="course-info">
       <h3>{{post.carBrand}} - {{post.carModel}} - {{post.carYear}}</h3>
-			<h3>{{post.carPrice}} VNĐ</h3>
+			<h3 class="price">{{post.carPrice}} VNĐ</h3>
       <h6>{{post.carOdometer}} km</h6>
 			<button class="del-btn" (click)="removeSavePost(post.id)">Xóa</button>
       <a routerLink="/muaxe/{{post.slug}}">Xem chi tiết </a>
