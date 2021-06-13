@@ -14,31 +14,31 @@
   <div class="container">
   <p class="h5">Thông tin xe</p>
   <div class="divider"></div>
-  <div class="form-group row"><p class="title" class="h6">Hãng xe *</p>
+  <div class="form-group row"><p class="title" class="h6">Hãng xe</p>
     <select class="custom-select" id="brand" formControlName="brand">
       <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
     </select>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Dòng xe *</p>
+  <div class="form-group row" ><p class="title" class="h6">Dòng xe</p>
     <div>
       <input type="text" class="form-control" id='model' formControlName="model" value="" placeholder="{{post['data'].carModel}}">
     </div>
   </div>
 
-  <div class="form-group row"><p class="title" class="h6">Màu xe *</p>
+  <div class="form-group row"><p class="title" class="h6">Màu xe</p>
     <select class="custom-select" id="color" formControlName="color">
       <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
     </select>
   </div>
 
-  <div class="form-group row"><p class="title" class="h6">Năm sản xuất *</p>
+  <div class="form-group row"><p class="title" class="h6">Năm sản xuất</p>
     <select class="custom-select" id='year' formControlName="year">
       <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
     </select>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Xuất xứ *</p>
+  <div class="form-group row" ><p class="title" class="h6">Xuất xứ</p>
     <div class="imp_exp">
       <div class="form-check-inline">
         <input class="form-check-input" type="radio" name="imp_exp" id="incountry"formControlName="type" value="Lắp ráp trong nước">Lắp ráp trong nước
@@ -50,25 +50,25 @@
   </div>
 
 
-  <div class="form-group row" ><p class="title" class="h6">Số km đi được *</p>
+  <div class="form-group row" ><p class="title" class="h6">Số km đi được</p>
     <div>
       <input type="number" class="form-control" value="" formControlName="km" placeholder="{{post['data'].carOdometer}}">
     </div>
   </div>
 
-  <div class="form-group row"><p class="title" class="h6" >Số ghế *</p>
+  <div class="form-group row"><p class="title" class="h6" >Số ghế</p>
     <div>
       <input type="number" class="form-control" value="" formControlName="seat" placeholder="{{post['data'].carSeats}}">
     </div>
   </div>
 
-  <div class="form-group row"><p class="title" class="h6" >Giá *</p>
+  <div class="form-group row"><p class="title" class="h6" >Giá</p>
     <div>
       <input type="number" class="form-control"  formControlName="price" placeholder="{{post['data'].carPrice}}" >
     </div>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Tỉnh/Thành Phố*</p>
+  <div class="form-group row" ><p class="title" class="h6">Tỉnh/Thành Phố</p>
     <select class="custom-select" #location (change)="changePros(location.value)" formControlName="province">
       <option *ngFor ="let count of prosList">{{count.name}} </option>
   </select>
@@ -85,12 +85,12 @@
   <p class="h5">Thông tin liên hệ</p>
   <div class="divider"></div>
   <div class="form-group row" ><p class="title" class="h6">Tên người bán</p>
-    <div>
+    <div class="form-control" id="userName">
      {{post['userName']}}
     </div>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Số điện thoại *</p>
+  <div class="form-group row" ><p class="title" class="h6">Số điện thoại</p>
     <div>
       <input type="tel"  class="form-control" formControlName="phone" value="" placeholder="{{post['data'].contactPhone}}">
     </div>
@@ -102,13 +102,13 @@
   <div class="container">
   <p class="h5">Tiêu đề - Nội dung</p>
   <div class="divider"></div>
-  <div class="form-group row" ><p class="title" class="h6">Tiêu đề *</p>
+  <div class="form-group row" ><p class="title" class="h6">Tiêu đề</p>
     <div>
       <input type="text"  class="form-control" value="" formControlName="title" placeholder="{{post['data'].title}}">
     </div>
   </div>
 
-  <div class="form-group row" ><p class="title" class="h6">Nội dung *</p>
+  <div class="form-group row" ><p class="title" class="h6">Nội dung</p>
     <div>
       <textarea  class="form-control"value="" formControlName="content" placeholder="{{post['data'].postContent}}"></textarea>
     </div>

@@ -79,7 +79,7 @@ export class AuthService {
     return this.http.get(NEWS_API + `${slug}`,httpOptions);
   }
 
-  createNews (title: string, content: string, image: string): Observable <any> {
+  createNews (title: string, content: string, image: FormData): Observable <any> {
     return this.http.post(ADMIN_API + 'news/create',{
       title,
       content,
@@ -111,13 +111,16 @@ export class AuthService {
   createNewPost (title: string,postContent: string, contactProvince: string, contactDistrict: string,
                 contactPhone: string, carBrand: string,
                 carModel: string, carType: string, carYear: string,  carSeats: number, carColor: string, carFuelType: string, carOdometer: number,
-                carPrice: number , image: File) : Observable<any>{
+                carPrice: number , formdata: FormData ) : Observable<any>{
                 // let headers = new HttpHeaders();
                 //   headers = headers.append('Content-Type', ' application/json; multipart/form-data; boundary {}');
                 //   headers = headers.append('enctype', 'multipart/form-data');
+                // var formdata = new FormData()
+                // formdata.append('image', files);
+                // console.log(formdata.get('image'));
       return this.http.post (USER_API + 'post/create', {
         title, contactProvince, contactDistrict, contactPhone, postContent, carType, carYear, carBrand,
-        carModel, carSeats, carColor,carFuelType, carOdometer, carPrice, image
+        carModel, carSeats, carColor,carFuelType, carOdometer, carPrice, formdata
       }, http)
   }
   updatePost (id , title: string,postContent: string, contactProvince: string, contactDistrict: string,
@@ -178,5 +181,34 @@ export class AuthService {
   }
   getInfor(): Observable<any> {
     return this.http.get(USER_API + 'account',httpOptions);
+  }
+
+  public uploadImage(title: string, content: string, newImage: File): Observable<any> {
+    // var formData = new FormData();
+    // formData.append('image', newImage);
+
+    // const entries = formData.entries();
+
+    // for ( const pair of entries) {
+
+    // }
+    // for (let [key, value] of formData){
+    //   console.log(`${key}`, `${value}`);
+    // }
+//      console.log(formData.get('image'));
+  return this.http.post(ADMIN_API + 'news/create',{
+    title,
+    content,
+    newImage
+  }, httpOptions);
+  }
+
+
+  createNew (title: string, content: string, newsImage: File): Observable <any> {
+    return this.http.post(ADMIN_API + 'news/create',{
+      title,
+      content,
+      newsImage
+    }, httpOptions).pipe(catchError(this.handleError));
   }
 }

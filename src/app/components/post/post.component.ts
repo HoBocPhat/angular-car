@@ -178,13 +178,19 @@ export class PostComponent implements OnInit {
     const carOdometer = this.postForm.get('km')?.value;
     const carYear = this.postForm.get('year')?.value;
     const carPrice = this.postForm.get('price')?.value;
-    // formData.append('image', this.file, this.file.name)
+    // var formData = new FormData();
+    // formData.append('image', this.file, this.file.name);
     // const image = formData;
     // const postImage = this.images;
+    const formData = new FormData();
+    if (this.file) {
+
+      formData.append('image', this.file);
+    }
     this.authService.createNewPost(title, postContent, contactProvince, contactDistrict,
       contactPhone, carBrand,
       carModel, carType, carYear,  carSeats, carColor, carFuelType, carOdometer,
-      carPrice, this.file ).subscribe((data) =>{
+      carPrice, formData ).subscribe((data) =>{
         console.log(data);
         console.log(this.file)
       })
@@ -217,7 +223,7 @@ export class PostComponent implements OnInit {
   // if (event.target.files && event.target.files[0]) {
     // var filesAmount = event.target.files.length;
     // // let formData: FormData = new FormData();
-    this.file = event.target.files[0];
+    // this.file = event.target.files[0];
     // this.postForm.get('image')?.setValue(file);
     // this.postForm.controls['image'].push(file);
     // this.images = file;
@@ -236,7 +242,12 @@ export class PostComponent implements OnInit {
     // console.log(this.images);
     //
     // console.log(file)
-    console.log(this.file)
+    // console.log(this.file)
+    this.file = event.target.files[0];
+    // if (this.file) {
+    //   const formData = new FormData();
+    //   formData.append('image', file);
+    // }
 
   }
 

@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewEncapsulation } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-news-detail',
   templateUrl: './news-detail.component.html',
-  styleUrls: ['./news-detail.component.css']
+  styleUrls: ['./news-detail.component.css'],
+  // encapsulation: ViewEncapsulation.None,
 })
 export class NewsDetailComponent implements OnInit {
 

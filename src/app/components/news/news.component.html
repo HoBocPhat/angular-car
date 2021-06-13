@@ -32,7 +32,7 @@
       <div class="item-1" *ngFor="let news of newses.slice(3,4)">
         <a class="card" routerLink="/tintuc/{{news.slug}}">
           <div class="thumb"
-            style="background-image: url({{img_title}})">
+            style="background-image: url({{news.newsImage}})">
           </div>
           <article>
             <h1>{{news.title}}</h1>
@@ -47,12 +47,12 @@
     </header>
     <div class="band">
       <div class="item-2" *ngFor="let news of newses.slice(4,500) | paginate: { id: 'listening_pagination',
-      itemsPerPage: 6,
+      itemsPerPage: 4,
       currentPage: page,
       totalItems: totalLength}">
         <a class="card" routerLink="/tintuc/{{news.slug}}">
           <div class="thumb"
-            style="background-image: url({{img_title}});">
+            style="background-image: url({{news.newsImage}});">
           </div>
           <article>
             <h1>{{news.title}}</h1>

@@ -23,13 +23,13 @@
     </div>
     <div class="form-group row" ><p class="title" class="h6">Tác giả</p>
       <div>
-        <p type="text" formControlName="author" class="form-control">{{news.postedBy.fullname}}</p>
+        <p type="text" class="form-control">{{news.postedBy.fullname}}</p>
       </div>
     </div>
 
     <div class="form-group row" ><p class="title" class="h6">Ngày đăng</p>
-        <p class="form-control" formControlName = "createdDate">{{news.createdAt}}</p>
+        <p class="form-control">{{news.createdAt}}</p>
     </div>
   </div>
-  <button mdbBtn class="my-4 text-center" type="submit" (click)="onSubmit()" >Sửa </button>
+  <button mdbBtn color="info" class="my-4 text-center" type="submit" (click)="onSubmit()" >Sửa </button>
   </form>

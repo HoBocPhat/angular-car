@@ -1,8 +1,8 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink='/trangchu'>Trang chủ</a></li>
-    <li class="breadcrumb-item"><a routerLink='/dangnhap'>Tin tức</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Chi tiết</li>
+    <li class="breadcrumb-item"><a routerLink='/tintuc'>Tin tức</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{news.slug}}</li>
   </ol>
 </nav>
 
@@ -14,14 +14,15 @@
     <p>{{news.postedBy.fullname}}&nbsp;&nbsp;|&nbsp;&nbsp;{{news.createdAt}}</p>
   </div>
   <div class="img-title" >
-    <img src="{{img_title}}" class="img_title" alt = "title_img">
+    <img src="{{news.newsImage}}" class="img_title" alt = "title_img">
   </div>
   <div class=summary>
     <h5>{{news.title}}</h5>
   </div>
 
-  <div class="content">
-    <pre>{{news.content}}</pre>
+  <div class="content" [innerHtml]= "news.content">
+
+
   </div>
   <div class="update" >
     <p>CẬP NHẬT LẦN CUỐI:&nbsp;&nbsp;&nbsp;&nbsp;{{news.updatedAt}}</p>

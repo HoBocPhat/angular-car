@@ -44,3 +44,6 @@ select, textarea, .form-control{
 .username{
   padding-top: 10px;
 }
+#userName{
+  text-align: left;
+}

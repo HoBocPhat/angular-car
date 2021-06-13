@@ -31,7 +31,7 @@
       itemsPerPage: 9,
       currentPage: page}">
 
-      <a routerLink=""><img class="card-img-top" src="#" alt="Card image cap"></a>
+      <a routerLink="//muaxe/{{post.slug}}"><img class="card-img-top" src="{{post.postImage[0].image}}" alt="Card image cap"></a>
 
       <div class="card-body">
         <div class="card-content">
@@ -41,11 +41,11 @@
           <table>
             <tr>
               <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="users" class="user"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.carSeats}}</p></td>
-              <td><p class="card-text" class="info"><mdb-icon fas icon="tachometer-alt"></mdb-icon>&nbsp;&nbsp;{{post.carOdometer}} km</p></td>
+              <td><p class="card-text" class="info"><mdb-icon fas icon="tachometer-alt"></mdb-icon>&nbsp;{{post.carOdometer}} km</p></td>
             </tr>
             <tr>
-              <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;&nbsp;&nbsp;{{post.contactProvince}}</p></td>
-              <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp;&nbsp;&nbsp;Màu {{post.carColor}}</p></td>
+              <td class="td_1"><p class="card-text" class="info"><mdb-icon fas icon="map-marker-alt"></mdb-icon>&nbsp;{{post.contactProvince}}</p></td>
+              <td><p class="card-text" class="info"><mdb-icon fas icon="palette"></mdb-icon>&nbsp; {{post.carColor}}</p></td>
             </tr>
           </table>
         </div>

@@ -23,8 +23,6 @@ export class ChangeNewsComponent implements OnInit {
     this.changeNews = new FormGroup({
       title: new FormControl(),
       content: new FormControl(),
-      author: new FormControl(),
-      createdDate: new FormControl()
     })
     this.getNews(this.route.snapshot.paramMap.get("slug"));
   }
@@ -35,9 +33,15 @@ export class ChangeNewsComponent implements OnInit {
  }
   onSubmit(){
     console.log(this.changeNews.value);
-    const title = this.changeNews.value.title;
-    const content = this.changeNews.value.content;
+    let title = this.changeNews.value.title;
+    if (title === null){
+      title = this.news.title;
+    }
 
+    let content = this.changeNews.value.content;
+    if (content === null){
+      content = this.news.content;
+    }
     this.authService.upNews(this.news.id, title, content).subscribe((message) =>{
       console.log(message);
       this.snackBar.open(`${message.message}`,'', {duration: 2000});
